@@ -1,0 +1,35 @@
+.fa{
+    color: $color-txt-secondary;
+    margin: 8px;
+    &:hover{
+        color: $color-txt-primary;
+    }
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+}
+
+.hero-social-icon{
+    &:hover{
+        color: $color-primary;
+    }
+}
+
+.icon-tech{
+    fill: $color-txt-secondary;
+}
+
+.tech-stack {
+    margin-left: auto;
+    & svg{
+        margin-left: 5px;
+        margin-bottom: 14px;
+        width: 20px;
+
+    @media (min-width: $md){
+        width: 23px;
+    }        
+    }
+}

@@ -1,0 +1,46 @@
+.btn {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    background-color: $color-secondary;
+    border-color: $color-primary;
+
+    &:before {
+        content: "";
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 100%;
+        width: 3em;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -4.5em;
+        transform: skewX(-45deg) translateX(0);
+        transition: none;
+    }
+
+    &:hover {
+        background-color: $color-primary;
+        border-color: $color-secondary;
+        color: #fff;
+
+        &:before {
+            transform: skewX(-45deg) translateX(13.5em);
+            transition: all 0.5s ease-in-out;
+        }
+    }
+
+&-hero, &-contact{
+    width:150px;
+    height: 50px;
+}
+
+    &-hero{
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    &-contact{
+        vertical-align: center;
+        margin: auto;
+    }
+}

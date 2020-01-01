@@ -1,0 +1,51 @@
+.jumbotron {
+    background-color: $color-secondary;
+    padding-top: 15rem;
+    height: 100vh;
+    text-align: center;
+    width: 100%;
+
+    & hr {
+        background-color: $color-primary;
+        width: 365px;
+        padding: 0;
+        margin: 0 auto;
+
+    }
+}
+
+.jumbo-container {
+    margin-top: 50%;
+    width: 100%;
+    box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
+    padding-top: 2px;
+    padding-bottom: 2px;
+
+    @media(min-width: $md) {
+        margin-top: 35%;
+    }
+
+    @media(min-width: $lg) {
+        margin-top: 30%;
+    }
+
+    @media(min-width: $xl) {
+        margin-top: 25%;
+    }
+}
+
+.hero {
+    &-title {
+        font-weight: 600;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        letter-spacing: 1px;
+    }
+
+    &-lead {
+        font-size: 14px;
+        color: $color-txt-secondary;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+}
