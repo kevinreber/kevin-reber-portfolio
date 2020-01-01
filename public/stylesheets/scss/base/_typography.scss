@@ -66,3 +66,31 @@ p {
     //     position: relative;
     // }
 }
+
+.col {
+    &-skill {
+        & .card-title {
+            font-size: 14px;
+
+            @media (min-width: $md) {
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.txt-2 {
+    font-family: $font-secondary;
+
+    & .skill {
+        font-size: 12px;
+
+        @media (min-width: $md) {
+            font-size: 16px;
+        }
+    }
+
+    &-project{
+        font-size: 12px;
+    }
+}

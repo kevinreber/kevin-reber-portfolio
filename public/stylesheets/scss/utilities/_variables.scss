@@ -8,10 +8,12 @@ $color-primary: #54B78A;
 $color-secondary: #1E2A3A;
 $color-shadow: darken($color-primary, 50%);
 
-
 //Media Query Sizes
 $xs: 575px;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
+
+//Font Families
+$font-secondary: 'Fira Code', monospace;
