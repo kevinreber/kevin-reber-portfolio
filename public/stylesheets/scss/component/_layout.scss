@@ -13,9 +13,12 @@ body {
     }
 }
 
-.footer-text {
-    font-size: 12px;
-    color: $color-txt-secondary;
-    margin-right: auto;
-    margin-left: auto;
+.contact-content-container{
+    text-align: center;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

@@ -1,9 +1,11 @@
-.jumbotron {
-    background-color: $color-secondary;
+.hero {
+    position: relative;
     padding-top: 15rem;
     height: 100vh;
     text-align: center;
     width: 100%;
+    background: radial-gradient(rgba(darken($color-primary, 35%), .6), rgba(darken($color-secondary, 10%), .8)85%);
+    margin-bottom: 1.5rem;
 
     & hr {
         background-color: $color-primary;
@@ -12,29 +14,22 @@
         margin: 0 auto;
 
     }
-}
 
-.jumbo-container {
-    margin-top: 50%;
-    width: 100%;
-    box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    &-background {
+        position: absolute;
+        z-index: -10;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 400px;    
+        fill: $color-primary;
 
-    @media(min-width: $md) {
-        margin-top: 35%;
+        @media(min-width: $md) {
+            width: 470px;
+        }
     }
 
-    @media(min-width: $lg) {
-        margin-top: 30%;
-    }
-
-    @media(min-width: $xl) {
-        margin-top: 25%;
-    }
-}
-
-.hero {
     &-title {
         font-weight: 600;
         margin-top: 2px;
@@ -48,4 +43,32 @@
         margin-bottom: 0;
         margin-top: 0;
     }
+
+    &-container {
+        margin-top: 50%;
+        width: 100%;
+        box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        //background: radial-gradient($color-secondary,$color-primary);
+
+        @media(min-width: $md) {
+            margin-top: 35%;
+        }
+
+        @media(min-width: $lg) {
+            margin-top: 30%;
+        }
+
+        @media(min-width: $xl) {
+            margin-top: 25%;
+        }
+    }
+
+}
+
+#Layer_4 {
+    fill: #fff;
+    opacity: .1;
+
 }

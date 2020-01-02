@@ -21,26 +21,13 @@ p {
     font-size: 14px;
 }
 
-// h3{
-//     font-weight: 600;
-//     font-size: 16px;
-//     letter-spacing: 2px;
-
-//     @media (min-width: $lg) {
-//         font-size: 18px;
-//     }
-
-//     @media (min-width: $lg) {
-//         font-size: 20px;
-//     }
-// }
-
 .section-heading {
     position: relative;
     font-size: 24px;
     padding-left: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-bottom: 1rem;
 
     &::before {
         content: "";
@@ -52,25 +39,13 @@ p {
         left: 0;
         top: 0;
     }
-
-    // &::after{
-    //     content: "";
-    //     width: 60%;
-    //     display: inline-block;
-    //     background-color: red;
-    //     height: 1px;
-    //     margin-right: auto;
-    //     // right: auto;
-    //     // left: 10px;
-    //     top: -12px;
-    //     position: relative;
-    // }
 }
 
 .col {
     &-skill {
         & .card-title {
-            font-size: 14px;
+            font-size: 18px;
+            margin: 0;
 
             @media (min-width: $md) {
                 font-size: 20px;
@@ -82,8 +57,8 @@ p {
 .txt-2 {
     font-family: $font-secondary;
 
-    & .skill {
-        font-size: 12px;
+    &.skill{
+        font-size: 14px;
 
         @media (min-width: $md) {
             font-size: 16px;
@@ -93,4 +68,9 @@ p {
     &-project{
         font-size: 12px;
     }
+}
+
+.footer-text {
+    font-size: 12px;
+    color: $color-txt-secondary;
 }
