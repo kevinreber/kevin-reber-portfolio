@@ -17,17 +17,22 @@ p {
     }
 }
 
-.card .btn {
-    font-size: 14px;
+.btn {
+    font-family: $font-secondary;
+    font-size: 18px;
+
+    .card & {
+        font-size: 14px;
+    }
 }
 
 .section-heading {
     position: relative;
-    font-size: 24px;
+    font-size: 26px;
     padding-left: 1rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
 
     &::before {
         content: "";
@@ -56,21 +61,74 @@ p {
 
 .txt-2 {
     font-family: $font-secondary;
+    align-self: flex-end;
 
-    &.skill{
+    &.skill {
         font-size: 14px;
+        color: $color-txt-secondary;
 
         @media (min-width: $md) {
             font-size: 16px;
         }
     }
 
-    &-project{
+    &-project {
         font-size: 12px;
+        color: $color-txt-secondary;
     }
 }
 
 .footer-text {
     font-size: 12px;
     color: $color-txt-secondary;
+}
+
+.about {
+    &.line {
+        &-1 {
+            font-family: $font-secondary;
+            color: $color-primary;
+            font-size: 1.5rem;
+            line-height: 2.25rem;
+        }
+
+        &-2 {
+            font-size: 4rem;
+            letter-spacing: 1px;
+
+            @media (min-width: $md) {
+                font-size: 5rem;
+            }
+
+        }
+
+        &-3 {
+            color: $color-txt-secondary;
+        }
+
+        &-3,
+        &-4 {
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            line-height: 2rem;
+        }
+    }
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    @media (min-width: $md) {
+        flex-direction: row;
+    }
+
+}
+
+.contact-msg {
+    color: $color-txt-secondary;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
 }

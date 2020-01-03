@@ -16,6 +16,7 @@
         color: $color-txt-secondary;
         text-decoration: none;
         letter-spacing: 3px;
+        font-family: $font-secondary;
 
         &:hover {
             color: $color-txt-primary;
@@ -121,18 +122,6 @@
         height: 3px;
         margin: 5px;
         transition: all .3s ease;
-    }
-}
-
-@keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px); //slides from right
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
     }
 }
 

@@ -25,3 +25,15 @@ svg.active .svg-elem-1 {
       transform: skewY(-45deg) translateX(12.5em);
   }
 }
+
+@keyframes navLinkFade {
+  from {
+      opacity: 0;
+      transform: translateX(50px); //slides from right
+  }
+
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}

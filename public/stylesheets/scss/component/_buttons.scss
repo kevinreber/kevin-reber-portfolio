@@ -4,6 +4,7 @@
     overflow: hidden;
     background-color: $color-secondary;
     border-color: $color-primary;
+    color: $color-txt-primary;
 
     &:before {
         content: "";
@@ -21,7 +22,6 @@
     &:hover {
         background-color: $color-primary;
         border-color: $color-secondary;
-        color: #fff;
 
         &:before {
             transform: skewX(-45deg) translateX(13.5em);

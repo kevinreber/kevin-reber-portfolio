@@ -19,17 +19,21 @@ p {
   }
 }
 
+.btn {
+  font-family: "Fira Code", monospace;
+  font-size: 18px;
+}
 .card .btn {
   font-size: 14px;
 }
 
 .section-heading {
   position: relative;
-  font-size: 24px;
+  font-size: 26px;
   padding-left: 1rem;
   font-weight: 600;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
 }
 .section-heading::before {
   content: "";
@@ -54,9 +58,11 @@ p {
 
 .txt-2 {
   font-family: "Fira Code", monospace;
+  align-self: flex-end;
 }
 .txt-2.skill {
   font-size: 14px;
+  color: #BCC0C4;
 }
 @media (min-width: 768px) {
   .txt-2.skill {
@@ -65,11 +71,54 @@ p {
 }
 .txt-2-project {
   font-size: 12px;
+  color: #BCC0C4;
 }
 
 .footer-text {
   font-size: 12px;
   color: #BCC0C4;
+}
+
+.about.line-1 {
+  font-family: "Fira Code", monospace;
+  color: #54B78A;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+}
+.about.line-2 {
+  font-size: 4rem;
+  letter-spacing: 1px;
+}
+@media (min-width: 768px) {
+  .about.line-2 {
+    font-size: 5rem;
+  }
+}
+.about.line-3 {
+  color: #BCC0C4;
+}
+.about.line-3, .about.line-4 {
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  line-height: 2rem;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+  #about {
+    flex-direction: row;
+  }
+}
+
+.contact-msg {
+  color: #BCC0C4;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
 }
 
 /***************************************************
@@ -95,9 +144,20 @@ svg.active .svg-elem-1 {
     transform: skewY(-45deg) translateX(12.5em);
   }
 }
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 body {
   background-color: #111821;
   margin: auto;
+  outline: none;
 }
 
 .container {
@@ -199,6 +259,54 @@ footer {
 .card {
   background-color: #1E2A3A;
 }
+#projects .card, .card-img, .card-img-top::before {
+  transition: all 0.1s linear;
+}
+#projects .card-body {
+  display: flex;
+  flex-direction: column;
+}
+#projects .card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1.5rem 0 #66bf96;
+}
+#projects .card:hover .card-title {
+  color: #66bf96;
+}
+#projects .card:hover .card-img {
+  filter: none;
+  border-bottom: 3px solid #66bf96;
+}
+#projects .card:hover .card-img-top::before {
+  opacity: 0;
+}
+.card-img {
+  object-fit: cover;
+  height: 195px;
+  border-radius: 0;
+  border-bottom: 3px solid #54B78A;
+  position: relative;
+  filter: grayscale(100%);
+}
+.card-img-top {
+  position: relative;
+}
+.card-img-top::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #54B78A;
+  mix-blend-mode: multiply;
+  opacity: 1;
+}
+.card-title {
+  color: #54B78A;
+}
 .card .btn {
   height: 2.75rem;
   width: 35%;
@@ -230,6 +338,7 @@ footer {
   justify-content: space-evenly;
   background-color: none;
   padding: 1.25rem 0 0 0;
+  margin-top: auto;
 }
 @media (min-width: 768px) {
   .card-footer {
@@ -241,9 +350,6 @@ footer {
 
 .col-skill {
   padding: 0;
-}
-.col-skill .card-title {
-  color: #54B78A;
 }
 .col-skill .card-body {
   padding-top: 5px;
@@ -278,6 +384,7 @@ footer {
   overflow: hidden;
   background-color: #1E2A3A;
   border-color: #54B78A;
+  color: #F3F4F4;
 }
 .btn:before {
   content: "";
@@ -294,7 +401,6 @@ footer {
 .btn:hover {
   background-color: #54B78A;
   border-color: #1E2A3A;
-  color: #fff;
 }
 .btn:hover:before {
   transform: skewX(-45deg) translateX(13.5em);
@@ -326,6 +432,7 @@ footer {
   color: #BCC0C4;
   text-decoration: none;
   letter-spacing: 3px;
+  font-family: "Fira Code", monospace;
 }
 .navbar a:hover {
   color: #F3F4F4;
@@ -419,16 +526,6 @@ footer {
   transition: all 0.3s ease;
 }
 
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -542,11 +639,6 @@ footer {
   .hero-container {
     margin-top: 25%;
   }
-}
-
-#Layer_4 {
-  fill: #fff;
-  opacity: 0.1;
 }
 
 /*# sourceMappingURL=style.css.map */
