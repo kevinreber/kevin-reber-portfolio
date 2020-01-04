@@ -180,79 +180,66 @@ footer {
   text-align: center;
 }
 
-#overlay {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-  width: 100%;
+.modal-content {
   height: 100%;
-  text-align: center;
-  overflow: auto;
-  transition: all 0.2s linear;
-}
-
-.modal-overlay {
-  display: flex;
+  max-width: 1000px;
   margin: auto;
-  position: relative;
-}
-.modal-cycle-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   position: relative;
-  font-size: 20px;
-  margin: auto;
+  background-color: #1E2A3A;
+  box-shadow: 0 0 15px 1px #040806;
+}
+.modal-img {
+  width: 100%;
+  object-fit: cover;
+}
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none;
+}
+.modal-title {
+  margin-bottom: 1rem;
+  font-size: 36px;
+  margin-top: 0;
+}
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal-body .tech-stack {
+  align-self: flex-end;
+}
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+}
+.modal-btn {
+  align-self: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
 }
 @media (min-width: 992px) {
-  .modal-cycle-container {
-    font-size: 48px;
+  .modal-btn {
+    align-self: flex-start;
   }
 }
-.modal-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.2s linear;
-  border: 2px solid #1E2A3A;
-  border-radius: 5px;
-  width: 40px;
+.modal-btn .btn {
+  width: 100%;
   height: 40px;
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.25);
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
-@media (min-width: 768px) {
-  .modal-button {
-    width: 56px;
-    height: 56px;
-  }
-}
-.modal-button:hover {
-  border-color: #ffffff;
-}
-.modal-button:hover span {
-  color: #ffffff;
-}
-.modal-card {
-  position: relative;
-  margin: 10% auto 0 auto;
-  text-align: center;
-  padding: 24px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  width: 300px;
-  height: 400px;
-  box-shadow: 0 0 10px 5px goldenrod;
-}
-@media (min-width: 768px) {
-  .modal-card {
-    width: 350px;
-    height: 450px;
+@media (min-width: 992px) {
+  .modal-btn .btn {
+    align-self: flex-start;
+    margin-left: 0;
   }
 }
 
@@ -261,6 +248,9 @@ footer {
 }
 #projects .card, .card-img, .card-img-top::before {
   transition: all 0.1s linear;
+}
+#projects .card {
+  box-shadow: 0 0 15px 1px #040806;
 }
 #projects .card-body {
   display: flex;
@@ -310,7 +300,6 @@ footer {
 .card .btn {
   height: 2.75rem;
   width: 35%;
-  vertical-align: center;
 }
 @media (max-width: 575px) {
   .card .btn {
@@ -326,7 +315,7 @@ footer {
 }
 @media (min-width: 992px) {
   .card .btn {
-    width: 400px;
+    width: 40%;
   }
 }
 .card-skill {
@@ -336,7 +325,7 @@ footer {
 .card-footer {
   display: flex;
   justify-content: space-evenly;
-  background-color: none;
+  background-color: transparent;
   padding: 1.25rem 0 0 0;
   margin-top: auto;
 }
@@ -385,6 +374,8 @@ footer {
   background-color: #1E2A3A;
   border-color: #54B78A;
   color: #F3F4F4;
+  vertical-align: middle;
+  text-align: center;
 }
 .btn:before {
   content: "";
@@ -500,7 +491,7 @@ footer {
 }
 @media (min-width: 768px) {
   .nav-socials {
-    align-self: flex-end;
+    display: none;
   }
 }
 .nav-socials .fa {

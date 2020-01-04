@@ -5,6 +5,8 @@
     background-color: $color-secondary;
     border-color: $color-primary;
     color: $color-txt-primary;
+    vertical-align: middle;
+    text-align: center;
 
     &:before {
         content: "";

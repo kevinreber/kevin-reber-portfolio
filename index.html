@@ -189,7 +189,7 @@
       <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
         <!-- Project 1 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="dashboard">
+          <div class="card h-100 project" data-project="dashboard" data-toggle="modal" data-target="#dashboardModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/dashboardApp.jpg" class="card-img" alt="Dashboard App">
             </div>
@@ -216,7 +216,7 @@
 
         <!-- Project 2 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="pokedex">
+          <div class="card h-100 project" data-project="pokedex" data-toggle="modal" data-target="#pokedexModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/pokedex.jpg" class="card-img" alt="Pokedex">
             </div>
@@ -236,7 +236,7 @@
 
         <!-- Project 3 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="gameshow">
+          <div class="card h-100 project" data-project="gameshow" data-toggle="modal" data-target="#gameshowModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/gameShow.jpg" class="card-img" alt="Game Show">
             </div>
@@ -259,13 +259,13 @@
 
         <!-- Project 4 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="gallery">
+          <div class="card h-100 project" data-project="gallery" data-toggle="modal" data-target="#galleryModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/imgGallery.jpg" class="card-img" alt="Photo Gallery">
             </div>
             <div class="card-body">
               <h5 class="card-title">Photo Gallery</h5>
-              <p class="card-text">Interactive photo gallery built with JavaScript and jQuery plugins</p>
+              <p class="card-text">Interactive photo gallery built with JavaScript and jQuery plugins.</p>
               <div class="tech-stack text-right">
                 <div class="tech-stack text-right">
                   <p class="txt-2-project">jQuery</p>
@@ -285,13 +285,13 @@
 
         <!-- Project 5 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="tindog">
+          <div class="card h-100 project" data-project="tindog" data-toggle="modal" data-target="#tindogModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/tindog.jpg" class="card-img" alt="TinDog">
             </div>
             <div class="card-body">
               <h5 class="card-title">TinDog</h5>
-              <p class="card-text">Online dating service for dogs!</p>
+              <p class="card-text">Online dating platform for dogs.</p>
               <div class="tech-stack text-right">
                 <p class="txt-2-project">Bootstrap</p>
               </div>
@@ -306,13 +306,13 @@
 
         <!-- Project 6 -->
         <div class="col mb-4">
-          <div class="card h-100 project" data-project="newsletter">
+          <div class="card h-100 project" data-project="newsletter" data-toggle="modal" data-target="#newsletterModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/newsletter.jpg" class="card-img" alt="Newsletter Form">
             </div>
             <div class="card-body">
               <h5 class="card-title">Newsletter Form</h5>
-              <p class="card-text">Form built with pure HTML & CSS</p>
+              <p class="card-text">Form built with pure HTML & CSS.</p>
               <div class="tech-stack text-right">
                 <p class="txt-2-project">HTML</p>
                 <p class="txt-2-project">|</p>
@@ -359,6 +359,178 @@
       </div>
       <span class="footer-text">Designed & Built by Kevin Reber</span>
     </footer> <!-- /Footer -->
+
+    <!-- Modals -->
+    <!-- Modal 1 -->
+    <div class="modal fade" id="dashboardModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/dashboard.gif" class="modal-img" alt="Dashboard App">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Dashboard App</h5>
+              <p class="modal-text card-text">Dashboard Application that alerts user of notifications and uses charts to
+                display
+                tracking data.</p>
+            </div>
+            <div class="modal-footer">
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">Chart.js</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Grid & Flexbox</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Sass</p>
+              </div>
+              <div class="modal-btn">
+                <a href="https://github.com/kevinreber/Dashboard-App" class="btn" target="_blank">Source
+                  Code</a>
+                <a href="https://kevinreber.github.io/Dashboard-App/" class="btn" target="_blank">Live
+                  Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 1 -->
+
+    <!-- Modal 2 -->
+    <div class="modal fade" id="pokedexModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/pokedex.gif" class="modal-img" alt="Pokedex">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Pokedex</h5>
+              <p class="modal-text card-text">Pokedex with all the original 151 Pokemon.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">PokeAPI</p>
+              </div>
+            </div>
+            <div class="modal-footer card-footer">
+              <a href="https://github.com/kevinreber/PokeDex" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/PokeDex/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 2 -->
+
+    <!-- Modal 3 -->
+    <div class="modal fade" id="gameshowModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/gameshow.gif" class="modal-img" alt="Game Show">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Game Show</h5>
+              <p class="modal-text card-text">Guess the phrase!</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">Javascript</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">DOM</p>
+              </div>
+            </div>
+            <div class="modal-footer card-footer">
+              <a href="https://github.com/kevinreber/Game-Show" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/Game-Show/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 3 -->
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/gallery.gif" class="modal-img" alt="Photo Gallery">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Photo Gallery</h5>
+              <p class="modal-text card-text">Interactive photo gallery built with JavaScript and jQuery plugins.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">jQuery</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Lightbox Plugin</p>
+              </div>
+            </div>
+            <div class="modal-footer card-footer">
+              <a href="https://github.com/kevinreber/Photo-Gallery" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/Photo-Gallery/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 4 -->
+
+    <!-- Modal 5 -->
+    <div class="modal fade" id="tindogModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/tindog.gif" class="modal-img" alt="Tindog">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">TinDog</h5>
+              <p class="modal-text card-text">Online dating platform for dogs.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">Bootstrap</p>
+              </div>
+            </div>
+            <div class="modal-footer card-footer">
+              <a href="https://github.com/kevinreber/tindog" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/tindog/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 5 -->
+
+    <!-- Modal 6 -->
+    <div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/newletter.gif" class="modal-img" alt="Newsletter Form">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Newsletter Form</h5>
+              <p class="modal-text card-text">Form built with pure HTML & CSS.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">HTML</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">CSS</p>
+              </div>
+            </div>
+            <div class="modal-footer card-footer">
+              <a href="https://github.com/kevinreber/Newsletter-Form" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/Newsletter-Form/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 6 -->
+    <!-- /Modals -->
   </div>
   <!-- Bootstrap SCRIPT -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

@@ -1,107 +1,70 @@
-#overlay {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    background-color: rgba(0, 0, 0, .4);
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    overflow: auto;
-    transition: all .2s linear;
-}
-
 .modal {
-    &-overlay {
-        display: flex;
+    &-content {
+        height: 100%;
+        max-width: 1000px;
         margin: auto;
-        position: relative;
-    }
-
-    &-cycle-container {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         position: relative;
-        font-size: 20px;
-        margin: auto;
-
-        @media (min-width: $lg) {
-            font-size: 48px;
-        }
-
+        background-color: $color-secondary;
+        box-shadow: 0 0 15px 1px $color-shadow;
     }
 
-    &-button {
+    &-img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &-header {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all .2s linear;
-        border: 2px solid $color-secondary;
-        border-radius: 5px;
-        width: 40px;
-        height: 40px;
-        outline: none;
-        background-color: rgba(255, 255, 255, 0.25);
+        justify-content: space-between;
+        border: none;
+    }
 
-        @media (min-width: $md) {
-            width: 56px;
-            height: 56px;
+    &-title {
+        margin-bottom: 1rem;
+        font-size: 36px;
+        margin-top: 0;
+    }
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & .tech-stack {
+            align-self: flex-end;
+        }
+    }
+
+    &-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border: none;
+    }
+
+    &-btn {
+        align-self: center;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0 auto;
+
+        @media (min-width:$lg) {
+            align-self: flex-start;
         }
 
-        &:hover {
-            border-color: #ffffff;
+        & .btn {
+            width: 100%;
+            height: 40px;
+            margin-left: 2.5rem;
+            margin-right: 2.5rem;
 
-            & span {
-                color: #ffffff;
+            @media (min-width:$lg) {
+                align-self: flex-start;
+                margin-left: 0;
             }
-
-        }
-
-    }
-
-    &-card {
-        position: relative;
-        margin: 10% auto 0 auto;
-        text-align: center;
-        padding: 24px;
-        background-color: #ffffff;
-        border-radius: 10px;
-        width: 300px;
-        height: 400px;
-        box-shadow: 0 0 10px 5px $color-golden;
-
-        @media (min-width: $md) {
-            width: 350px;
-            height: 450px;
         }
     }
-
-    // &-close {
-    //     fill: $color-drkgray;
-    //     position: absolute;
-    //     right: 1rem;
-    //     top: 1rem;
-    //     transition: all .2s linear;
-    //     cursor: pointer;
-    //     border-radius: 5px;
-    //     padding: 3px;
-    //     max-width: 20px;
-    //     max-height: 20px;
-
-    //     &:hover {
-    //         fill: $color-black;
-    //         box-shadow: 0 0 3px 3px $color-drkgray;
-    //     }
-    // }
-
-    // &-img {
-    //     border-radius: 50%;
-    //     border: 3px solid $color-golden;
-    //     box-shadow: 0 0 10px 0 $color-golden;
-    //     margin-left: 8px;
-    // }
 }

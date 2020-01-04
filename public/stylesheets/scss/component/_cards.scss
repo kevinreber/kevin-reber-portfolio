@@ -8,8 +8,9 @@
     }
 
     #projects & {
+        box-shadow: 0 0 15px 1px $color-shadow;
 
-        &-body{
+        &-body {
             display: flex;
             flex-direction: column;
         }
@@ -69,7 +70,6 @@
     & .btn {
         height: 2.75rem;
         width: 35%;
-        vertical-align: center;
 
         @media (max-width: $xs) {
             margin: 8px;
@@ -82,7 +82,7 @@
         }
 
         @media (min-width: $lg) {
-            width: 400px;
+            width: 40%;
         }
     }
 
@@ -94,7 +94,7 @@
     &-footer {
         display: flex;
         justify-content: space-evenly;
-        background-color: none;
+        background-color: transparent;
         padding: 1.25rem 0 0 0;
         margin-top: auto;
 
