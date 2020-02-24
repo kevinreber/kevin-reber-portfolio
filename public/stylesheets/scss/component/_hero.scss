@@ -4,7 +4,6 @@
     height: 100vh;
     text-align: center;
     width: 100%;
-    background: radial-gradient(rgba(darken($color-primary, 35%), .6), rgba(darken($color-secondary, 10%), .8)85%);
     margin-bottom: 1.5rem;
 
     & hr {
@@ -15,13 +14,15 @@
 
     &-background {
         position: absolute;
-        z-index: -10;
+        // z-index: -10;
         margin: auto;
         top: 0;
         left: 0;
         right: 0;
         width: 400px;
-        fill: $color-primary;
+        // fill: $color-primary;
+        fill: black;
+
 
         @media(min-width: $md) {
             width: 470px;
@@ -64,7 +65,7 @@
     // }
 }
 
-#about{
+#about {
     display: flex;
     justify-content: space-between;
 }

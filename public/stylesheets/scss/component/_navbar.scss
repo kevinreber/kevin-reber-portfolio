@@ -1,11 +1,6 @@
-// body{
-//     @media(max-width: 768px){
-//         overflow-x: hidden; //hides container on right
-//       }
-// }
 .navbar {
-    background-color: $color-nav;
-    box-shadow: 0 0 10px 0 $color-shadow;
+    background-color: #fff;
+    box-shadow: 0 0 5px $color-shadow-secondary;
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -31,14 +26,6 @@
     stroke-miterlimit: 10;
     stroke-width: 2px;
 }
-
-// .nav-col {
-//     @media(min-width: $md) {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-between;
-//     }
-// }
 
 .nav {
     &-links {

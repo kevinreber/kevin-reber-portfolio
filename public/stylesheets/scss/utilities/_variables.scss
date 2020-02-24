@@ -1,12 +1,13 @@
 //Global Colors
-$color-bg: #111821;
-$color-txt-primary: #F3F4F4;
-$color-txt-secondary: #BCC0C4;
+$color-bg: #ffffff;
+$color-txt-primary: rgb(34, 34, 34);
+$color-txt-secondary: rgb(124, 124, 124);
 $color-golden: goldenrod;
 $color-nav: #151E29;
 $color-primary: #54B78A;
-$color-secondary: #1E2A3A;
+$color-secondary: #ffffff;
 $color-shadow: darken($color-primary, 50%);
+$color-shadow-secondary: rgb(151, 151, 151);
 
 //Media Query Sizes
 $xs: 575px;
