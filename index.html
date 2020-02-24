@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" href="public/images/favicon/favicon.ico" type="image/x-icon">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
 
 <body>
@@ -42,14 +44,14 @@
 
         <ul class="nav-links">
           <div class="nav-items">
-            <li class="nav-item active">
-              <a class="nav-link" href="#about">About <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li>
+              <a class="nav-link" href="public/images/resume/Kevin Reber- SWE Resume-2020.pdf">Resume</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
@@ -80,47 +82,52 @@
       </nav>
     </section> <!-- /Navbar -->
 
+    <!-- Dark Mode Toggle -->
+    <input type="checkbox" id="dark-mode-switch">
+    <!-- /Dark Mode Toggle -->
+
     <!-- Hero -->
     <div class="hero text-sm-center">
       <!-- Hero Background -->
       <div class="hero-background">
         <img class="hero-background" src="public/images/hero/Floating Logo-Halftone.svg" alt="Hero">
       </div> <!-- /Hero Background -->
-      <div class="hero-container">
-        <h2 class="hero-title">Kevin Reber</h2>
-        <hr>
-        <p class="hero-lead">Front End Engineer</p>
-        <div class="social-icons hero-social-icons">
-          <a href="https://github.com/kevinreber" target="_blank">
-            <i class="fa fas fa-xs fa-github hero-social-icon"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
-            <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
-          </a>
-          <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
-            <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
-          </a>
-          <a href="https://www.instagram.com/kevin_reber/" target="_blank">
-            <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
-          </a>
-          <a href="https://twitter.com/k_reebz" target="_blank">
-            <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
-          </a>
+      <!-- About -->
+      <section id="about" class="container">
+        <div class="about-txt text-left">
+          <h5><span class="about line-1">Hello, my name is</span><br>
+            <span class="about line-2">Kevin Reber 👋</span><br>
+            <span class="about line-3">I'm a self-taught developer with a passion to build & design. <br> Welcome to my
+              portfolio website!</span><br>
+            <hr>
+            <span class="about line-4"></span></h5>
+          <div class="social-icons hero-social-icons">
+            <a href="https://github.com/kevinreber" target="_blank">
+              <i class="fa fas fa-xs fa-github hero-social-icon"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+              <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+              <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
+            </a>
+            <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+              <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
+            </a>
+            <a href="https://twitter.com/k_reebz" target="_blank">
+              <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
+            </a>
+          </div>
         </div>
-      </div>
-      <a href="#projects" class="btn btn-hero">Projects</a>
+        <div class="about-btn">
+          <a href="#projects" class="btn btn-hero">Projects</a>
+          <a href="public/images/resume/Kevin Reber- SWE Resume-2020.pdf" class="btn btn-hero">Resume</a>
+        </div>
+      </section>
+      <!-- /About -->
     </div> <!-- /Hero -->
 
-    <!-- About -->
-    <section id="about" class="container">
-      <h5><span class="about line-1">Hello, my name is</span><br>
-        <span class="about line-2">Kevin Reber.</span><br>
-        <span class="about line-3">I'm a self-taught developer with a passion to build & design. <br> Welcome to my
-          portfolio website!</span><br>
-        <span class="about line-4"></span></h5>
-      <a class="btn btn-contact" href="mailto:kevinreber1@gmail.com" target="_blank">Reach out</a>
-    </section>
-    <!-- /About -->
+
 
     <!-- Skills -->
     <section id="skills" class="container">
@@ -216,6 +223,34 @@
 
         <!-- Project 2 -->
         <div class="col mb-4">
+          <div class="card h-100 project" data-project="mastermind" data-toggle="modal" data-target="#mastermindModal">
+            <div class="card-img-top">
+              <img src="public/images/project demos/thumbnails/mastermind.jpg" class="card-img mastermind"
+                alt="Mastermind">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Mastermind</h5>
+              <p class="card-text">Mastermind is a game where players have 10 attempts to guess the location of 4
+                numbers using Random.org's API.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">Axios</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Sass</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Random API</p>
+              </div>
+              <div class="card-footer">
+                <a href="https://github.com/kevinreber/mastermind" class="btn" target="_blank">Source
+                  Code</a>
+                <a href="https://kevinreber.github.io/mastermind/" class="btn" target="_blank">Live
+                  Demo</a>
+              </div>
+            </div>
+          </div><!-- /Project 2 -->
+        </div>
+
+        <!-- Project 3 -->
+        <div class="col mb-4">
           <div class="card h-100 project" data-project="pokedex" data-toggle="modal" data-target="#pokedexModal">
             <div class="card-img-top">
               <img src="public/images/project demos/thumbnails/pokedex.jpg" class="card-img" alt="Pokedex">
@@ -232,9 +267,9 @@
               </div>
             </div>
           </div>
-        </div><!-- /Project 2 -->
+        </div><!-- /Project 3 -->
 
-        <!-- Project 3 -->
+        <!-- Project 4 -->
         <div class="col mb-4">
           <div class="card h-100 project" data-project="gameshow" data-toggle="modal" data-target="#gameshowModal">
             <div class="card-img-top">
@@ -254,10 +289,10 @@
                 <a href="https://kevinreber.github.io/Game-Show/" class="btn" target="_blank">Live Demo</a>
               </div>
             </div>
-          </div><!-- /Project 3 -->
+          </div><!-- /Project 4 -->
         </div>
 
-        <!-- Project 4 -->
+        <!-- Project 5 -->
         <div class="col mb-4">
           <div class="card h-100 project" data-project="gallery" data-toggle="modal" data-target="#galleryModal">
             <div class="card-img-top">
@@ -281,9 +316,9 @@
               </div>
             </div>
           </div>
-        </div><!-- /Project 4 -->
+        </div><!-- /Project 5 -->
 
-        <!-- Project 5 -->
+        <!-- Project 6 -->
         <div class="col mb-4">
           <div class="card h-100 project" data-project="tindog" data-toggle="modal" data-target="#tindogModal">
             <div class="card-img-top">
@@ -302,31 +337,8 @@
               </div>
             </div>
           </div>
-        </div><!-- /Project 5 -->
-
-        <!-- Project 6 -->
-        <div class="col mb-4">
-          <div class="card h-100 project" data-project="newsletter" data-toggle="modal" data-target="#newsletterModal">
-            <div class="card-img-top">
-              <img src="public/images/project demos/thumbnails/newsletter.jpg" class="card-img" alt="Newsletter Form">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Newsletter Form</h5>
-              <p class="card-text">Form built with pure HTML & CSS.</p>
-              <div class="tech-stack text-right">
-                <p class="txt-2-project">HTML</p>
-                <p class="txt-2-project">|</p>
-                <p class="txt-2-project">CSS</p>
-              </div>
-              <div class="card-footer">
-                <a href="https://github.com/kevinreber/Newsletter-Form" class="btn" target="_blank">Source
-                  Code</a>
-                <a href="https://kevinreber.github.io/Newsletter-Form/" class="btn" target="_blank">Live
-                  Demo</a>
-              </div>
-            </div>
-          </div><!-- /Project 6 -->
-        </div>
+        </div><!-- /Project 6 -->
+      </div>
     </section> <!-- /Projects -->
 
     <!-- Contact -->
@@ -374,8 +386,6 @@
               <p class="modal-text card-text">Dashboard Application that alerts user of notifications and uses charts to
                 display
                 tracking data.</p>
-            </div>
-            <div class="modal-footer">
               <div class="tech-stack text-right">
                 <p class="txt-2-project">Chart.js</p>
                 <p class="txt-2-project">|</p>
@@ -383,12 +393,12 @@
                 <p class="txt-2-project">|</p>
                 <p class="txt-2-project">Sass</p>
               </div>
-              <div class="modal-btn">
-                <a href="https://github.com/kevinreber/Dashboard-App" class="btn" target="_blank">Source
-                  Code</a>
-                <a href="https://kevinreber.github.io/Dashboard-App/" class="btn" target="_blank">Live
-                  Demo</a>
-              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="https://github.com/kevinreber/Dashboard-App" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/Dashboard-App/" class="btn" target="_blank">Live
+                Demo</a>
             </div>
           </div>
         </div>
@@ -396,6 +406,37 @@
     </div> <!-- /Modal 1 -->
 
     <!-- Modal 2 -->
+    <div class="modal fade" id="mastermindModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-gif">
+            <img src="public/images/project demos/gifs/mastermind.gif" class="modal-img mastermind" alt="Mastermind">
+          </div>
+          <div class="modal-body">
+            <div class="modal-header">
+              <h5 class="modal-title card-title">Mastermind</h5>
+              <p class="modal-text card-text">Mastermind is a game where players have 10 attempts to guess the location
+                of 4 numbers using Random.org's API.</p>
+              <div class="tech-stack text-right">
+                <p class="txt-2-project">Axios</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Sass</p>
+                <p class="txt-2-project">|</p>
+                <p class="txt-2-project">Random API</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <a href="https://github.com/kevinreber/mastermind" class="btn" target="_blank">Source
+                Code</a>
+              <a href="https://kevinreber.github.io/mastermind/" class="btn" target="_blank">Live
+                Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- /Modal 2 -->
+
+    <!-- Modal 3 -->
     <div class="modal fade" id="pokedexModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -410,7 +451,7 @@
                 <p class="txt-2-project">PokeAPI</p>
               </div>
             </div>
-            <div class="modal-footer card-footer">
+            <div class="modal-footer">
               <a href="https://github.com/kevinreber/PokeDex" class="btn" target="_blank">Source
                 Code</a>
               <a href="https://kevinreber.github.io/PokeDex/" class="btn" target="_blank">Live
@@ -419,9 +460,9 @@
           </div>
         </div>
       </div>
-    </div> <!-- /Modal 2 -->
+    </div> <!-- /Modal 3 -->
 
-    <!-- Modal 3 -->
+    <!-- Modal 4 -->
     <div class="modal fade" id="gameshowModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -438,7 +479,7 @@
                 <p class="txt-2-project">DOM</p>
               </div>
             </div>
-            <div class="modal-footer card-footer">
+            <div class="modal-footer">
               <a href="https://github.com/kevinreber/Game-Show" class="btn" target="_blank">Source
                 Code</a>
               <a href="https://kevinreber.github.io/Game-Show/" class="btn" target="_blank">Live
@@ -447,9 +488,9 @@
           </div>
         </div>
       </div>
-    </div> <!-- /Modal 3 -->
+    </div> <!-- /Modal 4 -->
 
-    <!-- Modal 4 -->
+    <!-- Modal 5 -->
     <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -466,7 +507,7 @@
                 <p class="txt-2-project">Lightbox Plugin</p>
               </div>
             </div>
-            <div class="modal-footer card-footer">
+            <div class="modal-footer">
               <a href="https://github.com/kevinreber/Photo-Gallery" class="btn" target="_blank">Source
                 Code</a>
               <a href="https://kevinreber.github.io/Photo-Gallery/" class="btn" target="_blank">Live
@@ -475,9 +516,9 @@
           </div>
         </div>
       </div>
-    </div> <!-- /Modal 4 -->
+    </div> <!-- /Modal 5 -->
 
-    <!-- Modal 5 -->
+    <!-- Modal 6 -->
     <div class="modal fade" id="tindogModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -492,7 +533,7 @@
                 <p class="txt-2-project">Bootstrap</p>
               </div>
             </div>
-            <div class="modal-footer card-footer">
+            <div class="modal-footer">
               <a href="https://github.com/kevinreber/tindog" class="btn" target="_blank">Source
                 Code</a>
               <a href="https://kevinreber.github.io/tindog/" class="btn" target="_blank">Live
@@ -501,36 +542,9 @@
           </div>
         </div>
       </div>
-    </div> <!-- /Modal 5 -->
-
-    <!-- Modal 6 -->
-    <div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-          <div class="modal-gif">
-            <img src="public/images/project demos/gifs/newletter.gif" class="modal-img" alt="Newsletter Form">
-          </div>
-          <div class="modal-body">
-            <div class="modal-header">
-              <h5 class="modal-title card-title">Newsletter Form</h5>
-              <p class="modal-text card-text">Form built with pure HTML & CSS.</p>
-              <div class="tech-stack text-right">
-                <p class="txt-2-project">HTML</p>
-                <p class="txt-2-project">|</p>
-                <p class="txt-2-project">CSS</p>
-              </div>
-            </div>
-            <div class="modal-footer card-footer">
-              <a href="https://github.com/kevinreber/Newsletter-Form" class="btn" target="_blank">Source
-                Code</a>
-              <a href="https://kevinreber.github.io/Newsletter-Form/" class="btn" target="_blank">Live
-                Demo</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div> <!-- /Modal 6 -->
     <!-- /Modals -->
+
   </div>
   <!-- Bootstrap SCRIPT -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

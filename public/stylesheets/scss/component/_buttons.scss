@@ -1,4 +1,7 @@
 .btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transition: all 0.2s ease-in-out;
     position: relative;
     overflow: hidden;
@@ -37,8 +40,7 @@
 }
 
     &-hero{
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+       margin: 1rem;
     }
 
     &-contact{

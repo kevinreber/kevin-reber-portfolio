@@ -9,9 +9,8 @@
 
     & hr {
         background-color: $color-primary;
-        width: 365px;
+        width: 95%;
         padding: 0;
-        margin: 0 auto;
     }
 
     &-background {
@@ -21,7 +20,7 @@
         top: 0;
         left: 0;
         right: 0;
-        width: 400px;    
+        width: 400px;
         fill: $color-primary;
 
         @media(min-width: $md) {
@@ -43,24 +42,37 @@
         margin-top: 0;
     }
 
-    &-container {
-        margin-top: 50%;
-        width: 100%;
-        box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
-        padding-top: 2px;
-        padding-bottom: 2px;
-        //background: radial-gradient($color-secondary,$color-primary);
+    // &-container {
+    //     margin-top: 50%;
+    //     width: 100%;
+    //     box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
+    //     padding-top: 2px;
+    //     padding-bottom: 2px;
+    //     //background: radial-gradient($color-secondary,$color-primary);
 
-        @media(min-width: $md) {
-            margin-top: 35%;
-        }
+    //     @media(min-width: $md) {
+    //         margin-top: 35%;
+    //     }
 
-        @media(min-width: $lg) {
-            margin-top: 30%;
-        }
+    //     @media(min-width: $lg) {
+    //         margin-top: 30%;
+    //     }
 
-        @media(min-width: $xl) {
-            margin-top: 25%;
-        }
+    //     @media(min-width: $xl) {
+    //         margin-top: 25%;
+    //     }
+    // }
+}
+
+#about{
+    display: flex;
+    justify-content: space-between;
+}
+
+.about {
+    &-btn {
+        display: flex;
+        // justify-content: space-around;
+        margin: auto;
     }
 }
