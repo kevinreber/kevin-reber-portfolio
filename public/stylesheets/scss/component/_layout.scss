@@ -4,21 +4,22 @@ body {
     outline: none;
 }
 
-.container{
+.container {
     margin-bottom: 1.5rem;
     margin-left: auto;
     margin-right: auto;
-    &-fluid{
+
+    &-fluid {
         padding: 0;
         margin: auto;
     }
 }
 
-.contact-content-container{
+.contact-content-container {
     text-align: center;
 }
 
-footer{
+footer {
     display: flex;
     flex-direction: column;
     text-align: center;

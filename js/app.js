@@ -2,7 +2,11 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const navLinks = document.querySelectorAll('.nav-links li');
 const overlay = document.getElementById('overlay');
-// const projects = document.querySelectorAll('.project')
+
+//Change nav-bar shadow on scroll
+$(window).scroll(() => {
+  $('.navbar').toggleClass('scroll', $(this).scrollTop() > 10);
+});
 
 //Toggle nav
 const navSlide = () => {
@@ -43,7 +47,9 @@ if (localStorage.getItem('darkModeEnabled')) {
 
 // When we click the switch, update local storage & change the className on the body
 toggleSwitch.addEventListener('click', function (e) {
-  const { checked } = toggleSwitch;
+  const {
+    checked
+  } = toggleSwitch;
   if (checked) {
     localStorage.setItem('darkModeEnabled', true);
   } else {
