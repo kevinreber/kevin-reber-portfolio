@@ -478,12 +478,10 @@ footer {
     position: absolute;
     right: 0;
     height: 100vh;
-    top: 10vh;
+    top: 8vh;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     background-color: #0c1218;
-    width: 50%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
   }
