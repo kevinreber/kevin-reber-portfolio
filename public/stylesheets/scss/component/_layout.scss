@@ -1,7 +1,12 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: $color-bg;
     margin: auto;
     outline: none;
+    padding-top: 66px;
 }
 
 .container {
@@ -23,4 +28,17 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.section-hr {
+    margin-top: 3rem;
+    width: 80%;
+}
+
+#contact {
+    margin-bottom: 25rem;
+}
+
+.section-offset {
+    padding-top: 80px;
 }

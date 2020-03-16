@@ -1,5 +1,5 @@
 ## Portfolio Link
-[Portfolio](https://kevinreber.github.io/kevin-reber-portfolio/)
+[Portfolio](https://www.kevinreber.dev/)
 
 ## 🎨  Color Reference
 ### DARK MODE

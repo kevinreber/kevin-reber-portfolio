@@ -5,9 +5,9 @@
     transition: all 0.2s ease-in-out;
     position: relative;
     overflow: hidden;
-    background-color: $color-secondary;
+    background-color: lighten($color-primary, 50%);
     border-color: $color-primary;
-    color: $color-txt-primary;
+    color: $color-primary;
     vertical-align: middle;
     text-align: center;
 
@@ -28,6 +28,7 @@
         color: #fff;
         background-color: $color-primary;
         border-color: $color-secondary;
+        transform: scale(1.1);
 
         &:before {
             transform: skewX(-45deg) translateX(13.5em);
@@ -35,16 +36,17 @@
         }
     }
 
-&-hero, &-contact{
-    width:150px;
-    height: 50px;
-}
-
-    &-hero{
-       margin: 1rem;
+    &-hero,
+    &-contact {
+        width: 150px;
+        height: 50px;
     }
 
-    &-contact{
+    &-hero {
+        margin: 1rem;
+    }
+
+    &-contact {
         vertical-align: center;
         margin: auto;
     }

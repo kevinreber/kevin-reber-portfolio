@@ -14,15 +14,11 @@
 
     &-background {
         position: absolute;
-        // z-index: -10;
         margin: auto;
         top: 0;
         left: 0;
         right: 0;
         width: 400px;
-        // fill: $color-primary;
-        fill: black;
-
 
         @media(min-width: $md) {
             width: 470px;

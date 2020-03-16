@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 10vh;
 
     & a {
         color: $color-txt-secondary;
@@ -19,6 +18,11 @@
 
     &.scroll {
         box-shadow: 0 0 5px $color-shadow-secondary;
+    }
+
+    &-brand {
+        padding: 0;
+        margin-left: .5rem;
     }
 }
 

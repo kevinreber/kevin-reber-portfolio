@@ -28,7 +28,7 @@ p {
 
 .section-heading {
     position: relative;
-    font-size: 26px;
+    font-size: 32px;
     padding-left: 1rem;
     font-weight: 600;
     letter-spacing: 3px;
@@ -131,4 +131,18 @@ p {
     color: $color-txt-secondary;
     margin-bottom: 2rem;
     font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+#contact-heading {
+    text-align: center;
+    position: relative;
+    font-size: 40px;
+    padding-left: 1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    &::before {
+        display: none;
+    }
 }

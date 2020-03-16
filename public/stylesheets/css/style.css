@@ -20,7 +20,7 @@ p {
 }
 
 .btn {
-  font-family: "Fira Code", monospace;
+  font-family: "SF Mono", monospace;
   font-size: 18px;
 }
 .card .btn {
@@ -29,7 +29,7 @@ p {
 
 .section-heading {
   position: relative;
-  font-size: 26px;
+  font-size: 32px;
   padding-left: 1rem;
   font-weight: 600;
   letter-spacing: 3px;
@@ -57,7 +57,7 @@ p {
 }
 
 .txt-2 {
-  font-family: "Fira Code", monospace;
+  font-family: "SF Mono", monospace;
   align-self: flex-end;
 }
 .txt-2.skill {
@@ -80,7 +80,7 @@ p {
 }
 
 .about.line-1 {
-  font-family: "Fira Code", monospace;
+  font-family: "SF Mono", monospace;
   color: #54B78A;
   font-size: 1.5rem;
   line-height: 2.25rem;
@@ -119,6 +119,19 @@ p {
   color: #7c7c7c;
   margin-bottom: 2rem;
   font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+#contact-heading {
+  text-align: center;
+  position: relative;
+  font-size: 40px;
+  padding-left: 1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+#contact-heading::before {
+  display: none;
 }
 
 /***************************************************
@@ -154,10 +167,15 @@ svg.active .svg-elem-1 {
     transform: translateX(0);
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #ffffff;
   margin: auto;
   outline: none;
+  padding-top: 66px;
 }
 
 .container {
@@ -178,6 +196,19 @@ footer {
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.section-hr {
+  margin-top: 3rem;
+  width: 80%;
+}
+
+#contact {
+  margin-bottom: 25rem;
+}
+
+.section-offset {
+  padding-top: 80px;
 }
 
 .modal {
@@ -361,9 +392,9 @@ footer {
   transition: all 0.2s ease-in-out;
   position: relative;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: white;
   border-color: #54B78A;
-  color: #222222;
+  color: #54B78A;
   vertical-align: middle;
   text-align: center;
 }
@@ -383,6 +414,7 @@ footer {
   color: #fff;
   background-color: #54B78A;
   border-color: #ffffff;
+  transform: scale(1.1);
 }
 .btn:hover:before {
   transform: skewX(-45deg) translateX(13.5em);
@@ -406,19 +438,22 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 10vh;
 }
 .navbar a {
   color: #7c7c7c;
   text-decoration: none;
   letter-spacing: 3px;
-  font-family: "Fira Code", monospace;
+  font-family: "SF Mono", monospace;
 }
 .navbar a:hover {
   color: #222222;
 }
 .navbar.scroll {
   box-shadow: 0 0 5px #979797;
+}
+.navbar-brand {
+  padding: 0;
+  margin-left: 0.5rem;
 }
 
 .cls-1 {
@@ -577,7 +612,6 @@ footer {
   left: 0;
   right: 0;
   width: 400px;
-  fill: black;
 }
 @media (min-width: 768px) {
   .hero-background {
