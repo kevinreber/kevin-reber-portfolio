@@ -27,6 +27,54 @@ const navSlide = () => {
 
 burger.addEventListener('click', navSlide);
 
+$(document).ready(() => {
+  const sections = document.querySelectorAll('section');
+  const hRs = document.querySelectorAll('hr');
+
+  for (let section of sections) {
+    section.classList.add('hidden', 'hide');
+  }
+  for (let hr of hRs) {
+    hr.classList.add('hidden', 'hide');
+  }
+
+  $('.hero').addClass('hidden', 'hide')
+});
+
+// Remove Overlay after animation
+window.setTimeout(() => {
+  overlay.classList.add('hide');
+}, 2500);
+
+window.setTimeout(() => {
+  overlay.style.display = 'none';
+  const sections = document.querySelectorAll('section');
+  const hRs = document.querySelectorAll('hr');
+
+  for (let section of sections) {
+    section.classList.remove('hidden');
+  }
+  for (let hr of hRs) {
+    hr.classList.remove('hidden');
+  }
+
+  $('.hero').removeClass('hidden')
+}, 3000);
+
+// Display rest of site
+window.setTimeout(() => {
+  const sections = document.querySelectorAll('section');
+  const hRs = document.querySelectorAll('hr');
+
+  for (let section of sections) {
+    section.classList.add('show');
+  }
+  for (let hr of hRs) {
+    hr.classList.add('show');
+  }
+
+  $('.hero').addClass('show')
+}, 3200);
 
 // projects.forEach(project => {
 //   project.addEventListener('click', () => {
@@ -34,7 +82,6 @@ burger.addEventListener('click', navSlide);
 //     console.log(data);  
 //   });
 // })
-
 
 //TOGGLE SWITCH
 const toggleSwitch = document.querySelector('input[type="checkbox"]');

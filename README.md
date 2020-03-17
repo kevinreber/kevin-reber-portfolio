@@ -1,6 +1,8 @@
 ## Portfolio Link
 [Portfolio](https://www.kevinreber.dev/)
 
+Hosted with [Netlify](https://www.netlify.com/)
+
 ## 🎨  Color Reference
 ### DARK MODE
 | Color | Hex  |

@@ -5,35 +5,67 @@
  **************************************************/
 
 svg .svg-elem-1 {
-  stroke-dashoffset: 1214.0701904296875px;
-  //stroke-dasharray: 1214.0701904296875px;
-  -webkit-transition: stroke-dashoffset 1.5s ease-in 0s;
-  transition: stroke-dashoffset 1.5s ease-in 0s;
+  fill: none;
+  stroke: rgb(84, 183, 138);
+  stroke-width: 2;
 }
 
-svg.active .svg-elem-1 {
-  stroke-dashoffset: 2428.140380859375px;
+#logo-animation {
+  stroke-width: 1;
+  stroke-dasharray: 1214.0701904296875px;
+  -webkit-animation: KR-logo 2s ease-in;
+  animation: KR-logo 2s ease-in-out;
 }
 
-// BUTTON TRANSITION
+// LOGO ANIMATION
+@keyframes KR-logo {
+  from {
+    stroke-dashoffset: 1214.0701904296875px;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+// BUTTON ANIMATION
 @keyframes sheen {
   0% {
-      transform: skewY(-45deg) translateX(0);
+    transform: skewY(-45deg) translateX(0);
   }
 
   100% {
-      transform: skewY(-45deg) translateX(12.5em);
+    transform: skewY(-45deg) translateX(12.5em);
   }
 }
 
 @keyframes navLinkFade {
   from {
-      opacity: 0;
-      transform: translateX(50px); //slides from right
+    opacity: 0;
+    transform: translateX(50px); //slides from right
   }
 
   to {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
+}
+
+section,
+hr,
+.hero {
+  transition: opacity 400ms ease-in;
+}
+
+// Hide chosen elements
+.hidden {
+  display: none;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
 }

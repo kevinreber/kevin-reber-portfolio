@@ -140,15 +140,26 @@ p {
  * W. https://svgartista.net
  **************************************************/
 svg .svg-elem-1 {
-  stroke-dashoffset: 1214.0701904297px;
-  -webkit-transition: stroke-dashoffset 1.5s ease-in 0s;
-  transition: stroke-dashoffset 1.5s ease-in 0s;
+  fill: none;
+  stroke: #54b78a;
+  stroke-width: 2;
 }
 
-svg.active .svg-elem-1 {
-  stroke-dashoffset: 2428.1403808594px;
+#logo-animation {
+  stroke-width: 1;
+  stroke-dasharray: 1214.0701904297px;
+  -webkit-animation: KR-logo 2s ease-in;
+  animation: KR-logo 2s ease-in-out;
 }
 
+@keyframes KR-logo {
+  from {
+    stroke-dashoffset: 1214.0701904297px;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 @keyframes sheen {
   0% {
     transform: skewY(-45deg) translateX(0);
@@ -167,6 +178,24 @@ svg.active .svg-elem-1 {
     transform: translateX(0);
   }
 }
+section,
+hr,
+.hero {
+  transition: opacity 400ms ease-in;
+}
+
+.hidden {
+  display: none;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -192,7 +221,7 @@ body {
   text-align: center;
 }
 
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -209,6 +238,20 @@ footer {
 
 .section-offset {
   padding-top: 80px;
+}
+
+#overlay {
+  margin: auto;
+  transition: opacity 400ms ease-in;
+}
+#overlay .overlay-container {
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: 10rem;
+}
+#overlay .overlay-svg {
+  position: relative;
+  stroke-width: 1px;
 }
 
 .modal {
@@ -440,13 +483,10 @@ footer {
   align-items: center;
 }
 .navbar a {
-  color: #7c7c7c;
+  color: #54B78A;
   text-decoration: none;
   letter-spacing: 3px;
   font-family: "SF Mono", monospace;
-}
-.navbar a:hover {
-  color: #222222;
 }
 .navbar.scroll {
   box-shadow: 0 0 5px #979797;
@@ -455,8 +495,7 @@ footer {
   padding: 0;
   margin-left: 0.5rem;
 }
-
-.cls-1 {
+.navbar .cls-1 {
   fill: none;
   stroke: #54B78A;
   stroke-miterlimit: 10;
@@ -478,10 +517,11 @@ footer {
     position: absolute;
     right: 0;
     height: 100vh;
-    top: 8vh;
+    top: 8.25vh;
     flex-direction: column;
     align-items: center;
-    background-color: #0c1218;
+    background-color: #d2ece0;
+    box-shadow: -6px 0 10px -5px grey;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
   }
@@ -495,7 +535,7 @@ footer {
   }
 }
 .nav-links a:hover {
-  color: #54B78A;
+  color: #fff;
 }
 .nav-active {
   transform: translateX(0);

@@ -6,14 +6,10 @@
     align-items: center;
 
     & a {
-        color: $color-txt-secondary;
+        color: $color-primary;
         text-decoration: none;
         letter-spacing: 3px;
         font-family: $font-secondary;
-
-        &:hover {
-            color: $color-txt-primary;
-        }
     }
 
     &.scroll {
@@ -24,14 +20,14 @@
         padding: 0;
         margin-left: .5rem;
     }
-}
 
-//Logo
-.cls-1 {
-    fill: none;
-    stroke: $color-primary;
-    stroke-miterlimit: 10;
-    stroke-width: 2px;
+    //Logo
+    & .cls-1 {
+        fill: none;
+        stroke: $color-primary;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+    }
 }
 
 .nav {
@@ -48,10 +44,11 @@
             position: absolute;
             right: 0;
             height: 100vh;
-            top: 8vh;
+            top: 8.25vh;
             flex-direction: column;
             align-items: center;
-            background-color: darken($color-nav, 5%);
+            background-color: lighten($color-primary, 35%);
+            box-shadow: -6px 0 10px -5px grey;
             transform: translateX(100%); //moves container off screen
             transition: transform 0.5s ease-in;
         }
@@ -65,7 +62,7 @@
         }
 
         & a:hover {
-            color: $color-primary;
+            color: #fff;
         }
 
     }

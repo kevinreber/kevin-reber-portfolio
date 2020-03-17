@@ -1,3 +1,21 @@
+#overlay {
+    margin: auto;
+    transition: opacity 400ms ease-in;
+
+    & .overlay {
+        &-container {
+            background-color: #ffffff;
+            text-align: center;
+            margin-top: 10rem;
+        }
+
+        &-svg {
+            position: relative;
+            stroke-width: 1px;
+        }
+    }
+}
+
 .modal {
 
     max-height: 800px;
