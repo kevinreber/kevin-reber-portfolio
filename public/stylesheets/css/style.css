@@ -483,10 +483,13 @@ body {
   align-items: center;
 }
 .navbar a {
-  color: #54B78A;
+  color: #7c7c7c;
   text-decoration: none;
   letter-spacing: 3px;
   font-family: "SF Mono", monospace;
+}
+.navbar a:hover {
+  color: #222222;
 }
 .navbar.scroll {
   box-shadow: 0 0 5px #979797;
@@ -514,6 +517,7 @@ body {
 }
 @media (max-width: 768px) {
   .nav-links {
+    z-index: 10;
     position: absolute;
     right: 0;
     height: 100vh;
@@ -521,9 +525,14 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #d2ece0;
-    box-shadow: -6px 0 10px -5px grey;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
+  }
+  .nav-links .nav-link {
+    color: #54B78A;
+  }
+  .nav-links .nav-link:hover {
+    color: #fff;
   }
 }
 .nav-links li {
@@ -535,7 +544,7 @@ body {
   }
 }
 .nav-links a:hover {
-  color: #fff;
+  color: #54B78A;
 }
 .nav-active {
   transform: translateX(0);
