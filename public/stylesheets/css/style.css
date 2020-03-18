@@ -521,7 +521,7 @@ body {
     position: absolute;
     right: 0;
     height: 100vh;
-    top: 8.25vh;
+    top: 0;
     flex-direction: column;
     align-items: center;
     background-color: #d2ece0;
@@ -575,6 +575,7 @@ body {
 
 .burger {
   display: block;
+  z-index: 1000000000;
   cursor: pointer;
 }
 @media (min-width: 768px) {
