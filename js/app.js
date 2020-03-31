@@ -32,6 +32,7 @@ $(document).ready(() => {
   const hRs = document.querySelectorAll('hr');
 
   renderProjects();
+  renderSkills();
 
   for (let section of sections) {
     section.classList.add('hidden', 'hide');
@@ -119,6 +120,74 @@ function renderProjects() {
   `
   projects.innerHTML = html;
 
+}
+
+function renderSkills() {
+  const skills = document.getElementById('skills');
+  let html = `
+  <h3 class="section-heading">Skills</h3>
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
+    ${new Skill(skillsDB.design).buildCard()}
+    ${new Skill(skillsDB.frontEnd).buildCard()}
+    ${new Skill(skillsDB.server).buildCard()}
+    ${new Skill(skillsDB.data).buildCard()}
+  </div>
+  `
+  skills.innerHTML = html;
+}
+
+const skillsDB = {
+  design: {
+    title: 'Design',
+    skills: ['Figma', 'Photoshop', 'Illustrator', 'After Effects']
+  },
+  frontEnd: {
+    title: 'Front End',
+    skills: ['HTML', 'CSS | SASS', 'Javascript', 'jQuery']
+  },
+  server: {
+    title: 'Server',
+    skills: ['Python | Flask', 'NodeJS', 'Express']
+  },
+  data: {
+    title: 'Data',
+    skills: ['MySQL', 'MongoDB']
+  }
+}
+
+class Skill {
+  constructor(skill) {
+    this.title = skill.title;
+    this.skills = skill.skills;
+  }
+
+  buildCard() {
+    let html = `
+    <div class="col col-skill">
+          <div class="card h-100 mb-3 card-skill">
+            <div class="card-body">
+              <h6 class="card-title">${this.title}</h6>
+              <ul class="skill-container">
+              ${this.buildList(this.skills)}
+              </ul>
+            </div>
+          </div>
+        </div>
+    `;
+
+    return html;
+  }
+
+  buildList(skills) {
+    let html = '';
+
+    for (let skill of skills) {
+      html += `
+        <li class="skill txt-2">${skill}</li>
+      `
+    }
+    return html;
+  }
 }
 
 const projectDB = {
@@ -222,7 +291,7 @@ class Project {
         </div>
       </div>
     </div><!-- /Project ${this.id} -->
-    `
+    `;
     return html;
   }
 
