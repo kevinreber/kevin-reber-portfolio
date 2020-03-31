@@ -31,6 +31,8 @@ $(document).ready(() => {
   const sections = document.querySelectorAll('section');
   const hRs = document.querySelectorAll('hr');
 
+  renderProjects();
+
   for (let section of sections) {
     section.classList.add('hidden', 'hide');
   }
@@ -79,13 +81,6 @@ window.setTimeout(() => {
   $('.hero').addClass('show')
 }, 3200);
 
-// projects.forEach(project => {
-//   project.addEventListener('click', () => {
-//     const dataProject = project.dataset.project;
-//     console.log(data);  
-//   });
-// })
-
 //TOGGLE SWITCH
 const toggleSwitch = document.querySelector('input[type="checkbox"]');
 
@@ -109,156 +104,139 @@ toggleSwitch.addEventListener('click', function (e) {
 
 })
 
-
-
-
-/*
-  <!-- Project 1 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="dashboard" data-toggle="modal" data-target="#dashboardModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/dashboardApp.jpg" class="card-img" alt="Dashboard App">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Dashboard App</h5>
-        <p class="card-text">Dashboard Application that alerts user of notifications and uses charts to display
-          tracking data.</p>
-        <div class="tech-stack text-right">
-          <p class="txt-2-project">Chart.js</p>
-          <p class="txt-2-project">|</p>
-          <p class="txt-2-project">Grid & Flexbox</p>
-          <p class="txt-2-project">|</p>
-          <p class="txt-2-project">Sass</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/Dashboard-App" class="btn" target="_blank">Source
-            Code</a>
-          <a href="https://kevinreber.github.io/Dashboard-App/" class="btn" target="_blank">Live
-            Demo</a>
-        </div>
-      </div>
-    </div>
-  </div><!-- /Project 1 -->
-
-  <!-- Project 2 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="mastermind" data-toggle="modal" data-target="#mastermindModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/mastermind.jpg" class="card-img mastermind"
-          alt="Mastermind">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Mastermind</h5>
-        <p class="card-text">Mastermind is a game where players have 10 attempts to guess the location of 4
-          numbers using Random.org's API.</p>
-        <div class="tech-stack text-right">
-          <p class="txt-2-project">Axios</p>
-          <p class="txt-2-project">|</p>
-          <p class="txt-2-project">Sass</p>
-          <p class="txt-2-project">|</p>
-          <p class="txt-2-project">Random API</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/mastermind" class="btn" target="_blank">Source
-            Code</a>
-          <a href="https://kevinreber.github.io/mastermind/" class="btn" target="_blank">Live
-            Demo</a>
-        </div>
-      </div>
-    </div><!-- /Project 2 -->
+function renderProjects() {
+  const projects = document.getElementById('projects');
+  let html = `
+  <h3 class="section-heading">Projects</h3>
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+    ${new Project(projectDB.dashApp).buildCard()}
+    ${new Project(projectDB.mastermind).buildCard()}
+    ${new Project(projectDB.pokedex).buildCard()}
+    ${new Project(projectDB.gameShow).buildCard()}
+    ${new Project(projectDB.gallery).buildCard()}
+    ${new Project(projectDB.tinDog).buildCard()}
   </div>
+  `
+  projects.innerHTML = html;
 
-  <!-- Project 3 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="pokedex" data-toggle="modal" data-target="#pokedexModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/pokedex.jpg" class="card-img" alt="Pokedex">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Pokedex</h5>
-        <p class="card-text">Pokedex with all the original 151 Pokemon. All Pokemon data is requested
-          from the PokeAPI database using Javascript Promises.</p>
-        <div class="tech-stack text-right">
-          <p class="txt-2-project">PokeAPI</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/PokeDex" class="btn" target="_blank">Source Code</a>
-          <a href="https://kevinreber.github.io/PokeDex/" class="btn" target="_blank">Live Demo</a>
-        </div>
-      </div>
-    </div>
-  </div><!-- /Project 3 -->
+}
 
-  <!-- Project 4 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="gameshow" data-toggle="modal" data-target="#gameshowModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/gameShow.jpg" class="card-img" alt="Game Show">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Game Show</h5>
-        <p class="card-text">Players have 5 attempts to guess a randomly generated phrase using a built-in
-          interactive
-          keyboard.</p>
-        <div class="tech-stack text-right">
-          <p class="txt-2-project">Javascript</p>
-          <p class="txt-2-project">|</p>
-          <p class="txt-2-project">DOM</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/Game-Show" class="btn" target="_blank">Source
-            Code</a>
-          <a href="https://kevinreber.github.io/Game-Show/" class="btn" target="_blank">Live Demo</a>
-        </div>
-      </div>
-    </div><!-- /Project 4 -->
-  </div>
+const projectDB = {
+  dashApp: {
+    id: 1,
+    name: 'Dashboard App',
+    data: 'dashboard',
+    image: 'dashboardApp.jpg',
+    description: 'Dashboard Application that alerts user of notifications and uses charts to display tracking data.',
+    tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
+    repoLink: 'https://github.com/kevinreber/Dashboard-App',
+    liveLink: 'https://kevinreber.github.io/Dashboard-App/'
+  },
+  mastermind: {
+    id: 2,
+    name: 'Mastermind',
+    data: 'mastermind',
+    image: 'mastermind.jpg',
+    description: "Mastermind is a game where players have 10 attempts to guess the location of 4 numbers using Random.org's API.",
+    tech: ['Axios', 'Sass', 'Random API'],
+    repoLink: 'https://github.com/kevinreber/mastermind',
+    liveLink: 'https://kevinreber.github.io/mastermind/',
+    class: 'mastermind'
+  },
+  pokedex: {
+    id: 3,
+    name: 'Pokedex',
+    data: 'pokedex',
+    image: 'pokedex.jpg',
+    description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database using Javascript Promises.",
+    tech: ['PokeAPI'],
+    repoLink: 'https://github.com/kevinreber/PokeDex',
+    liveLink: 'https://kevinreber.github.io/PokeDex/',
+  },
+  gameShow: {
+    id: 4,
+    name: 'Game Show',
+    data: 'gameshow',
+    image: 'gameShow.jpg',
+    description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
+    tech: ['Javascript', 'DOM'],
+    repoLink: 'https://github.com/kevinreber/Game-Show',
+    liveLink: 'https://kevinreber.github.io/Game-Show/',
+  },
+  gallery: {
+    id: 5,
+    name: 'Photo Gallery',
+    data: 'gallery',
+    image: 'imgGallery.jpg',
+    description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
+    tech: ['jQuery', 'Lightbox Plugin'],
+    repoLink: 'https://github.com/kevinreber/Photo-Gallery',
+    liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
+  },
+  tinDog: {
+    id: 6,
+    name: 'TinDog',
+    data: 'tindog',
+    image: 'tindog.jpg',
+    description: "Online dating platform for dogs.",
+    tech: ['Bootstrap'],
+    repoLink: 'https://github.com/kevinreber/tindog',
+    liveLink: 'https://kevinreber.github.io/tindog/',
+  }
 
-  <!-- Project 5 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="gallery" data-toggle="modal" data-target="#galleryModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/imgGallery.jpg" class="card-img" alt="Photo Gallery">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Photo Gallery</h5>
-        <p class="card-text">Interactive photo gallery built with JavaScript and jQuery plugins.</p>
-        <div class="tech-stack text-right">
+}
+
+class Project {
+  constructor(project) {
+    this.id = project.id;
+    this.name = project.name;
+    this.data = project.data;
+    this.image = project.image;
+    this.description = project.description;
+    this.tech = project.tech;
+    this.repoLink = project.repoLink;
+    this.liveLink = project.liveLink;
+    this.class = project.class;
+  }
+
+  buildCard() {
+    let html = `
+    <!-- Project ${this.id} -->
+    <div class="col mb-4">
+      <div class="card h-100 project" data-project="${this.data}" data-toggle="modal" data-target="#${this.data}Modal">
+        <div class="card-img-top">
+          <img src="public/images/project demos/thumbnails/${this.image}" class="card-img ${this.class}" alt="${this.name}">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">${this.name}</h5>
+          <p class="card-text">${this.description}</p>
           <div class="tech-stack text-right">
-            <p class="txt-2-project">jQuery</p>
-            <p class="txt-2-project">|</p>
-            <p class="txt-2-project">Lightbox Plugin</p>
+            ${this.displayTech(this.tech)}
+          </div>
+          <div class="card-footer">
+            <a href="${this.repoLink}" class="btn" target="_blank">Source
+              Code</a>
+            <a href="${this.liveLink}" class="btn" target="_blank">Live
+              Demo</a>
           </div>
         </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/Photo-Gallery" class="btn" target="_blank">Source
-            Code</a>
-          <a href="https://kevinreber.github.io/Photo-Gallery/" class="btn" target="_blank">Live
-            Demo</a>
-        </div>
       </div>
-    </div>
-  </div><!-- /Project 5 -->
+    </div><!-- /Project ${this.id} -->
+    `
+    return html;
+  }
 
-  <!-- Project 6 -->
-  <div class="col mb-4">
-    <div class="card h-100 project" data-project="tindog" data-toggle="modal" data-target="#tindogModal">
-      <div class="card-img-top">
-        <img src="public/images/project demos/thumbnails/tindog.jpg" class="card-img" alt="TinDog">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">TinDog</h5>
-        <p class="card-text">Online dating platform for dogs.</p>
-        <div class="tech-stack text-right">
-          <p class="txt-2-project">Bootstrap</p>
-        </div>
-        <div class="card-footer">
-          <a href="https://github.com/kevinreber/tindog" class="btn" target="_blank">Source
-            Code</a>
-          <a href="https://kevinreber.github.io/tindog/" class="btn" target="_blank">Live Demo</a>
-        </div>
-      </div>
-    </div>
-  </div><!-- /Project 6 -->
-</div>
-*/
+  displayTech(tech) {
+    let html = '';
+
+    for (let i = 0; i < tech.length; i++) {
+      html += `<p class="txt-2-project">${tech[i]}</p>`;
+      /* Add a '|' to separate tech[i] if tech[i] is not last */
+      if (i < tech.length - 1) {
+        html += `<p class="txt-2-project">|</p>`;
+      }
+    }
+    return html;
+  }
+
+}
