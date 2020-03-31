@@ -178,9 +178,7 @@ svg .svg-elem-1 {
     transform: translateX(0);
   }
 }
-section,
-hr,
-.hero {
+.transition {
   transition: opacity 400ms ease-in;
 }
 
@@ -212,9 +210,21 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+  }
+}
 .container-fluid {
   padding: 0;
   margin: auto;
+}
+
+@media (max-width: 768px) {
+  .container,
+.hero {
+    width: 95%;
+  }
 }
 
 .contact-content-container {
@@ -334,7 +344,10 @@ body {
 .card-img {
   object-fit: cover;
   height: 195px;
-  border-radius: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   border-bottom: 3px solid #54B78A;
   position: relative;
   filter: grayscale(100%);
@@ -648,6 +661,11 @@ body {
   width: 100%;
   margin-bottom: 1.5rem;
 }
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 5rem;
+  }
+}
 .hero hr {
   background-color: #54B78A;
   width: 95%;
@@ -687,6 +705,11 @@ body {
 .about-btn {
   display: flex;
   margin: auto;
+}
+@media (max-width: 576px) {
+  .about-btn {
+    margin: 0;
+  }
 }
 
 input[type=checkbox] {

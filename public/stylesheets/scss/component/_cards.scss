@@ -1,3 +1,11 @@
+// .col,
+// .mb-4,
+// .my-4 {
+//     @media(max-width: $sm) {
+//         margin-bottom: 3rem;
+//     }
+// }
+
 .card {
     background-color: $color-secondary;
 
@@ -39,7 +47,10 @@
     &-img {
         object-fit: cover;
         height: 195px;
-        border-radius: 0;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
         border-bottom: 3px solid $color-primary;
         position: relative;
         filter: grayscale(100%);

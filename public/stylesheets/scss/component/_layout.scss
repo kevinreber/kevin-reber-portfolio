@@ -14,9 +14,20 @@ body {
     margin-left: auto;
     margin-right: auto;
 
+    @media(max-width: $md) {
+        width: 95%;
+    }
+
     &-fluid {
         padding: 0;
         margin: auto;
+    }
+}
+
+.container,
+.hero {
+    @media(max-width: $md) {
+        width: 95%;
     }
 }
 

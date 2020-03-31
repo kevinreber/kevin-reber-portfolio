@@ -6,6 +6,10 @@
     width: 100%;
     margin-bottom: 1.5rem;
 
+    @media(max-width: $md) {
+        padding-top: 5rem;
+    }
+
     & hr {
         background-color: $color-primary;
         width: 95%;
@@ -38,27 +42,6 @@
         margin-bottom: 0;
         margin-top: 0;
     }
-
-    // &-container {
-    //     margin-top: 50%;
-    //     width: 100%;
-    //     box-shadow: 0 1px 10px 0 $color-primary, 0 -1px 10px 0 $color-primary, ;
-    //     padding-top: 2px;
-    //     padding-bottom: 2px;
-    //     //background: radial-gradient($color-secondary,$color-primary);
-
-    //     @media(min-width: $md) {
-    //         margin-top: 35%;
-    //     }
-
-    //     @media(min-width: $lg) {
-    //         margin-top: 30%;
-    //     }
-
-    //     @media(min-width: $xl) {
-    //         margin-top: 25%;
-    //     }
-    // }
 }
 
 #about {
@@ -69,7 +52,10 @@
 .about {
     &-btn {
         display: flex;
-        // justify-content: space-around;
         margin: auto;
+
+        @media(max-width: $sm) {
+            margin: 0;
+        }
     }
 }
