@@ -1,6 +1,3 @@
-const burger = document.querySelector('.burger');
-const nav = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links li');
 const overlay = document.getElementById('overlay');
 
 //Change nav-bar shadow on scroll
@@ -10,6 +7,10 @@ $(window).scroll(() => {
 
 //Toggle nav
 const navSlide = () => {
+  const nav = document.querySelector('.nav-links');
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelectorAll('.nav-links li');
+
   nav.classList.toggle('nav-active');
 
   //Animate Links
@@ -25,14 +26,9 @@ const navSlide = () => {
   burger.classList.toggle('toggle');
 }
 
-burger.addEventListener('click', navSlide);
-
 $(document).ready(() => {
   const sections = document.querySelectorAll('section');
   const hRs = document.querySelectorAll('hr');
-
-  renderProjects();
-  renderSkills();
 
   for (let section of sections) {
     section.classList.add('hidden', 'hide');
@@ -40,8 +36,6 @@ $(document).ready(() => {
   for (let hr of hRs) {
     hr.classList.add('hidden', 'hide');
   }
-
-  $('.hero').addClass('hidden', 'hide')
 });
 
 // Remove Overlay after animation
@@ -49,8 +43,19 @@ window.setTimeout(() => {
   overlay.classList.add('hide');
 }, 2500);
 
+// Removes overlay display and add transition effect to all sections on page
 window.setTimeout(() => {
   overlay.style.display = 'none';
+
+  // Renders all sections on page
+  renderNavbar();
+  renderHero();
+  renderProjects();
+  renderSkills();
+  renderContact();
+  renderFooter();
+  renderModalHTML();
+
   const sections = document.querySelectorAll('section');
   const hRs = document.querySelectorAll('hr');
 
@@ -63,11 +68,11 @@ window.setTimeout(() => {
     hr.classList.add('transition');
   }
 
-  $('.hero').removeClass('hidden');
-  $('.hero').addClass('transition');
+  // Event Listener for 'page slide' effect
+  document.querySelector('.burger').addEventListener('click', navSlide);
 }, 3000);
 
-// Display rest of site
+// Display rest of site with fade in effect
 window.setTimeout(() => {
   const sections = document.querySelectorAll('section');
   const hRs = document.querySelectorAll('hr');
@@ -79,7 +84,6 @@ window.setTimeout(() => {
     hr.classList.add('show');
   }
 
-  $('.hero').addClass('show')
 }, 3200);
 
 //TOGGLE SWITCH
@@ -307,5 +311,330 @@ class Project {
     }
     return html;
   }
+}
 
+function renderNavbar() {
+  const navbar = document.getElementById('navbar');
+  let html = `
+  <nav class="navbar navbar-expand-sm fixed-top">
+          <a class="navbar-brand" href="#">
+            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="50" height="50">
+              <title>Kevin Reber | Logo</title>
+              <path class="cls-1 svg-elem-1"
+                d="M51,6.16c0,.12,0,37.69,0,37.82V69.65c0,.06,0,.12,0,.23.09-.06.16-.08.2-.13a2.82,2.82,0,0,0,.18-.29l6.09-10.23a.4.4,0,0,1,.38-.25H76.76L77,59a2.32,2.32,0,0,1-.17.32l-6.42,11.4c-.75,1.34-1.5,2.68-2.27,4a.38.38,0,0,0,0,.46c.21.28.39.57.58.86q9.45,14.31,18.92,28.61c.38.57.75,1.15,1.12,1.72H68.31l-.2-.31-5-7.52L51.58,81.42l-.36-.53c-.06-.1-.12-.17-.26-.08v25.24c0,.11,0,.23,0,.34H34V14.74a72.93,72.93,0,0,0-23.75,93.72H88.75v1.46H11a72.93,72.93,0,0,0,101.94,27.34c-20.35-31-20.39-31.06-20.44-31.14L85.81,96Q79,85.74,72.27,75.5c-.27-.4-.16-.79-.19-1.21H82.7a13.33,13.33,0,0,0,2.44-.21,11.93,11.93,0,0,0,5.41-2.43,9,9,0,0,0,3.37-9.51,6.65,6.65,0,0,0-3.63-4.65,9.52,9.52,0,0,0-2.64-.87,15.33,15.33,0,0,0-3-.25H59.44l-.25,0,.2-.34Q63,49.91,66.57,43.84l.11-.23H91.4a.78.78,0,0,0,.21,0,31.17,31.17,0,0,1,4.83.53,24,24,0,0,1,5.63,1.73,16.9,16.9,0,0,1,9.39,10.39,21.29,21.29,0,0,1,1,4.87,22.39,22.39,0,0,1,0,4.63A16.15,16.15,0,0,1,111,71a18.52,18.52,0,0,1-4.86,6.27,25.7,25.7,0,0,1-9.35,5l-.44.14.17.28q4.35,6.75,8.71,13.5l6.42,10c0,.07.07.15,14,21.33A72.92,72.92,0,0,0,50.85,6.2">
+              </path>
+            </svg>
+          </a>
+          <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-links">
+            <div class="nav-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#skills">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+              <li>
+                <a class="nav-link" target="_blank" href="public/images/resume/Kevin Reber-SWE Resume-2020.pdf">Resume</a>
+              </li>
+            </div>
+            <div class="nav-socials">
+              <li>
+                <div class="social-icons">
+                  <a href="https://github.com/kevinreber" target="_blank">
+                    <i class="fa fa-github footer-social-icon"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+                    <i class="fa fa-linkedin footer-social-icon"></i>
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+                    <i class="fa fa-youtube-play footer-social-icon"></i>
+                  </a>
+                  <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+                    <i class="fa fa-instagram footer-social-icon"></i>
+                  </a>
+                  <a href="https://twitter.com/k_reebz" target="_blank">
+                    <i class="fa fa-twitter footer-social-icon"></i>
+                  </a>
+                </div>
+              </li>
+            </div>
+          </ul>
+        </nav>
+  `;
+
+  navbar.innerHTML = html;
+
+}
+
+function renderHero() {
+  const hero = document.getElementById('hero');
+
+  let html = `
+  <div class="about-txt text-left">
+        <h5><span class="about line-1">Hello, my name is</span><br>
+          <span class="about line-2">Kevin Reber 👋</span><br>
+          <span class="about line-3">I'm a self-taught developer with a passion to build & design. <br> Welcome to my
+            portfolio website!</span><br>
+          <hr>
+          <span class="about line-4"></span></h5>
+        <div class="social-icons hero-social-icons">
+          <a href="https://github.com/kevinreber" target="_blank">
+            <i class="fa fas fa-xs fa-github hero-social-icon"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+            <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+            <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
+          </a>
+          <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+            <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
+          </a>
+          <a href="https://www.twitter.com/k_reebz" target="_blank">
+            <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
+          </a>
+        </div>
+      </div>
+      <div class="about-btn">
+        <a href="#projects" class="btn btn-hero">Projects</a>
+        <a target="_blank" href="public/images/resume/Kevin Reber-SWE Resume-2020.pdf" class="btn btn-hero">Resume</a>
+      </div>
+  `;
+
+  hero.innerHTML = html;
+}
+
+function renderContact() {
+  const contact = document.getElementById('contact');
+
+  let html = `
+    <h3 id="contact-heading" class="section-heading">Get in Touch</h3>
+    <div class="contact-content-container">
+      <h5 class="contact-msg">I'm always looking for new opportunities to network and collab<br> with other talented
+        engineers!</h5>
+      <a class="btn btn-contact" href="mailto:kevinreber1@gmail.com" target="_blank">Say Hello</a>
+    </div>
+  `;
+
+  contact.innerHTML = html;
+}
+
+function renderFooter() {
+  const footer = document.getElementById('footer');
+
+  let html = `
+    <div class="social-icons">
+      <a href="https://github.com/kevinreber" target="_blank">
+        <i class="fa fa-github footer-social-icon"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+        <i class="fa fa-linkedin footer-social-icon"></i>
+      </a>
+      <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+        <i class="fa fa-youtube-play footer-social-icon"></i>
+      </a>
+      <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+        <i class="fa fa-instagram footer-social-icon"></i>
+      </a>
+      <a href="https://twitter.com/k_reebz" target="_blank">
+        <i class="fa fa-twitter footer-social-icon"></i>
+      </a>
+    </div>
+    <span class="footer-text">Designed & Built by Kevin Reber</span>
+  `;
+
+  footer.innerHTML = html;
+}
+
+function renderModalHTML() {
+  const modals = document.getElementById('modals');
+  let html = `
+  <!-- Modals -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="dashboardModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/dashboard.gif" class="modal-img" alt="Dashboard App">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">Dashboard App</h5>
+            <p class="modal-text card-text">Dashboard Application that alerts user of notifications and uses charts to
+              display
+              tracking data.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">Chart.js</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">Grid & Flexbox</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">Sass</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/Dashboard-App" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/Dashboard-App/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 1 -->
+
+  <!-- Modal 2 -->
+  <div class="modal fade" id="mastermindModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/mastermind.gif" class="modal-img mastermind" alt="Mastermind">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">Mastermind</h5>
+            <p class="modal-text card-text">Mastermind is a game where players have 10 attempts to guess the location
+              of 4 numbers using Random.org's API.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">Axios</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">Sass</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">Random API</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/mastermind" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/mastermind/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 2 -->
+
+  <!-- Modal 3 -->
+  <div class="modal fade" id="pokedexModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/pokedex.gif" class="modal-img" alt="Pokedex">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">Pokedex</h5>
+            <p class="modal-text card-text">Pokedex with all the original 151 Pokemon. All Pokemon data is requested
+              from the PokeAPI database using Javascript Promises.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">PokeAPI</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/PokeDex" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/PokeDex/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 3 -->
+
+  <!-- Modal 4 -->
+  <div class="modal fade" id="gameshowModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/gameshow.gif" class="modal-img" alt="Game Show">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">Game Show</h5>
+            <p class="modal-text card-text">Players have 5 attempts to guess a randomly generated phrase using a
+              built-in
+              interactive
+              keyboard.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">Javascript</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">DOM</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/Game-Show" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/Game-Show/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 4 -->
+
+  <!-- Modal 5 -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/gallery.gif" class="modal-img" alt="Photo Gallery">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">Photo Gallery</h5>
+            <p class="modal-text card-text">Interactive photo gallery built with JavaScript and jQuery plugins.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">jQuery</p>
+              <p class="txt-2-project">|</p>
+              <p class="txt-2-project">Lightbox Plugin</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/Photo-Gallery" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/Photo-Gallery/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 5 -->
+
+  <!-- Modal 6 -->
+  <div class="modal fade" id="tindogModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-gif">
+          <img src="public/images/project demos/gifs/tindog.gif" class="modal-img" alt="Tindog">
+        </div>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h5 class="modal-title card-title">TinDog</h5>
+            <p class="modal-text card-text">Online dating platform for dogs.</p>
+            <div class="tech-stack text-right">
+              <p class="txt-2-project">Bootstrap</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a href="https://github.com/kevinreber/tindog" class="btn" target="_blank">Source
+              Code</a>
+            <a href="https://kevinreber.github.io/tindog/" class="btn" target="_blank">Live
+              Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /Modal 6 -->
+  <!-- /Modals -->
+  
+  `;
+
+  modals.innerHTML = html;
 }

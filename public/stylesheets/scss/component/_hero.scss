@@ -1,3 +1,8 @@
+#hero {
+    display: flex;
+    justify-content: space-between;
+}
+
 .hero {
     position: relative;
     padding-top: 15rem;
@@ -42,11 +47,6 @@
         margin-bottom: 0;
         margin-top: 0;
     }
-}
-
-#about {
-    display: flex;
-    justify-content: space-between;
 }
 
 .about {
