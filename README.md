@@ -24,4 +24,4 @@ Hosted with [Netlify](https://www.netlify.com/)
 
 ## Build With
 - [Twitter Bootstrap](https://getbootstrap.com/)
-- [Animate CSS](https://daneden.github.io/animate.css/)
+- [SASS](https://sass-lang.com/)

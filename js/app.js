@@ -140,179 +140,6 @@ function renderSkills() {
   skills.innerHTML = html;
 }
 
-const skillsDB = {
-  design: {
-    title: 'Design',
-    skills: ['Figma', 'Photoshop', 'Illustrator', 'After Effects']
-  },
-  frontEnd: {
-    title: 'Front End',
-    skills: ['HTML', 'CSS | SASS', 'Javascript', 'jQuery']
-  },
-  server: {
-    title: 'Server',
-    skills: ['Python | Flask', 'NodeJS', 'Express']
-  },
-  data: {
-    title: 'Data',
-    skills: ['MySQL', 'MongoDB']
-  }
-}
-
-class Skill {
-  constructor(skill) {
-    this.title = skill.title;
-    this.skills = skill.skills;
-  }
-
-  buildCard() {
-    let html = `
-    <div class="col col-skill">
-          <div class="card h-100 mb-3 card-skill">
-            <div class="card-body">
-              <h6 class="card-title">${this.title}</h6>
-              <ul class="skill-container">
-              ${this.buildList(this.skills)}
-              </ul>
-            </div>
-          </div>
-        </div>
-    `;
-
-    return html;
-  }
-
-  buildList(skills) {
-    let html = '';
-
-    for (let skill of skills) {
-      html += `
-        <li class="skill txt-2">${skill}</li>
-      `
-    }
-    return html;
-  }
-}
-
-const projectDB = {
-  dashApp: {
-    id: 1,
-    name: 'Dashboard App',
-    data: 'dashboard',
-    image: 'dashboardApp.jpg',
-    description: 'Dashboard Application that alerts user of notifications and uses charts to display tracking data.',
-    tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
-    repoLink: 'https://github.com/kevinreber/Dashboard-App',
-    liveLink: 'https://kevinreber.github.io/Dashboard-App/'
-  },
-  mastermind: {
-    id: 2,
-    name: 'Mastermind',
-    data: 'mastermind',
-    image: 'mastermind.jpg',
-    description: "Mastermind is a game where players have 10 attempts to guess the location of 4 numbers using Random.org's API.",
-    tech: ['Axios', 'Sass', 'Random API'],
-    repoLink: 'https://github.com/kevinreber/mastermind',
-    liveLink: 'https://kevinreber.github.io/mastermind/',
-    class: 'mastermind'
-  },
-  pokedex: {
-    id: 3,
-    name: 'Pokedex',
-    data: 'pokedex',
-    image: 'pokedex.jpg',
-    description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database using Javascript Promises.",
-    tech: ['PokeAPI'],
-    repoLink: 'https://github.com/kevinreber/PokeDex',
-    liveLink: 'https://kevinreber.github.io/PokeDex/',
-  },
-  gameShow: {
-    id: 4,
-    name: 'Game Show',
-    data: 'gameshow',
-    image: 'gameShow.jpg',
-    description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
-    tech: ['Javascript', 'DOM'],
-    repoLink: 'https://github.com/kevinreber/Game-Show',
-    liveLink: 'https://kevinreber.github.io/Game-Show/',
-  },
-  gallery: {
-    id: 5,
-    name: 'Photo Gallery',
-    data: 'gallery',
-    image: 'imgGallery.jpg',
-    description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
-    tech: ['jQuery', 'Lightbox Plugin'],
-    repoLink: 'https://github.com/kevinreber/Photo-Gallery',
-    liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
-  },
-  tinDog: {
-    id: 6,
-    name: 'TinDog',
-    data: 'tindog',
-    image: 'tindog.jpg',
-    description: "Online dating platform for dogs.",
-    tech: ['Bootstrap'],
-    repoLink: 'https://github.com/kevinreber/tindog',
-    liveLink: 'https://kevinreber.github.io/tindog/',
-  }
-
-}
-
-class Project {
-  constructor(project) {
-    this.id = project.id;
-    this.name = project.name;
-    this.data = project.data;
-    this.image = project.image;
-    this.description = project.description;
-    this.tech = project.tech;
-    this.repoLink = project.repoLink;
-    this.liveLink = project.liveLink;
-    this.class = project.class;
-  }
-
-  buildCard() {
-    let html = `
-    <!-- Project ${this.id} -->
-    <div class="col mb-4">
-      <div class="card h-100 project" data-project="${this.data}" data-toggle="modal" data-target="#${this.data}Modal">
-        <div class="card-img-top">
-          <img src="public/images/project demos/thumbnails/${this.image}" class="card-img ${this.class}" alt="${this.name}">
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">${this.name}</h5>
-          <p class="card-text">${this.description}</p>
-          <div class="tech-stack text-right">
-            ${this.displayTech(this.tech)}
-          </div>
-          <div class="card-footer">
-            <a href="${this.repoLink}" class="btn" target="_blank">Source
-              Code</a>
-            <a href="${this.liveLink}" class="btn" target="_blank">Live
-              Demo</a>
-          </div>
-        </div>
-      </div>
-    </div><!-- /Project ${this.id} -->
-    `;
-    return html;
-  }
-
-  displayTech(tech) {
-    let html = '';
-
-    for (let i = 0; i < tech.length; i++) {
-      html += `<p class="txt-2-project">${tech[i]}</p>`;
-      /* Add a '|' to separate tech[i] if tech[i] is not last */
-      if (i < tech.length - 1) {
-        html += `<p class="txt-2-project">|</p>`;
-      }
-    }
-    return html;
-  }
-}
-
 function renderNavbar() {
   const navbar = document.getElementById('navbar');
   let html = `
@@ -457,7 +284,6 @@ function renderFooter() {
 function renderModalHTML() {
   const modals = document.getElementById('modals');
   let html = `
-  <!-- Modals -->
   <!-- Modal 1 -->
   <div class="modal fade" id="dashboardModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
@@ -632,8 +458,6 @@ function renderModalHTML() {
       </div>
     </div>
   </div> <!-- /Modal 6 -->
-  <!-- /Modals -->
-  
   `;
 
   modals.innerHTML = html;
