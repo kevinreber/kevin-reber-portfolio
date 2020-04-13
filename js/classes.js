@@ -1,102 +1,102 @@
 const projectDB = {
-    dashApp: {
-        id: 1,
-        name: 'Dashboard App',
-        data: 'dashboard',
-        image: 'dashboardApp.jpg',
-        description: 'Dashboard Application that alerts user of notifications and uses charts to display tracking data.',
-        tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
-        repoLink: 'https://github.com/kevinreber/Dashboard-App',
-        liveLink: 'https://kevinreber.github.io/Dashboard-App/'
-    },
-    mastermind: {
-        id: 2,
-        name: 'Mastermind',
-        data: 'mastermind',
-        image: 'mastermind.jpg',
-        description: "Mastermind is a game where players have 10 attempts to guess the location of 4 numbers using Random.org's API.",
-        tech: ['Axios', 'Sass', 'Random API'],
-        repoLink: 'https://github.com/kevinreber/mastermind',
-        liveLink: 'https://kevinreber.github.io/mastermind/',
-        class: 'mastermind'
-    },
-    pokedex: {
-        id: 3,
-        name: 'Pokedex',
-        data: 'pokedex',
-        image: 'pokedex.jpg',
-        description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database using Javascript Promises.",
-        tech: ['PokeAPI'],
-        repoLink: 'https://github.com/kevinreber/PokeDex',
-        liveLink: 'https://kevinreber.github.io/PokeDex/',
-    },
-    gameShow: {
-        id: 4,
-        name: 'Game Show',
-        data: 'gameshow',
-        image: 'gameShow.jpg',
-        description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
-        tech: ['Javascript', 'DOM'],
-        repoLink: 'https://github.com/kevinreber/Game-Show',
-        liveLink: 'https://kevinreber.github.io/Game-Show/',
-    },
-    gallery: {
-        id: 5,
-        name: 'Photo Gallery',
-        data: 'gallery',
-        image: 'imgGallery.jpg',
-        description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
-        tech: ['jQuery', 'Lightbox Plugin'],
-        repoLink: 'https://github.com/kevinreber/Photo-Gallery',
-        liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
-    },
-    tinDog: {
-        id: 6,
-        name: 'TinDog',
-        data: 'tindog',
-        image: 'tindog.jpg',
-        description: "Online dating platform for dogs.",
-        tech: ['Bootstrap'],
-        repoLink: 'https://github.com/kevinreber/tindog',
-        liveLink: 'https://kevinreber.github.io/tindog/',
-    }
+  dashApp: {
+    id: 1,
+    name: 'Dashboard App',
+    data: 'dashboard',
+    image: 'dashboardApp.jpg',
+    description: 'Dashboard Application that alerts user of notifications and uses charts to display tracking data.',
+    tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
+    repoLink: 'https://github.com/kevinreber/Dashboard-App',
+    liveLink: 'https://kevinreber.github.io/Dashboard-App/'
+  },
+  mastermind: {
+    id: 2,
+    name: 'Mastermind',
+    data: 'mastermind',
+    image: 'mastermind.jpg',
+    description: "Mastermind is a game where players have 10 attempts to guess the location of 4 numbers using Random.org's API.",
+    tech: ['Axios', 'Sass', 'Random API'],
+    repoLink: 'https://github.com/kevinreber/mastermind',
+    liveLink: 'https://kevinreber.github.io/mastermind/',
+    class: 'mastermind'
+  },
+  pokedex: {
+    id: 3,
+    name: 'Pokedex',
+    data: 'pokedex',
+    image: 'pokedex.jpg',
+    description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database using Javascript Promises.",
+    tech: ['PokeAPI'],
+    repoLink: 'https://github.com/kevinreber/PokeDex',
+    liveLink: 'https://kevinreber.github.io/PokeDex/',
+  },
+  gameShow: {
+    id: 4,
+    name: 'Game Show',
+    data: 'gameshow',
+    image: 'gameShow.jpg',
+    description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
+    tech: ['Javascript', 'DOM'],
+    repoLink: 'https://github.com/kevinreber/Game-Show',
+    liveLink: 'https://kevinreber.github.io/Game-Show/',
+  },
+  gallery: {
+    id: 5,
+    name: 'Photo Gallery',
+    data: 'gallery',
+    image: 'imgGallery.jpg',
+    description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
+    tech: ['jQuery', 'Lightbox Plugin'],
+    repoLink: 'https://github.com/kevinreber/Photo-Gallery',
+    liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
+  },
+  tinDog: {
+    id: 6,
+    name: 'TinDog',
+    data: 'tindog',
+    image: 'tindog.jpg',
+    description: "Online dating platform for dogs.",
+    tech: ['Bootstrap'],
+    repoLink: 'https://github.com/kevinreber/tindog',
+    liveLink: 'https://kevinreber.github.io/tindog/',
+  }
 
 }
 
 const skillsDB = {
-    design: {
-        title: 'Design',
-        skills: ['Figma', 'Photoshop', 'Illustrator', 'After Effects']
-    },
-    frontEnd: {
-        title: 'Front End',
-        skills: ['HTML', 'CSS | SASS', 'Javascript', 'jQuery']
-    },
-    server: {
-        title: 'Server',
-        skills: ['Python | Flask', 'NodeJS', 'Express']
-    },
-    data: {
-        title: 'Data',
-        skills: ['MySQL', 'MongoDB']
-    }
+  design: {
+    title: 'Design',
+    skills: ['Figma', 'Photoshop', 'Illustrator', 'After Effects']
+  },
+  frontEnd: {
+    title: 'Front End',
+    skills: ['HTML', 'CSS | SASS', 'Javascript', 'jQuery']
+  },
+  server: {
+    title: 'Server',
+    skills: ['Python | Flask', 'NodeJS', 'Express']
+  },
+  data: {
+    title: 'Data',
+    skills: ['SQL', 'MySQL', 'PostgreSQL', 'MongoDB']
+  }
 }
 
 class Project {
-    constructor(project) {
-        this.id = project.id;
-        this.name = project.name;
-        this.data = project.data;
-        this.image = project.image;
-        this.description = project.description;
-        this.tech = project.tech;
-        this.repoLink = project.repoLink;
-        this.liveLink = project.liveLink;
-        this.class = project.class;
-    }
+  constructor(project) {
+    this.id = project.id;
+    this.name = project.name;
+    this.data = project.data;
+    this.image = project.image;
+    this.description = project.description;
+    this.tech = project.tech;
+    this.repoLink = project.repoLink;
+    this.liveLink = project.liveLink;
+    this.class = project.class;
+  }
 
-    buildCard() {
-        let html = `
+  buildCard() {
+    let html = `
       <!-- Project ${this.id} -->
       <div class="col mb-4">
         <div class="card h-100 project" data-project="${this.data}" data-toggle="modal" data-target="#${this.data}Modal">
@@ -119,31 +119,31 @@ class Project {
         </div>
       </div><!-- /Project ${this.id} -->
       `;
-        return html;
-    }
+    return html;
+  }
 
-    displayTech(tech) {
-        let html = '';
+  displayTech(tech) {
+    let html = '';
 
-        for (let i = 0; i < tech.length; i++) {
-            html += `<p class="txt-2-project">${tech[i]}</p>`;
-            /* Add a '|' to separate tech[i] if tech[i] is not last */
-            if (i < tech.length - 1) {
-                html += `<p class="txt-2-project">|</p>`;
-            }
-        }
-        return html;
+    for (let i = 0; i < tech.length; i++) {
+      html += `<p class="txt-2-project">${tech[i]}</p>`;
+      /* Add a '|' to separate tech[i] if tech[i] is not last */
+      if (i < tech.length - 1) {
+        html += `<p class="txt-2-project">|</p>`;
+      }
     }
+    return html;
+  }
 }
 
 class Skill {
-    constructor(skill) {
-        this.title = skill.title;
-        this.skills = skill.skills;
-    }
+  constructor(skill) {
+    this.title = skill.title;
+    this.skills = skill.skills;
+  }
 
-    buildCard() {
-        let html = `
+  buildCard() {
+    let html = `
       <div class="col col-skill">
             <div class="card h-100 mb-3 card-skill">
               <div class="card-body">
@@ -156,17 +156,17 @@ class Skill {
           </div>
       `;
 
-        return html;
-    }
+    return html;
+  }
 
-    buildList(skills) {
-        let html = '';
+  buildList(skills) {
+    let html = '';
 
-        for (let skill of skills) {
-            html += `
+    for (let skill of skills) {
+      html += `
           <li class="skill txt-2">${skill}</li>
         `
-        }
-        return html;
     }
+    return html;
+  }
 }
