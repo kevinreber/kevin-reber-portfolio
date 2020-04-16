@@ -103,6 +103,19 @@ class Project {
     this.class = project.class;
   }
 
+  displayTech(tech) {
+    let html = '';
+
+    for (let i = 0; i < tech.length; i++) {
+      html += `<p class="txt-2-project">${tech[i]}</p>`;
+      /* Add a '|' to separate tech[i] if tech[i] is not last */
+      if (i < tech.length - 1) {
+        html += `<p class="txt-2-project">|</p>`;
+      }
+    }
+    return html;
+  }
+
   buildCard() {
     let html = `
       <!-- Project ${this.id} -->
@@ -130,18 +143,11 @@ class Project {
     return html;
   }
 
-  displayTech(tech) {
-    let html = '';
+  // TODO: Finish build Modal 
+  // buildModal() {
 
-    for (let i = 0; i < tech.length; i++) {
-      html += `<p class="txt-2-project">${tech[i]}</p>`;
-      /* Add a '|' to separate tech[i] if tech[i] is not last */
-      if (i < tech.length - 1) {
-        html += `<p class="txt-2-project">|</p>`;
-      }
-    }
-    return html;
-  }
+  // }
+
 }
 
 class Skill {
