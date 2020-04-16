@@ -12,7 +12,8 @@ const projectDB = {
     name: 'Dashboard App',
     data: 'dashboard',
     image: 'dashboardApp.jpg',
-    description: 'Dashboard Application that alerts user of notifications and uses charts to display tracking data.',
+    gif: 'dashboard.gif',
+    description: 'Interactive dashboard using advanced web techniques influding SVG graphics and Javascript-driven charts. Built with various UI components to promote interactivity and usability.',
     tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
     repoLink: 'https://github.com/kevinreber/Dashboard-App',
     liveLink: 'https://kevinreber.github.io/Dashboard-App/'
@@ -22,7 +23,8 @@ const projectDB = {
     name: 'Mastermind',
     data: 'mastermind',
     image: 'mastermind.jpg',
-    description: "Mastermind is a game where players have 10 attempts to guess the location of 4 numbers using Random.org's API.",
+    gif: 'mastermind.gif',
+    description: "Game where player has 10 attempts to guess 4 randomly generated numbers using Random.org's API. Relies heavily on event handling and manipulating various DOM elements with vanilla Javascript.",
     tech: ['Axios', 'Sass', 'Random API'],
     repoLink: 'https://github.com/kevinreber/mastermind',
     liveLink: 'https://kevinreber.github.io/mastermind/',
@@ -33,7 +35,8 @@ const projectDB = {
     name: 'Pokedex',
     data: 'pokedex',
     image: 'pokedex.jpg',
-    description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database using Javascript Promises.",
+    gif: 'pokedex.gif',
+    description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database utilizing Javascript Promises.",
     tech: ['PokeAPI'],
     repoLink: 'https://github.com/kevinreber/PokeDex',
     liveLink: 'https://kevinreber.github.io/PokeDex/',
@@ -43,6 +46,7 @@ const projectDB = {
     name: 'Game Show',
     data: 'gameshow',
     image: 'gameShow.jpg',
+    gif: 'gameshow.gif',
     description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
     tech: ['Javascript', 'DOM'],
     repoLink: 'https://github.com/kevinreber/Game-Show',
@@ -53,6 +57,7 @@ const projectDB = {
     name: 'Photo Gallery',
     data: 'gallery',
     image: 'imgGallery.jpg',
+    gif: 'gallery.gif',
     description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
     tech: ['jQuery', 'Lightbox Plugin'],
     repoLink: 'https://github.com/kevinreber/Photo-Gallery',
@@ -63,7 +68,8 @@ const projectDB = {
     name: 'TinDog',
     data: 'tindog',
     image: 'tindog.jpg',
-    description: "Online dating platform for dogs.",
+    gif: 'tindog.gif',
+    description: "Static website of an online dating platform for dogs using semantic HTML and Twitter Bootstrap",
     tech: ['Bootstrap'],
     repoLink: 'https://github.com/kevinreber/tindog',
     liveLink: 'https://kevinreber.github.io/tindog/',
@@ -96,6 +102,7 @@ class Project {
     this.name = project.name;
     this.data = project.data;
     this.image = project.image;
+    this.gif = project.gif;
     this.description = project.description;
     this.tech = project.tech;
     this.repoLink = project.repoLink;
@@ -144,9 +151,37 @@ class Project {
   }
 
   // TODO: Finish build Modal 
-  // buildModal() {
+  buildModal() {
+    let html = `
+    <!-- Modal ${this.id} -->
+      <div class="modal fade" id="${this.data}Modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-gif">
+                <img src="public/images/project demos/gifs/${this.gif}" class="modal-img ${this.class}" alt="Dashboard App">
+              </div>
+              <div class="modal-body">
+                <div class="modal-header">
+                  <h5 class="modal-title card-title">${this.name}</h5>
+                  <p class="modal-text card-text">${this.description}</p>
+              <div class="tech-stack text-right">
+                  ${this.displayTech(this.tech)}
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="${this.repoLink}" class="btn" target="_blank">Source
+                    Code</a>
+                  <a href="${this.liveLink}" class="btn" target="_blank">Live
+                    Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /Modal ${this.id} -->
+      `;
 
-  // }
+    return html;
+  }
 
 }
 
