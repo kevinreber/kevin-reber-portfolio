@@ -175,19 +175,19 @@ function renderNavbar() {
             <div class="nav-socials">
               <li>
                 <div class="social-icons">
-                  <a href="https://github.com/kevinreber" target="_blank">
+                  <a href="${socials.github}" target="_blank">
                     <i class="fa fa-github footer-social-icon"></i>
                   </a>
-                  <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+                  <a href="${socials.linkedin}" target="_blank">
                     <i class="fa fa-linkedin footer-social-icon"></i>
                   </a>
-                  <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+                  <a href="${socials.youtube}" target="_blank">
                     <i class="fa fa-youtube-play footer-social-icon"></i>
                   </a>
-                  <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+                  <a href="${socials.instagram}" target="_blank">
                     <i class="fa fa-instagram footer-social-icon"></i>
                   </a>
-                  <a href="https://twitter.com/k_reebz" target="_blank">
+                  <a href="${socials.twitter}" target="_blank">
                     <i class="fa fa-twitter footer-social-icon"></i>
                   </a>
                 </div>
@@ -198,7 +198,6 @@ function renderNavbar() {
   `;
 
   navbar.innerHTML = html;
-
 }
 
 function renderHero() {
@@ -213,19 +212,19 @@ function renderHero() {
           <hr>
           <span class="about line-4"></span></h5>
         <div class="social-icons hero-social-icons">
-          <a href="https://github.com/kevinreber" target="_blank">
+          <a href="${socials.github}" target="_blank">
             <i class="fa fas fa-xs fa-github hero-social-icon"></i>
           </a>
-          <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+          <a href="${socials.linkedin}" target="_blank">
             <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
           </a>
-          <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+          <a href="${socials.youtube}" target="_blank">
             <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
           </a>
-          <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+          <a href="${socials.instagram}" target="_blank">
             <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
           </a>
-          <a href="https://www.twitter.com/k_reebz" target="_blank">
+          <a href="${socials.twitter}" target="_blank">
             <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
           </a>
         </div>
@@ -259,19 +258,19 @@ function renderFooter() {
 
   let html = `
     <div class="social-icons">
-      <a href="https://github.com/kevinreber" target="_blank">
+      <a href="${socials.github}" target="_blank">
         <i class="fa fa-github footer-social-icon"></i>
       </a>
-      <a href="https://www.linkedin.com/in/kevin-reber-6a663860/" target="_blank">
+      <a href="${socials.linkedin}" target="_blank">
         <i class="fa fa-linkedin footer-social-icon"></i>
       </a>
-      <a href="https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A" target="_blank">
+      <a href="${socials.youtube}" target="_blank">
         <i class="fa fa-youtube-play footer-social-icon"></i>
       </a>
-      <a href="https://www.instagram.com/kevin_reber/" target="_blank">
+      <a href="${socials.instagram}" target="_blank">
         <i class="fa fa-instagram footer-social-icon"></i>
       </a>
-      <a href="https://twitter.com/k_reebz" target="_blank">
+      <a href="${socials.twitter}" target="_blank">
         <i class="fa fa-twitter footer-social-icon"></i>
       </a>
     </div>

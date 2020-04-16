@@ -1,3 +1,11 @@
+const socials = {
+  github: 'https://github.com/kevinreber',
+  linkedin: 'https://www.linkedin.com/in/kevin-reber-6a663860/',
+  youtube: 'https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A',
+  instagram: 'https://www.instagram.com/kevin_reber/',
+  twitter: 'https://twitter.com/k_reebz'
+}
+
 const projectDB = {
   dashApp: {
     id: 1,
