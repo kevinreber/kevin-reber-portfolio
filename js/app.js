@@ -169,7 +169,7 @@ function renderNavbar() {
                 <a class="nav-link" href="#contact">Contact</a>
               </li>
               <li>
-                <a class="nav-link" target="_blank" href="public/images/resume/Kevin Reber-SWE Resume-2020.pdf">Resume</a>
+                <a class="nav-link" target="_blank" href="${resume}">Resume</a>
               </li>
             </div>
             <div class="nav-socials">
@@ -204,35 +204,35 @@ function renderHero() {
   const hero = document.getElementById('hero');
 
   let html = `
-  <div class="about-txt text-left">
-        <h5><span class="about line-1">Hello, my name is</span><br>
-          <span class="about line-2">Kevin Reber 👋</span><br>
-          <span class="about line-3">I'm a self-taught developer with a passion to build & design. <br> Welcome to my
+    <div class="about-txt text-left">
+      <h5><span class="about line-1">Hello, my name is</span><br>
+        <span class="about line-2">Kevin Reber 👋</span><br>
+        <span class="about line-3">I'm a self-taught developer with a passion to build & design. <br> Welcome to my
             portfolio website!</span><br>
-          <hr>
-          <span class="about line-4"></span></h5>
-        <div class="social-icons hero-social-icons">
-          <a href="${socials.github}" target="_blank">
-            <i class="fa fas fa-xs fa-github hero-social-icon"></i>
-          </a>
-          <a href="${socials.linkedin}" target="_blank">
-            <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
-          </a>
-          <a href="${socials.youtube}" target="_blank">
-            <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
-          </a>
-          <a href="${socials.instagram}" target="_blank">
-            <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
-          </a>
-          <a href="${socials.twitter}" target="_blank">
-            <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
-          </a>
-        </div>
+        <hr>
+        <span class="about line-4"></span></h5>
+      <div class="social-icons hero-social-icons">
+        <a href="${socials.github}" target="_blank">
+          <i class="fa fas fa-xs fa-github hero-social-icon"></i>
+        </a>
+        <a href="${socials.linkedin}" target="_blank">
+          <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
+        </a>
+         <a href="${socials.youtube}" target="_blank">
+          <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
+        </a>
+        <a href="${socials.instagram}" target="_blank">
+          <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
+        </a>
+        <a href="${socials.twitter}" target="_blank">
+          <i class="fa fas fa-xs fa-twitter hero-social-icon"></i>
+        </a>
       </div>
-      <div class="about-btn">
-        <a href="#projects" class="btn btn-hero">Projects</a>
-        <a target="_blank" href="public/images/resume/Kevin Reber-SWE Resume-2020.pdf" class="btn btn-hero">Resume</a>
-      </div>
+    </div>
+    <div class="about-btn">
+      <a href="#projects" class="btn btn-hero">Projects</a>
+      <a target="_blank" href="${resume}" class="btn btn-hero">Resume</a>
+    </div>
   `;
 
   hero.innerHTML = html;
@@ -246,7 +246,7 @@ function renderContact() {
     <div class="contact-content-container">
       <h5 class="contact-msg">I'm always looking for new opportunities to network and collab<br> with other talented
         engineers!</h5>
-      <a class="btn btn-contact" href="mailto:kevinreber1@gmail.com" target="_blank">Say Hello</a>
+      <a class="btn btn-contact" href="mailto:kevinreber@berkeley.edu" target="_blank">Say Hello</a>
     </div>
   `;
 

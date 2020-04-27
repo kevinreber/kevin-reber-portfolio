@@ -1,3 +1,5 @@
+const resume = 'public/images/resume/Kevin Reber-SWE Resume-2020.pdf';
+
 const socials = {
   github: 'https://github.com/kevinreber',
   linkedin: 'https://www.linkedin.com/in/kevin-reber-6a663860/',
