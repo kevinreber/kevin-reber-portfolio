@@ -74,7 +74,7 @@ const projectDB = {
     description: "Full-stack Twitter clone built using Python technologies.",
     tech: ['Flask', 'WTForms', 'PostgresSQL'],
     repoLink: 'https://github.com/kevinreber/warbler',
-    liveLink: 'https://github.com/kevinreber/warbler',
+    liveLink: 'https://kevinreber.github.io/warbler/',
   }
 
 }
