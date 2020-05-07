@@ -65,16 +65,16 @@ const projectDB = {
     repoLink: 'https://github.com/kevinreber/Photo-Gallery',
     liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
   },
-  tinDog: {
+  warbler: {
     id: 6,
-    name: 'TinDog',
-    data: 'tindog',
-    image: 'tindog.jpg',
-    gif: 'tindog.gif',
-    description: "Static website of an online dating platform for dogs using semantic HTML and Twitter Bootstrap",
-    tech: ['Bootstrap'],
-    repoLink: 'https://github.com/kevinreber/tindog',
-    liveLink: 'https://kevinreber.github.io/tindog/',
+    name: 'Warbler',
+    data: 'warbler',
+    image: 'warbler.jpg',
+    gif: 'warbler.gif',
+    description: "Full-stack Twitter clone built using Python technologies.",
+    tech: ['Flask', 'WTForms', 'PostgresSQL'],
+    repoLink: 'https://github.com/kevinreber/warbler',
+    liveLink: 'https://github.com/kevinreber/warbler',
   }
 
 }

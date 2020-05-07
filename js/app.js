@@ -119,7 +119,7 @@ function renderProjects() {
     ${new Project(projectDB.pokedex).buildCard()}
     ${new Project(projectDB.gameShow).buildCard()}
     ${new Project(projectDB.gallery).buildCard()}
-    ${new Project(projectDB.tinDog).buildCard()}
+    ${new Project(projectDB.warbler).buildCard()}
   </div>
   `
   projects.innerHTML = html;
@@ -288,7 +288,7 @@ function renderModalHTML() {
   ${new Project(projectDB.pokedex).buildModal()}
   ${new Project(projectDB.gameShow).buildModal()}
   ${new Project(projectDB.gallery).buildModal()}
-  ${new Project(projectDB.tinDog).buildModal()}
+  ${new Project(projectDB.warbler).buildModal()}
   `;
 
   modals.innerHTML = html;
