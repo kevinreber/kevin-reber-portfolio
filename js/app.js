@@ -114,11 +114,11 @@ function renderProjects() {
   let html = `
   <h3 class="section-heading">Projects</h3>
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+    ${new Project(projectDB.stockFootage).buildCard()}
     ${new Project(projectDB.dashApp).buildCard()}
     ${new Project(projectDB.mastermind).buildCard()}
     ${new Project(projectDB.pokedex).buildCard()}
     ${new Project(projectDB.gameShow).buildCard()}
-    ${new Project(projectDB.gallery).buildCard()}
     ${new Project(projectDB.warbler).buildCard()}
   </div>
   `
@@ -181,8 +181,8 @@ function renderNavbar() {
                   <a href="${socials.linkedin}" target="_blank">
                     <i class="fa fa-linkedin footer-social-icon"></i>
                   </a>
-                  <a href="${socials.youtube}" target="_blank">
-                    <i class="fa fa-youtube-play footer-social-icon"></i>
+                  <a href="${socials.codepen}" target="_blank">
+                    <i class="fa fa-codepen footer-social-icon"></i>
                   </a>
                   <a href="${socials.instagram}" target="_blank">
                     <i class="fa fa-instagram footer-social-icon"></i>
@@ -218,8 +218,8 @@ function renderHero() {
         <a href="${socials.linkedin}" target="_blank">
           <i class="fa fas fa-xs fa-linkedin hero-social-icon"></i>
         </a>
-         <a href="${socials.youtube}" target="_blank">
-          <i class="fa fas fa-xs fa-youtube-play hero-social-icon"></i>
+         <a href="${socials.codepen}" target="_blank">
+          <i class="fa fas fa-xs fa-codepen hero-social-icon"></i>
         </a>
         <a href="${socials.instagram}" target="_blank">
           <i class="fa fas fa-xs fa-instagram hero-social-icon"></i>
@@ -264,8 +264,8 @@ function renderFooter() {
       <a href="${socials.linkedin}" target="_blank">
         <i class="fa fa-linkedin footer-social-icon"></i>
       </a>
-      <a href="${socials.youtube}" target="_blank">
-        <i class="fa fa-youtube-play footer-social-icon"></i>
+      <a href="${socials.codepen}" target="_blank">
+        <i class="fa fa-codepen footer-social-icon"></i>
       </a>
       <a href="${socials.instagram}" target="_blank">
         <i class="fa fa-instagram footer-social-icon"></i>
@@ -283,11 +283,11 @@ function renderFooter() {
 function renderModalHTML() {
   const modals = document.getElementById('modals');
   let html = `
+  ${new Project(projectDB.stockFootage).buildModal()}
   ${new Project(projectDB.dashApp).buildModal()}
   ${new Project(projectDB.mastermind).buildModal()}
   ${new Project(projectDB.pokedex).buildModal()}
   ${new Project(projectDB.gameShow).buildModal()}
-  ${new Project(projectDB.gallery).buildModal()}
   ${new Project(projectDB.warbler).buildModal()}
   `;
 

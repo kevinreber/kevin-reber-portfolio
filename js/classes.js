@@ -2,68 +2,68 @@ const resume = 'public/images/resume/Kevin Reber-SWE Resume-2020.pdf';
 
 const socials = {
   github: 'https://github.com/kevinreber',
-  linkedin: 'https://www.linkedin.com/in/kevin-reber-6a663860/',
-  youtube: 'https://www.youtube.com/channel/UCusLmVF5IZuZD50686HOJ5A',
+  linkedin: 'http://bit.ly/kevinreber-linkedin',
+  codepen: 'https://codepen.io/kevinreber',
   instagram: 'https://www.instagram.com/kevin_reber/',
   twitter: 'https://twitter.com/k_reebz'
 }
 
 const projectDB = {
-  dashApp: {
+  stockFootage: {
     id: 1,
+    name: 'Stock Footage Automator',
+    data: 'stockFootage',
+    image: 'stock-footage.jpg',
+    gif: 'stock-footage.gif',
+    description: 'Full-stack web application that helps users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
+    tech: ['Flask', 'Pandas', 'SQLAlchemy'],
+    repoLink: 'https://bit.ly/kevinreber-stock-footage-app',
+    liveLink: 'https://bit.ly/3estscE'
+  },
+  dashApp: {
+    id: 2,
     name: 'Dashboard App',
     data: 'dashboard',
     image: 'dashboardApp.jpg',
     gif: 'dashboard.gif',
     description: 'Interactive dashboard using advanced web techniques influding SVG graphics and Javascript-driven charts. Built with various UI components to promote interactivity and usability.',
     tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
-    repoLink: 'https://github.com/kevinreber/Dashboard-App',
+    repoLink: 'http://bit.ly/kevinreber-code-dashapp',
     liveLink: 'https://kevinreber.github.io/Dashboard-App/'
   },
   mastermind: {
-    id: 2,
+    id: 3,
     name: 'Mastermind',
     data: 'mastermind',
     image: 'mastermind.jpg',
     gif: 'mastermind.gif',
     description: "Game where player has 10 attempts to guess 4 randomly generated numbers using Random.org's API. Relies heavily on event handling and manipulating various DOM elements with vanilla Javascript.",
     tech: ['Axios', 'Sass', 'Random API'],
-    repoLink: 'https://github.com/kevinreber/mastermind',
+    repoLink: 'http://bit.ly/kevinreber-code-mastermind',
     liveLink: 'https://kevinreber.github.io/mastermind/',
     class: 'mastermind'
   },
   pokedex: {
-    id: 3,
+    id: 4,
     name: 'Pokedex',
     data: 'pokedex',
     image: 'pokedex.jpg',
     gif: 'pokedex.gif',
     description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database utilizing Javascript Promises.",
     tech: ['PokeAPI'],
-    repoLink: 'https://github.com/kevinreber/PokeDex',
+    repoLink: 'http://bit.ly/kevinreber-code-pokedex-api',
     liveLink: 'https://kevinreber.github.io/PokeDex/',
   },
   gameShow: {
-    id: 4,
+    id: 5,
     name: 'Game Show',
     data: 'gameshow',
     image: 'gameShow.jpg',
     gif: 'gameshow.gif',
     description: "Players have 5 attempts to guess a randomly generated phrase using a built-in interactive keyboard.",
     tech: ['Javascript', 'DOM'],
-    repoLink: 'https://github.com/kevinreber/Game-Show',
+    repoLink: 'http://bit.ly/kevinreber-code-gameshow',
     liveLink: 'https://kevinreber.github.io/Game-Show/',
-  },
-  gallery: {
-    id: 5,
-    name: 'Photo Gallery',
-    data: 'gallery',
-    image: 'imgGallery.jpg',
-    gif: 'gallery.gif',
-    description: "Interactive photo gallery built with JavaScript and jQuery plugins.",
-    tech: ['jQuery', 'Lightbox Plugin'],
-    repoLink: 'https://github.com/kevinreber/Photo-Gallery',
-    liveLink: 'https://kevinreber.github.io/Photo-Gallery/',
   },
   warbler: {
     id: 6,
@@ -73,10 +73,9 @@ const projectDB = {
     gif: 'warbler.gif',
     description: "Full-stack Twitter clone built using Python technologies.",
     tech: ['Flask', 'WTForms', 'PostgresSQL'],
-    repoLink: 'https://github.com/kevinreber/warbler',
+    repoLink: 'https://bit.ly/kevinreber-warbler',
     liveLink: 'https://kevinreber.github.io/warbler/',
   }
-
 }
 
 const skillsDB = {
