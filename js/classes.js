@@ -1,4 +1,4 @@
-const resume = 'public/images/resume/Kevin Reber-SWE Resume-2020.pdf';
+const resume = 'public/images/resume/Kevin Reber-Resume-2020.pdf';
 
 const socials = {
   github: 'https://github.com/kevinreber',
@@ -85,7 +85,7 @@ const skillsDB = {
   },
   frontEnd: {
     title: 'Front End',
-    skills: ['HTML', 'CSS | SASS', 'Javascript', 'jQuery']
+    skills: ['HTML', 'CSS | SASS', 'Javascript | jQuery', 'React']
   },
   server: {
     title: 'Server',
