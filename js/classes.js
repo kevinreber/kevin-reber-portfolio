@@ -15,8 +15,8 @@ const projectDB = {
     data: 'stockFootage',
     image: 'stock-footage.jpg',
     gif: 'stock-footage.gif',
-    description: 'Full-stack web application that helps users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
-    tech: ['Flask', 'Pandas', 'SQLAlchemy'],
+    description: 'Full-stack web application to help users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
+    tech: ['Flask', 'Pandas', 'Google Cloud Platform'],
     repoLink: 'https://bit.ly/kevinreber-stock-footage-app',
     liveLink: 'https://bit.ly/3estscE'
   },
@@ -26,7 +26,7 @@ const projectDB = {
     data: 'dashboard',
     image: 'dashboardApp.jpg',
     gif: 'dashboard.gif',
-    description: 'Interactive dashboard using advanced web techniques influding SVG graphics and Javascript-driven charts. Built with various UI components to promote interactivity and usability.',
+    description: 'Interactive dashboard using advanced web techniques including SVG graphics and Javascript-driven charts. Built with various UI components to promote interactivity and usability.',
     tech: ['Chart.js', 'Grid & Flexbox', 'Sass'],
     repoLink: 'http://bit.ly/kevinreber-code-dashapp',
     liveLink: 'https://kevinreber.github.io/Dashboard-App/'
@@ -50,7 +50,7 @@ const projectDB = {
     image: 'pokedex.jpg',
     gif: 'pokedex.gif',
     description: "Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database utilizing Javascript Promises.",
-    tech: ['PokeAPI'],
+    tech: ['React JS', 'PokeAPI'],
     repoLink: 'http://bit.ly/kevinreber-code-pokedex-api',
     liveLink: 'https://kevinreber.github.io/PokeDex/',
   },
@@ -85,7 +85,7 @@ const skillsDB = {
   },
   frontEnd: {
     title: 'Front End',
-    skills: ['HTML', 'CSS | SASS', 'Javascript | jQuery', 'React']
+    skills: ['HTML', 'CSS | SASS', 'Javascript | jQuery', 'React JS']
   },
   server: {
     title: 'Server',
