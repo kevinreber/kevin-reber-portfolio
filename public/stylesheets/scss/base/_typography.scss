@@ -26,6 +26,10 @@ p {
     }
 }
 
+.links{
+    color: $color-primary;
+}
+
 .section-heading {
     position: relative;
     font-size: 32px;
@@ -132,6 +136,16 @@ p {
     margin-bottom: 2rem;
     font-size: 1.3rem;
     line-height: 2rem;
+}
+
+#design-heading{
+    text-align: center;
+    position: relative;
+    margin-bottom: 1rem;
+    font-size: 24px;
+    &::before {
+        display: none;
+    }
 }
 
 #contact-heading {
