@@ -248,6 +248,12 @@ function renderContact() {
         engineers!</h5>
       <a class="btn btn-contact" href="mailto:kevinreber@berkeley.edu" target="_blank">Say Hello</a>
     </div>
+    <div class="contact-content-container design-content-container">
+      <h5 id="design-heading" class="contact-msg">Want to See My Design Work?</h5>
+      <h5 class="contact-msg">Checkout my design portfolio <a class="links" href="https://www.kevinreber.net/" target="_blank">here!</a></h5>
+    </div>
+    
+  </div>
   `;
 
   contact.innerHTML = html;
