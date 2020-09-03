@@ -2,88 +2,89 @@ const overlay = document.getElementById('overlay');
 
 //Change nav-bar shadow on scroll
 $(window).scroll(() => {
-  $('.navbar').toggleClass('scroll', $(this).scrollTop() > 10);
+	$('.navbar').toggleClass('scroll', $(this).scrollTop() > 10);
 });
 
 //Toggle nav
 const navSlide = () => {
-  const nav = document.querySelector('.nav-links');
-  const burger = document.querySelector('.burger');
-  const navLinks = document.querySelectorAll('.nav-links li');
+	const nav = document.querySelector('.nav-links');
+	const burger = document.querySelector('.burger');
+	const navLinks = document.querySelectorAll('.nav-links li');
 
-  nav.classList.toggle('nav-active');
+	nav.classList.toggle('nav-active');
 
-  //Animate Links
-  navLinks.forEach((link, index) => {
-    if (link.style.animation) {
-      link.style.animation = '';
-    } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index/7 + 0.3}s`;
-    }
-  });
+	//Animate Links
+	navLinks.forEach((link, index) => {
+		if (link.style.animation) {
+			link.style.animation = '';
+		} else {
+			link.style.animation = `navLinkFade 0.5s ease forwards ${
+				index / 7 + 0.3
+			}s`;
+		}
+	});
 
-  //Burger Animation
-  burger.classList.toggle('toggle');
-}
+	//Burger Animation
+	burger.classList.toggle('toggle');
+};
 
 $(document).ready(() => {
-  const sections = document.querySelectorAll('section');
-  const hRs = document.querySelectorAll('hr');
+	const sections = document.querySelectorAll('section');
+	const hRs = document.querySelectorAll('hr');
 
-  for (let section of sections) {
-    section.classList.add('hidden', 'hide');
-  }
-  for (let hr of hRs) {
-    hr.classList.add('hidden', 'hide');
-  }
+	for (let section of sections) {
+		section.classList.add('hidden', 'hide');
+	}
+	for (let hr of hRs) {
+		hr.classList.add('hidden', 'hide');
+	}
 });
 
 // Remove Overlay after animation
 window.setTimeout(() => {
-  overlay.classList.add('hide');
+	overlay.classList.add('hide');
 }, 2500);
 
 // Removes overlay display and add transition effect to all sections on page
 window.setTimeout(() => {
-  overlay.style.display = 'none';
+	overlay.style.display = 'none';
 
-  // Renders all sections on page
-  renderNavbar();
-  renderHero();
-  renderProjects();
-  renderSkills();
-  renderContact();
-  renderFooter();
-  renderModalHTML();
+	// Renders all sections on page
+	renderNavbar();
+	renderHero();
+	renderProjects();
+	renderSkills();
+	renderContact();
+	renderFooter();
+	renderModalHTML();
 
-  const sections = document.querySelectorAll('section');
-  const hRs = document.querySelectorAll('hr');
+	const sections = document.querySelectorAll('section');
+	const hRs = document.querySelectorAll('hr');
 
-  for (let section of sections) {
-    section.classList.remove('hidden');
-    section.classList.add('transition');
-  }
-  for (let hr of hRs) {
-    hr.classList.remove('hidden');
-    hr.classList.add('transition');
-  }
+	for (let section of sections) {
+		section.classList.remove('hidden');
+		section.classList.add('transition');
+	}
+	for (let hr of hRs) {
+		hr.classList.remove('hidden');
+		hr.classList.add('transition');
+	}
 
-  // Event Listener for 'page slide' effect
-  document.querySelector('.burger').addEventListener('click', navSlide);
+	// Event Listener for 'page slide' effect
+	document.querySelector('.burger').addEventListener('click', navSlide);
 }, 3000);
 
 // Display rest of site with fade in effect
 window.setTimeout(() => {
-  const sections = document.querySelectorAll('section');
-  const hRs = document.querySelectorAll('hr');
+	const sections = document.querySelectorAll('section');
+	const hRs = document.querySelectorAll('hr');
 
-  for (let section of sections) {
-    section.classList.add('show');
-  }
-  for (let hr of hRs) {
-    hr.classList.add('show');
-  }
-
+	for (let section of sections) {
+		section.classList.add('show');
+	}
+	for (let hr of hRs) {
+		hr.classList.add('show');
+	}
 }, 3200);
 
 //TOGGLE SWITCH
@@ -91,44 +92,40 @@ const toggleSwitch = document.querySelector('input[type="checkbox"]');
 
 // CHECK TO SEE IF DARK MODE ENABLED IS IN LOCAL STORAGE!
 if (localStorage.getItem('darkModeEnabled')) {
-  document.body.className = 'dark';
-  toggleSwitch.checked = true;
+	document.body.className = 'dark';
+	toggleSwitch.checked = true;
 }
 
 // When we click the switch, update local storage & change the className on the body
 toggleSwitch.addEventListener('click', function (e) {
-  const {
-    checked
-  } = toggleSwitch;
-  if (checked) {
-    localStorage.setItem('darkModeEnabled', true);
-  } else {
-    localStorage.removeItem('darkModeEnabled');
-  }
-  document.body.className = checked ? 'dark' : ''
-
-})
+	const { checked } = toggleSwitch;
+	if (checked) {
+		localStorage.setItem('darkModeEnabled', true);
+	} else {
+		localStorage.removeItem('darkModeEnabled');
+	}
+	document.body.className = checked ? 'dark' : '';
+});
 
 function renderProjects() {
-  const projects = document.getElementById('projects');
-  let html = `
+	const projects = document.getElementById('projects');
+	let html = `
   <h3 class="section-heading">Projects</h3>
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+  ${new Project(projectDB.mate).buildCard()}
     ${new Project(projectDB.stockFootage).buildCard()}
     ${new Project(projectDB.dashApp).buildCard()}
     ${new Project(projectDB.mastermind).buildCard()}
-    ${new Project(projectDB.pokedex).buildCard()}
     ${new Project(projectDB.gameShow).buildCard()}
     ${new Project(projectDB.warbler).buildCard()}
   </div>
-  `
-  projects.innerHTML = html;
-
+  `;
+	projects.innerHTML = html;
 }
 
 function renderSkills() {
-  const skills = document.getElementById('skills');
-  let html = `
+	const skills = document.getElementById('skills');
+	let html = `
   <h3 class="section-heading">Skills</h3>
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4">
     ${new Skill(skillsDB.design).buildCard()}
@@ -136,13 +133,13 @@ function renderSkills() {
     ${new Skill(skillsDB.server).buildCard()}
     ${new Skill(skillsDB.data).buildCard()}
   </div>
-  `
-  skills.innerHTML = html;
+  `;
+	skills.innerHTML = html;
 }
 
 function renderNavbar() {
-  const navbar = document.getElementById('navbar');
-  let html = `
+	const navbar = document.getElementById('navbar');
+	let html = `
   <nav class="navbar navbar-expand-sm fixed-top">
           <a class="navbar-brand" href="#">
             <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="50" height="50">
@@ -197,13 +194,13 @@ function renderNavbar() {
         </nav>
   `;
 
-  navbar.innerHTML = html;
+	navbar.innerHTML = html;
 }
 
 function renderHero() {
-  const hero = document.getElementById('hero');
+	const hero = document.getElementById('hero');
 
-  let html = `
+	let html = `
     <div class="about-txt text-left">
       <h5><span class="about line-1">Hello, my name is</span><br>
         <span class="about line-2">Kevin Reber 👋</span><br>
@@ -235,13 +232,13 @@ function renderHero() {
     </div>
   `;
 
-  hero.innerHTML = html;
+	hero.innerHTML = html;
 }
 
 function renderContact() {
-  const contact = document.getElementById('contact');
+	const contact = document.getElementById('contact');
 
-  let html = `
+	let html = `
     <h3 id="contact-heading" class="section-heading">Get in Touch</h3>
     <div class="contact-content-container">
       <h5 class="contact-msg">I'm always looking for new opportunities to network and collab<br> with other talented
@@ -256,13 +253,13 @@ function renderContact() {
   </div>
   `;
 
-  contact.innerHTML = html;
+	contact.innerHTML = html;
 }
 
 function renderFooter() {
-  const footer = document.getElementById('footer');
+	const footer = document.getElementById('footer');
 
-  let html = `
+	let html = `
     <div class="social-icons">
       <a href="${socials.github}" target="_blank">
         <i class="fa fa-github footer-social-icon"></i>
@@ -283,19 +280,19 @@ function renderFooter() {
     <span class="footer-text">Designed & Built by Kevin Reber</span>
   `;
 
-  footer.innerHTML = html;
+	footer.innerHTML = html;
 }
 
 function renderModalHTML() {
-  const modals = document.getElementById('modals');
-  let html = `
+	const modals = document.getElementById('modals');
+	let html = `
+  ${new Project(projectDB.mate).buildModal()}
   ${new Project(projectDB.stockFootage).buildModal()}
   ${new Project(projectDB.dashApp).buildModal()}
   ${new Project(projectDB.mastermind).buildModal()}
-  ${new Project(projectDB.pokedex).buildModal()}
   ${new Project(projectDB.gameShow).buildModal()}
   ${new Project(projectDB.warbler).buildModal()}
   `;
 
-  modals.innerHTML = html;
+	modals.innerHTML = html;
 }

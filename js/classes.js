@@ -9,8 +9,20 @@ const socials = {
 };
 
 const projectDB = {
-	stockFootage: {
+	mate: {
 		id: 1,
+		name: 'Mate (In Progress)',
+		data: 'mate',
+		image: 'mate.png',
+		gif: 'mate.gif',
+		description:
+			'A platform to help students connect with each other and learn more about campus resources and events.',
+		tech: ['React', 'Redux', 'NodeJS', 'Google Firebase'],
+		repoLink: '',
+		liveLink: '',
+	},
+	stockFootage: {
+		id: 2,
 		name: 'Stock Footage Automator',
 		data: 'stockFootage',
 		image: 'stock-footage.jpg',
@@ -22,7 +34,7 @@ const projectDB = {
 		liveLink: 'https://bit.ly/3estscE',
 	},
 	dashApp: {
-		id: 2,
+		id: 3,
 		name: 'Dashboard App',
 		data: 'dashboard',
 		image: 'dashboardApp.jpg',
@@ -34,7 +46,7 @@ const projectDB = {
 		liveLink: 'https://kevinreber.github.io/Dashboard-App/',
 	},
 	mastermind: {
-		id: 3,
+		id: 4,
 		name: 'Mastermind',
 		data: 'mastermind',
 		image: 'mastermind.jpg',
@@ -45,18 +57,6 @@ const projectDB = {
 		repoLink: 'http://bit.ly/kevinreber-code-mastermind',
 		liveLink: 'https://kevinreber.github.io/mastermind/',
 		class: 'mastermind',
-	},
-	pokedex: {
-		id: 4,
-		name: 'Pokedex',
-		data: 'pokedex',
-		image: 'pokedex.jpg',
-		gif: 'pokedex.gif',
-		description:
-			'Pokedex with all the original 151 Pokemon. All Pokemon data is requested from the PokeAPI database utilizing Javascript Promises.',
-		tech: ['React JS', 'PokeAPI'],
-		repoLink: 'http://bit.ly/kevinreber-code-pokedex-api',
-		liveLink: 'https://kevinreber.github.io/PokeDex/',
 	},
 	gameShow: {
 		id: 5,
@@ -140,12 +140,15 @@ class Project {
     Demo</a>`
 			: '';
 
-		let html = `
+		let html =
+			repoLink || liveLink
+				? `
     <div class="card-footer">
     ${repo}
     ${live}
     </div>
-    `;
+    `
+				: '';
 
 		return html;
 	}
