@@ -34,7 +34,6 @@
 
                 &-img {
                     filter: none;
-                    border-bottom: 3px solid lighten($color-primary, 5%);
 
                     &-top::before {
                         opacity: 0;
@@ -51,12 +50,15 @@
         border-top-right-radius: 3px;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        border-bottom: 3px solid $color-primary;
         position: relative;
         filter: grayscale(100%);
+        width: auto;
+        padding: .5rem;
 
         &-top {
             position: relative;
+            text-align: center;
+            border-bottom: 3px solid $color-primary;
 
             &::before {
                 content: "";

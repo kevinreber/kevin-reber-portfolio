@@ -354,7 +354,6 @@ body {
 }
 #projects .card:hover .card-img {
   filter: none;
-  border-bottom: 3px solid #66bf96;
 }
 #projects .card:hover .card-img-top::before {
   opacity: 0;
@@ -366,12 +365,15 @@ body {
   border-top-right-radius: 3px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  border-bottom: 3px solid #54B78A;
   position: relative;
   filter: grayscale(100%);
+  width: auto;
+  padding: 0.5rem;
 }
 .card-img-top {
   position: relative;
+  text-align: center;
+  border-bottom: 3px solid #54B78A;
 }
 .card-img-top::before {
   content: "";
