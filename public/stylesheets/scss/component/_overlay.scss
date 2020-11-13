@@ -1,77 +1,88 @@
 #overlay {
-    margin: auto;
-    transition: opacity 400ms ease-in;
+	margin: auto;
+	transition: opacity 400ms ease-in;
 
-    & .overlay {
-        &-container {
-            background-color: #ffffff;
-            text-align: center;
-            margin-top: 10rem;
-        }
+	& .overlay {
+		&-container {
+			background-color: #ffffff;
+			text-align: center;
+			margin-top: 10rem;
+		}
 
-        &-svg {
-            position: relative;
-            stroke-width: 1px;
-        }
-    }
+		&-svg {
+			position: relative;
+			stroke-width: 1px;
+		}
+	}
 }
 
 .modal {
+	max-height: 800px;
 
-    max-height: 800px;
+	&-content {
+		height: 100%;
+		max-width: 1000px;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		background-color: $color-secondary;
+		box-shadow: 0 0 15px 1px $color-shadow;
+	}
 
-    &-content {
-        height: 100%;
-        max-width: 1000px;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        background-color: $color-secondary;
-        box-shadow: 0 0 15px 1px $color-shadow;
-    }
+	&-gif {
+		background-color: #ffffff;
+		text-align: center;
 
-    &-gif {
-        background-color: #ffffff;
-        text-align: center;
-    }
+		& img {
+			width: 100%;
 
-    &-img {
-        width: 100%;
-        object-fit: cover;
+			&.pare {
+				width: 200px;
+			}
 
-        &.mastermind {
-            width: 300px;
-            height: 100%;
-        }
-    }
+			&.mastermind {
+				width: 250px;
+			}
+		}
+	}
 
-    &-header {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: none;
-    }
+	&-img {
+		width: 100%;
+		object-fit: cover;
 
-    &-title {
-        margin-bottom: 1rem;
-        font-size: 36px;
-        margin-top: 0;
-    }
+		&.mastermind {
+			width: 300px;
+			height: 100%;
+		}
+	}
 
-    &-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+	&-header {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		border: none;
+	}
 
-        & .tech-stack {
-            align-self: flex-end;
-        }
-    }
+	&-title {
+		margin-bottom: 1rem;
+		font-size: 36px;
+		margin-top: 0;
+	}
 
-    &-footer {
-        display: flex;
-        justify-content: space-around;
-        border: none;
-    }
+	&-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		& .tech-stack {
+			align-self: flex-end;
+		}
+	}
+
+	&-footer {
+		display: flex;
+		justify-content: space-around;
+		border: none;
+	}
 }

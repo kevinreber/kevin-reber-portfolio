@@ -9,17 +9,17 @@ const socials = {
 };
 
 const projectDB = {
-	mate: {
+	pare: {
 		id: 1,
-		name: 'Mate (In Progress)',
-		data: 'mate',
-		image: 'mate.png',
-		gif: 'mate.gif',
+		name: 'Pare',
+		data: 'pare',
+		image: 'pare.jpg',
+		gif: 'pare.gif',
 		description:
 			'A platform to help students connect with each other and learn more about campus resources and events.',
-		tech: ['React', 'Redux', 'NodeJS', 'Google Firebase'],
-		repoLink: '',
-		liveLink: '',
+		tech: ['React', 'Redux', 'Material UI', 'Google Firebase'],
+		repoLink: 'https://github.com/kevinreber/pare',
+		liveLink: 'https://pare-afb7e.web.app/login',
 	},
 	stockFootage: {
 		id: 2,
@@ -189,9 +189,11 @@ class Project {
           <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
               <div class="modal-gif">
-                <img src="public/images/project demos/gifs/${
-									this.gif
-								}" class="modal-img ${this.class}" alt="Dashboard App">
+                <img class="${
+									this.data
+								}" src="public/images/project demos/gifs/${
+			this.gif
+		}" class="modal-img ${this.class}" alt="Dashboard App">
               </div>
               <div class="modal-body">
                 <div class="modal-header">

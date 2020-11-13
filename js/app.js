@@ -112,7 +112,7 @@ function renderProjects() {
 	let html = `
   <h3 class="section-heading">Projects</h3>
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-  ${new Project(projectDB.mate).buildCard()}
+  ${new Project(projectDB.pare).buildCard()}
     ${new Project(projectDB.stockFootage).buildCard()}
     ${new Project(projectDB.dashApp).buildCard()}
     ${new Project(projectDB.mastermind).buildCard()}
@@ -286,7 +286,7 @@ function renderFooter() {
 function renderModalHTML() {
 	const modals = document.getElementById('modals');
 	let html = `
-  ${new Project(projectDB.mate).buildModal()}
+  ${new Project(projectDB.pare).buildModal()}
   ${new Project(projectDB.stockFootage).buildModal()}
   ${new Project(projectDB.dashApp).buildModal()}
   ${new Project(projectDB.mastermind).buildModal()}
