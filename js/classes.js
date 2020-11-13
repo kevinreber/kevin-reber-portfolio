@@ -1,4 +1,4 @@
-const resume = 'public/images/resume/Kevin Reber-Resume-2020.pdf';
+const resume = 'public/images/resume/Kevin_Reber_Resume.pdf';
 
 const socials = {
 	github: 'https://github.com/kevinreber',
