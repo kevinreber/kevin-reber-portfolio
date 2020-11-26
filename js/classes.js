@@ -11,19 +11,19 @@ const socials = {
 const projectDB = {
 	pare: {
 		id: 1,
-		name: 'Pare',
+		name: 'Student Networking Platform',
 		data: 'pare',
 		image: 'pare.jpg',
 		gif: 'pare.gif',
 		description:
-			'A platform to help students connect with each other and learn more about campus resources and events.',
-		tech: ['React', 'Redux', 'Material UI', 'Google Firebase'],
+			'Welcome to Pare! A platform to help college students connect with each other and learn more about campus resources and events.',
+		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
 		repoLink: 'https://github.com/kevinreber/pare',
 		liveLink: 'https://pare-afb7e.web.app/login',
 	},
 	stockFootage: {
 		id: 2,
-		name: 'Stock Footage Automator',
+		name: 'Stock Footage Manager',
 		data: 'stockFootage',
 		image: 'stock-footage.jpg',
 		gif: 'stock-footage.gif',
