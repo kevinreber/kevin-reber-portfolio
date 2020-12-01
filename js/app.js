@@ -114,10 +114,10 @@ function renderProjects() {
   <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
   ${new Project(projectDB.pare).buildCard()}
     ${new Project(projectDB.stockFootage).buildCard()}
-    ${new Project(projectDB.dashApp).buildCard()}
-    ${new Project(projectDB.mastermind).buildCard()}
-    ${new Project(projectDB.gameShow).buildCard()}
+    ${new Project(projectDB.repoLand).buildCard()}
+    ${new Project(projectDB.dreamJobs).buildCard()}
     ${new Project(projectDB.warbler).buildCard()}
+    ${new Project(projectDB.mastermind).buildCard()}
   </div>
   `;
 	projects.innerHTML = html;
@@ -288,10 +288,10 @@ function renderModalHTML() {
 	let html = `
   ${new Project(projectDB.pare).buildModal()}
   ${new Project(projectDB.stockFootage).buildModal()}
-  ${new Project(projectDB.dashApp).buildModal()}
-  ${new Project(projectDB.mastermind).buildModal()}
-  ${new Project(projectDB.gameShow).buildModal()}
+  ${new Project(projectDB.repoLand).buildModal()}
+  ${new Project(projectDB.dreamJobs).buildModal()}
   ${new Project(projectDB.warbler).buildModal()}
+  ${new Project(projectDB.mastermind).buildModal()}
   `;
 
 	modals.innerHTML = html;
