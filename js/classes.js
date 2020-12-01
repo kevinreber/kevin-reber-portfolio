@@ -43,7 +43,7 @@ const projectDB = {
 			"Welcome to Repo Land! View all of your favorite organization's github repositories and latest contributions!",
 		tech: ['React', 'Twitter Bootstrap', 'Github API'],
 		repoLink: 'https://github.com/kevinreber/repo-land',
-		liveLink: '',
+		liveLink: 'https://suspicious-knuth-590f2a.netlify.app/',
 	},
 	mastermind: {
 		id: 4,
