@@ -11,7 +11,7 @@ import RESUME from '../../resume/Kevin_Reber_Resume.pdf';
 
 const Navbar = () => {
 	const NavItemList = NAV_ITEMS.map((item) => (
-		<li className="nav-item">
+		<li key={item} className="nav-item">
 			{item === 'Resume' ? (
 				<a
 					className="nav-link"
@@ -29,7 +29,7 @@ const Navbar = () => {
 	));
 
 	const NavSocialItems = SOCIALS.map((social) => (
-		<a href={social.src} target="_blank">
+		<a key={social.id} href={social.src} target="_blank">
 			<i className={`fa fa-${social.id} footer-social-icon`}></i>
 		</a>
 	));
