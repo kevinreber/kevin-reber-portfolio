@@ -17,80 +17,88 @@ export const ABOUT = {
 	aboutLine2: 'Welcome to my portfolio website!',
 };
 
-export const projectDB = {
-	pare: {
+const IMG_SRC =
+	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/thumbnails';
+
+export const PROJECTS = [
+	{
 		id: 1,
 		name: 'Student Networking Platform',
 		data: 'pare',
-		image: 'pare.jpg',
+		image: `${IMG_SRC}/pare.jpg`,
 		gif: 'pare.gif',
 		description:
 			'Welcome to Pare! A platform to help college students connect with each other and learn more about campus resources and events.',
 		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
 		repoLink: 'https://github.com/kevinreber/pare',
 		liveLink: 'https://pare-afb7e.web.app/login',
+		clss: '',
 	},
-	stockFootage: {
+	{
 		id: 2,
 		name: 'Stock Footage Manager',
 		data: 'stockFootage',
-		image: 'stock-footage.jpg',
+		image: `${IMG_SRC}/stock-footage.jpg`,
 		gif: 'stock-footage.gif',
 		description:
 			'Full-stack web application to help users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
 		tech: ['Flask', 'Pandas', 'Google Cloud Platform'],
 		repoLink: 'https://bit.ly/kevinreber-stock-footage-app',
 		liveLink: 'https://bit.ly/3estscE',
+		clss: '',
 	},
-	repoLand: {
+	{
 		id: 3,
 		name: 'Repo Land',
 		data: 'repo-land',
-		image: 'repo-land.jpg',
+		image: `${IMG_SRC}/repo-land.jpg`,
 		gif: 'repo-land.gif',
 		description:
 			"Welcome to Repo Land! View all of your favorite organization's github repositories and latest contributions!",
 		tech: ['React', 'Twitter Bootstrap', 'Github API'],
 		repoLink: 'https://github.com/kevinreber/repo-land',
 		liveLink: 'https://suspicious-knuth-590f2a.netlify.app/',
+		clss: '',
 	},
-	mastermind: {
+	{
 		id: 4,
 		name: 'Mastermind',
 		data: 'mastermind',
-		image: 'mastermind.jpg',
+		image: `${IMG_SRC}/mastermind.jpg`,
 		gif: 'mastermind.gif',
 		description:
 			"Game where player has 10 attempts to guess 4 randomly generated numbers using Random.org's API. Relies heavily on event handling and manipulating various DOM elements with vanilla Javascript.",
 		tech: ['Axios', 'Sass', 'Random API'],
 		repoLink: 'http://bit.ly/kevinreber-code-mastermind',
 		liveLink: 'https://kevinreber.github.io/mastermind/',
-		class: 'mastermind',
+		clss: 'mastermind',
 	},
-	dreamJobs: {
+	{
 		id: 5,
 		name: 'Dream Jobs',
 		data: 'dream-jobs',
-		image: 'dream-jobs.jpg',
+		image: `${IMG_SRC}/dream-jobs.jpg`,
 		gif: 'dream-jobs.gif',
 		description:
 			'Looking for a new career? Checkout exciting new opportunities on Dream Jobs!',
 		tech: ['React', 'Node.JS', 'PostgreSQL', 'Netlify'],
 		repoLink: 'https://github.com/kevinreber/react-jobly',
 		liveLink: 'https://gallant-leakey-b85924.netlify.app/login',
+		clss: '',
 	},
-	warbler: {
+	{
 		id: 6,
 		name: 'Warbler',
 		data: 'warbler',
-		image: 'warbler.jpg',
+		image: `${IMG_SRC}/warbler.jpg`,
 		gif: 'warbler.gif',
 		description: 'Full-stack Twitter clone built using Python technologies.',
 		tech: ['Flask', 'WTForms', 'PostgreSQL'],
 		repoLink: 'https://bit.ly/kevinreber-warbler',
 		liveLink: '',
+		clss: '',
 	},
-};
+];
 
 export const SKILLS = [
 	{
