@@ -5,6 +5,7 @@ interface Props {
 	name: string;
 	description: string;
 	image: string;
+	gif: string;
 	tech: string[];
 	repoSrc: string;
 	liveSrc: string;
@@ -16,13 +17,12 @@ const ProjectCard: React.FC<Props> = ({
 	name,
 	description,
 	image,
+	gif,
 	tech,
 	repoSrc,
 	liveSrc,
 	clss,
 }) => {
-	console.log(image);
-
 	return (
 		<div className="col mb-4">
 			<div

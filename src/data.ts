@@ -17,16 +17,19 @@ export const ABOUT = {
 	aboutLine2: 'Welcome to my portfolio website!',
 };
 
-const IMG_SRC =
+const THUMB_SRC =
 	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/thumbnails';
+
+const GIF_SRC =
+	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/gifs';
 
 export const PROJECTS = [
 	{
 		id: 1,
 		name: 'Student Networking Platform',
 		data: 'pare',
-		image: `${IMG_SRC}/pare.jpg`,
-		gif: 'pare.gif',
+		image: `${THUMB_SRC}/pare.jpg`,
+		gif: `${GIF_SRC}/pare.gif`,
 		description:
 			'Welcome to Pare! A platform to help college students connect with each other and learn more about campus resources and events.',
 		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
@@ -38,8 +41,8 @@ export const PROJECTS = [
 		id: 2,
 		name: 'Stock Footage Manager',
 		data: 'stockFootage',
-		image: `${IMG_SRC}/stock-footage.jpg`,
-		gif: 'stock-footage.gif',
+		image: `${THUMB_SRC}/stock-footage.jpg`,
+		gif: `${GIF_SRC}/stock-footage.gif`,
 		description:
 			'Full-stack web application to help users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
 		tech: ['Flask', 'Pandas', 'Google Cloud Platform'],
@@ -51,8 +54,8 @@ export const PROJECTS = [
 		id: 3,
 		name: 'Repo Land',
 		data: 'repo-land',
-		image: `${IMG_SRC}/repo-land.jpg`,
-		gif: 'repo-land.gif',
+		image: `${THUMB_SRC}/repo-land.jpg`,
+		gif: `${GIF_SRC}/repo-land.gif`,
 		description:
 			"Welcome to Repo Land! View all of your favorite organization's github repositories and latest contributions!",
 		tech: ['React', 'Twitter Bootstrap', 'Github API'],
@@ -64,8 +67,8 @@ export const PROJECTS = [
 		id: 4,
 		name: 'Mastermind',
 		data: 'mastermind',
-		image: `${IMG_SRC}/mastermind.jpg`,
-		gif: 'mastermind.gif',
+		image: `${THUMB_SRC}/mastermind.jpg`,
+		gif: `${GIF_SRC}/mastermind.gif`,
 		description:
 			"Game where player has 10 attempts to guess 4 randomly generated numbers using Random.org's API. Relies heavily on event handling and manipulating various DOM elements with vanilla Javascript.",
 		tech: ['Axios', 'Sass', 'Random API'],
@@ -77,8 +80,8 @@ export const PROJECTS = [
 		id: 5,
 		name: 'Dream Jobs',
 		data: 'dream-jobs',
-		image: `${IMG_SRC}/dream-jobs.jpg`,
-		gif: 'dream-jobs.gif',
+		image: `${THUMB_SRC}/dream-jobs.jpg`,
+		gif: `${GIF_SRC}/dream-jobs.gif`,
 		description:
 			'Looking for a new career? Checkout exciting new opportunities on Dream Jobs!',
 		tech: ['React', 'Node.JS', 'PostgreSQL', 'Netlify'],
@@ -90,8 +93,8 @@ export const PROJECTS = [
 		id: 6,
 		name: 'Warbler',
 		data: 'warbler',
-		image: `${IMG_SRC}/warbler.jpg`,
-		gif: 'warbler.gif',
+		image: `${THUMB_SRC}/warbler.jpg`,
+		gif: `${GIF_SRC}/warbler.gif`,
 		description: 'Full-stack Twitter clone built using Python technologies.',
 		tech: ['Flask', 'WTForms', 'PostgreSQL'],
 		repoLink: 'https://bit.ly/kevinreber-warbler',

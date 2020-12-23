@@ -15,6 +15,7 @@ const ProjectList: React.FC = () => {
 				name={project.name}
 				description={project.description}
 				image={project.image}
+				gif={project.gif}
 				tech={project.tech}
 				repoSrc={project.repoLink}
 				liveSrc={project.liveLink}
