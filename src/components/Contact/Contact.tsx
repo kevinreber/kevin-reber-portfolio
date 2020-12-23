@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
 					Want to See My Design Work?
 				</h5>
 				<h5 className="contact-msg">
-					Checkout my design portfolio
+					Checkout my design portfolio{' '}
 					<a className="links" href={DESIGN_PORTFOLIO} target="_blank">
 						here!
 					</a>
