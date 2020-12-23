@@ -1,5 +1,7 @@
 export const NAV_ITEMS = ['Skills', 'Projects', 'Contact', 'Resume'];
 
+export const DESIGN_PORTFOLIO = 'https://www.kevinreber.net/';
+
 export const SOCIALS = [
 	{ id: 'github', src: 'https://github.com/kevinreber' },
 	{ id: 'linkedin', src: 'http://bit.ly/kevinreber-linkedin' },
