@@ -3,6 +3,7 @@ import React from 'react';
 // components
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import Footer from './components/Footer/Footer';
 
 import './App.css';
 
@@ -51,7 +52,9 @@ function App() {
 			<section id="contact" className="container section-offset"></section>
 
 			{/* Footer  */}
-			<section id="footer" className="container footer"></section>
+			<section id="footer" className="container footer">
+				<Footer />
+			</section>
 
 			{/* Modals  */}
 			<section id="modals"></section>
