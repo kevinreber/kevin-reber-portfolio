@@ -8,6 +8,13 @@ export const SOCIALS = [
 	{ id: 'twitter', src: 'https://twitter.com/k_reebz' },
 ];
 
+export const ABOUT = {
+	greeting: 'Hello World, my name is',
+	subGreeting: 'Kevin Reber 👋',
+	aboutLine1: "I'm a self-taught developer with a passion to build & design.",
+	aboutLine2: 'Welcome to my portfolio website!',
+};
+
 export const projectDB = {
 	pare: {
 		id: 1,

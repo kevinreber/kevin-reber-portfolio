@@ -2,12 +2,13 @@ import React from 'react';
 
 // components
 import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+
 import './App.css';
 
 function App() {
 	return (
 		<div className="App">
-			<Navbar />
 			{/* Overlay */}
 			{/* <div id="overlay">
 				<div className="overlay-container">
@@ -25,7 +26,35 @@ function App() {
 					</svg>
 				</div>
 			</div> */}
-			{/* /Overlay */}
+
+			{/* <!-- Navbar --> */}
+			<section id="navbar">
+				<Navbar />
+			</section>
+
+			{/* Hero  */}
+			<section id="hero" className="hero text-sm-center container">
+				<Hero />
+			</section>
+
+			{/* Skills  */}
+			<section id="skills" className="container section-offset"></section>
+
+			<hr className="section-hr" />
+
+			{/* Projects  */}
+			<section id="projects" className="container section-offset"></section>
+
+			<hr className="section-hr" />
+
+			{/* Contact  */}
+			<section id="contact" className="container section-offset"></section>
+
+			{/* Footer  */}
+			<section id="footer" className="container footer"></section>
+
+			{/* Modals  */}
+			<section id="modals"></section>
 		</div>
 	);
 }
