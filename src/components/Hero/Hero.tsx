@@ -6,7 +6,7 @@ import SocialIcons from '../SocialIcons/SocialIcons';
 
 import { ABOUT } from '../../data';
 
-const Hero = () => {
+const Hero: React.FC = () => {
 	return (
 		<>
 			<div className="about-txt text-left">
