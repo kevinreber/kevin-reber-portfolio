@@ -90,21 +90,21 @@ export const projectDB = {
 	},
 };
 
-export const skillsDB = {
-	design: {
+export const SKILLS = [
+	{
 		title: 'Design',
 		skills: ['Figma', 'Photoshop', 'Illustrator', 'After Effects'],
 	},
-	frontEnd: {
+	{
 		title: 'Front End',
 		skills: ['HTML', 'CSS | SASS', 'Javascript | jQuery', 'React JS'],
 	},
-	server: {
+	{
 		title: 'Server',
 		skills: ['Python | Flask', 'NodeJS', 'Express'],
 	},
-	data: {
+	{
 		title: 'Data',
 		skills: ['SQL', 'MySQL', 'PostgreSQL', 'MongoDB'],
 	},
-};
+];

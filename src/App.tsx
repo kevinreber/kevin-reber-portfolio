@@ -3,6 +3,7 @@ import React from 'react';
 // components
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import Skills from './components/Skills/Skills';
 import Footer from './components/Footer/Footer';
 
 import './App.css';
@@ -39,7 +40,9 @@ function App() {
 			</section>
 
 			{/* Skills  */}
-			<section id="skills" className="container section-offset"></section>
+			<section id="skills" className="container section-offset">
+				<Skills />
+			</section>
 
 			<hr className="section-hr" />
 
