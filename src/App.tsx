@@ -51,7 +51,6 @@ function App() {
 	const handleOpen = (project: any) => {
 		setCurrentProject(project);
 		setShowModal(true);
-		console.log(showModal, currentProject);
 	};
 
 	const handleClose = () => {
@@ -83,7 +82,6 @@ function App() {
 			</section>
 
 			{/* Modal  */}
-
 			<Modal
 				open={showModal}
 				onClose={handleClose}
@@ -132,9 +130,6 @@ function App() {
 			<section id="footer" className="container footer">
 				<Footer />
 			</section>
-
-			{/* Modals  */}
-			{/* <section id="modals"></section> */}
 		</div>
 	);
 }
