@@ -2,6 +2,8 @@ export const NAV_ITEMS = ['Skills', 'Projects', 'Contact', 'Resume'];
 
 export const DESIGN_PORTFOLIO = 'https://www.kevinreber.net/';
 
+export const MATE = 'http://mateapp.us/';
+
 export const SOCIALS = [
 	{ id: 'github', src: 'https://github.com/kevinreber' },
 	{ id: 'linkedin', src: 'http://bit.ly/kevinreber-linkedin' },
@@ -14,7 +16,7 @@ export const ABOUT = {
 	greeting: 'Hello World, my name is',
 	subGreeting: 'Kevin Reber 👋',
 	aboutLine1: "I'm a self-taught developer with a passion to build & design.",
-	aboutLine2: 'Welcome to my portfolio website!',
+	aboutLine2: 'Co-Founder of an ed-tech platform @ Berkeley Skydeck!',
 };
 
 const THUMB_SRC =

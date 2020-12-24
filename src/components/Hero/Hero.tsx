@@ -4,7 +4,7 @@ import React from 'react';
 import HeroButtons from '../HeroButtons/HeroButtons';
 import SocialIcons from '../SocialIcons/SocialIcons';
 
-import { ABOUT } from '../../data';
+import { ABOUT, MATE } from '../../data';
 
 const Hero: React.FC = () => {
 	return (
@@ -16,9 +16,15 @@ const Hero: React.FC = () => {
 					<span className="about line-2">{ABOUT.subGreeting}</span>
 					<br />
 					<span className="about line-3">
-						{ABOUT.aboutLine1}
+						{/* {ABOUT.aboutLine2} */}I am a{' '}
+						<strong>Co-Founder &amp; Engineer</strong> of an ed-tech platform at{' '}
+						<strong>U.C. Berkeley's SKYDECK</strong> accelerator program!
 						<br />
-						{ABOUT.aboutLine2}
+						Currently helping students connect remotely, you can learn more{' '}
+						<a className="links" href={MATE}>
+							here
+						</a>
+						.{/* {ABOUT.aboutLine1} */}
 					</span>
 					<br />
 					<hr />
