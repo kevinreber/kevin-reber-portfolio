@@ -259,6 +259,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	padding: 1.5rem;
 }
 
 .section-hr {
