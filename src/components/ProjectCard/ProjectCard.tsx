@@ -1,6 +1,11 @@
 import React from 'react';
 
-interface Props {
+// components
+import ProjectCardButtons from '../ProjectCardButtons/ProjectCardButtons';
+import ProjectTechList from '../ProjectTechList/ProjectTechList';
+
+type Props = {
+	id: number;
 	data: string;
 	name: string;
 	description: string;
@@ -10,9 +15,11 @@ interface Props {
 	repoSrc: string;
 	liveSrc: string;
 	clss?: string | null;
-}
+	setModalProject: (project: object) => void;
+};
 
 const ProjectCard: React.FC<Props> = ({
+	id,
 	data,
 	name,
 	description,
@@ -22,14 +29,32 @@ const ProjectCard: React.FC<Props> = ({
 	repoSrc,
 	liveSrc,
 	clss,
+	setModalProject,
 }) => {
+	const handleClick = () => {
+		const project = {
+			id,
+			name,
+			data,
+			image,
+			gif,
+			description,
+			tech,
+			repoSrc,
+			liveSrc,
+			clss,
+		};
+
+		setModalProject(project);
+	};
 	return (
 		<div className="col mb-4">
 			<div
 				className="card h-100 project"
 				data-project={data}
 				data-toggle="modal"
-				data-target={`#${data}Modal`}>
+				data-target={`#${data}Modal`}
+				onClick={handleClick}>
 				<div className="card-img-top">
 					<img
 						src={image + '?raw=true'}
@@ -41,9 +66,9 @@ const ProjectCard: React.FC<Props> = ({
 					<h5 className="card-title">{name}</h5>
 					<p className="card-text">{description}</p>
 					<div className="tech-stack text-right">
-						{/* ${this.displayTech(this.tech)} */}
+						<ProjectTechList tech={tech} />
 					</div>
-					{/* ${this.buildCardButtons(this.repoLink, this.liveLink)} */}
+					<ProjectCardButtons repoSrc={repoSrc} liveSrc={liveSrc} />
 				</div>
 			</div>
 		</div>

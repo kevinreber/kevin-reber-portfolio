@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // components
 import Navbar from './components/Navbar/Navbar';
@@ -8,9 +8,51 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 
+// MUI
+import Modal from '@material-ui/core/Modal';
+
+// styles
 import './App.css';
 
+interface Project {
+	id: number;
+	name: string;
+	data: string;
+	image: string;
+	gif: string;
+	description: string;
+	tech: [];
+	repoLink: string;
+	liveLink: string;
+	clss?: string | null;
+}
+
+// const CURR_PROJECT_INITIAL_STATE = {
+// 	id: 0,
+// 	name: '',
+// 	data: '',
+// 	image: '',
+// 	gif: '',
+// 	description: '',
+// 	tech: [],
+// 	repoLink: '',
+// 	liveLink: '',
+// 	clss: '',
+// };
+
 function App() {
+	const [currentProject, setCurrentProject] = useState<object | null>(null);
+	const [showModal, setShowModal] = useState<boolean>(false);
+
+	const handleOpen = (project: object) => {
+		setCurrentProject(project);
+		setShowModal(true);
+		console.log(showModal, currentProject);
+	};
+
+	const handleClose = () => {
+		setShowModal(false);
+	};
 	return (
 		<div className="App">
 			{/* Overlay */}
@@ -50,7 +92,7 @@ function App() {
 
 			{/* Projects  */}
 			<section id="projects" className="container section-offset">
-				<Projects />
+				<Projects setModalProject={handleOpen} />
 			</section>
 
 			<hr className="section-hr" />

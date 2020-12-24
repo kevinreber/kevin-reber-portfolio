@@ -2,8 +2,12 @@ import React from 'react';
 
 import ProjectList from '../ProjectList/ProjectList';
 
-const Projects: React.FC = () => {
-	return <ProjectList />;
+type Props = {
+	setModalProject: (project: object) => void;
+};
+
+const Projects: React.FC<Props> = ({ setModalProject }) => {
+	return <ProjectList setModalProject={setModalProject} />;
 };
 
 export default Projects;

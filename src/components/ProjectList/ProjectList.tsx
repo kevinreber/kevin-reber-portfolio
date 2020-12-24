@@ -6,11 +6,16 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 // constants
 import { PROJECTS } from '../../data';
 
-const ProjectList: React.FC = () => {
+type Props = {
+	setModalProject: (project: object) => void;
+};
+
+const ProjectList: React.FC<Props> = ({ setModalProject }) => {
 	const List = PROJECTS.map((project) => (
 		<>
 			<ProjectCard
 				key={project.id}
+				id={project.id}
 				data={project.data}
 				name={project.name}
 				description={project.description}
@@ -20,6 +25,7 @@ const ProjectList: React.FC = () => {
 				repoSrc={project.repoLink}
 				liveSrc={project.liveLink}
 				clss={project.clss}
+				setModalProject={setModalProject}
 			/>
 		</>
 	));
