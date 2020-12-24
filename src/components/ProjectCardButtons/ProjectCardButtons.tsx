@@ -12,12 +12,12 @@ const ProjectCardButtons: React.FC<Props> = ({
 	return (
 		<div className="card-footer">
 			{repoSrc !== '' ? (
-				<a href={repoSrc} className="btn" target="_blank">
+				<a href={repoSrc} className="btn" target="_blank" rel="noreferrer">
 					Source Code
 				</a>
 			) : null}
 			{liveSrc !== '' ? (
-				<a href={liveSrc} className="btn" target="_blank">
+				<a href={liveSrc} className="btn" target="_blank" rel="noreferrer">
 					Live Demo
 				</a>
 			) : null}
