@@ -60,6 +60,11 @@ p {
 	}
 }
 
+.tech {
+	display: flex;
+	margin-left: 0;
+}
+
 .txt-2 {
 	font-family: 'SF Mono', monospace;
 	align-self: flex-end;
