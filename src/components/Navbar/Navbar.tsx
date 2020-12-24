@@ -48,7 +48,9 @@ const Navbar = () => {
 				<ul className="nav-links">
 					<div className="nav-items">{NavItemList}</div>
 					<div className="nav-socials">
-						<div className="social-icons">{NavSocialItems}</div>
+						<li className="nav-item">
+							<div className="social-icons">{NavSocialItems}</div>
+						</li>
 					</div>
 				</ul>
 			</nav>
