@@ -7,9 +7,11 @@ import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import ProjectModal from './components/ProjectModal/ProjectModal';
 
 // MUI
 import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
 
 // styles
 import './App.css';
@@ -27,24 +29,26 @@ interface Project {
 	clss?: string | null;
 }
 
-// const CURR_PROJECT_INITIAL_STATE = {
-// 	id: 0,
-// 	name: '',
-// 	data: '',
-// 	image: '',
-// 	gif: '',
-// 	description: '',
-// 	tech: [],
-// 	repoLink: '',
-// 	liveLink: '',
-// 	clss: '',
-// };
+const CURR_PROJECT_INITIAL_STATE = {
+	id: 0,
+	name: '',
+	data: '',
+	image: '',
+	gif: '',
+	description: '',
+	tech: [],
+	repoLink: '',
+	liveLink: '',
+	clss: '',
+};
 
 function App() {
-	const [currentProject, setCurrentProject] = useState<object | null>(null);
+	const [currentProject, setCurrentProject] = useState(
+		CURR_PROJECT_INITIAL_STATE
+	);
 	const [showModal, setShowModal] = useState<boolean>(false);
 
-	const handleOpen = (project: object) => {
+	const handleOpen = (project: any) => {
 		setCurrentProject(project);
 		setShowModal(true);
 		console.log(showModal, currentProject);
@@ -78,6 +82,28 @@ function App() {
 				<Navbar />
 			</section>
 
+			{/* Modal  */}
+
+			<Modal
+				open={showModal}
+				onClose={handleClose}
+				closeAfterTransition
+				BackdropComponent={Backdrop}
+				aria-labelledby="transition-modal-title"
+				aria-describedby="transition-modal-description">
+				<ProjectModal
+					id={currentProject.id}
+					name={currentProject.name}
+					data={currentProject.data}
+					image={currentProject.image}
+					gif={currentProject.gif}
+					description={currentProject.description}
+					tech={currentProject.tech}
+					repoLink={currentProject.repoLink}
+					liveLink={currentProject.liveLink}
+				/>
+			</Modal>
+
 			{/* Hero  */}
 			<section id="hero" className="hero text-sm-center container">
 				<Hero />
@@ -108,7 +134,7 @@ function App() {
 			</section>
 
 			{/* Modals  */}
-			<section id="modals"></section>
+			{/* <section id="modals"></section> */}
 		</div>
 	);
 }
