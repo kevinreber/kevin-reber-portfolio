@@ -40,8 +40,8 @@ const ProjectCard: React.FC<Props> = ({
 			gif,
 			description,
 			tech,
-			repoSrc,
-			liveSrc,
+			repoLink: repoSrc,
+			liveLink: liveSrc,
 			clss,
 		};
 
@@ -52,7 +52,6 @@ const ProjectCard: React.FC<Props> = ({
 			<div
 				className="card h-100 project"
 				data-project={data}
-				data-toggle="modal"
 				data-target={`#${data}Modal`}
 				onClick={handleClick}>
 				<div className="card-img-top">
