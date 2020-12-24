@@ -276,12 +276,16 @@ body {
 
 #overlay {
 	margin: auto;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	/* bring your own prefixes */
+	transform: translate(-50%, -50%);
 	transition: opacity 400ms ease-in;
 }
 #overlay .overlay-container {
 	background-color: #ffffff;
 	text-align: center;
-	margin-top: 10rem;
 }
 #overlay .overlay-svg {
 	position: relative;

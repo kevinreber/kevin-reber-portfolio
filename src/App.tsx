@@ -60,9 +60,9 @@ function App() {
 	return (
 		<div className="App">
 			{/* Overlay */}
-			{/* <div id="overlay">
+			<div id="overlay">
 				<Overlay />
-			</div> */}
+			</div>
 
 			{/* <!-- Navbar --> */}
 			<section id="navbar">
