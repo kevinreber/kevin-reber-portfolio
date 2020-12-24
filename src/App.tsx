@@ -15,6 +15,7 @@ import ProjectTechList from './components/ProjectTechList/ProjectTechList';
 // MUI
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 
 // styles
 import './App.css';
@@ -66,30 +67,34 @@ function App() {
 				BackdropComponent={Backdrop}
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description">
-				<div className="modal-content">
-					<div className="modal-gif">
-						<img
-							src={currentProject.gif}
-							className={`modal-img ${currentProject.data}`}
-							alt={currentProject.name}
-						/>
-					</div>
-					<div className="modal-body">
-						<div className="modal-header">
-							<h5 className="modal-title card-title">{currentProject.name}</h5>
-							<p className="modal-text card-text">
-								{currentProject.description}
-							</p>
+				<Fade in={showModal}>
+					<div className="modal-content">
+						<div className="modal-gif">
+							<img
+								src={currentProject.gif}
+								className={`modal-img ${currentProject.data}`}
+								alt={currentProject.name}
+							/>
 						</div>
-						<div className="tech-stack text-right">
-							<ProjectTechList tech={currentProject.tech} />
+						<div className="modal-body">
+							<div className="modal-header">
+								<h5 className="modal-title card-title">
+									{currentProject.name}
+								</h5>
+								<p className="modal-text card-text">
+									{currentProject.description}
+								</p>
+							</div>
+							<div className="tech-stack text-right">
+								<ProjectTechList tech={currentProject.tech} />
+							</div>
+							<ProjectCardButtons
+								repoSrc={currentProject.repoLink}
+								liveSrc={currentProject.liveLink}
+							/>
 						</div>
-						<ProjectCardButtons
-							repoSrc={currentProject.repoLink}
-							liveSrc={currentProject.liveLink}
-						/>
 					</div>
-				</div>
+				</Fade>
 			</Modal>
 
 			{/* Hero  */}
