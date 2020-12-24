@@ -8,7 +8,6 @@ import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import ProjectModal from './components/ProjectModal/ProjectModal';
 
 import ProjectCardButtons from './components/ProjectCardButtons/ProjectCardButtons';
 import ProjectTechList from './components/ProjectTechList/ProjectTechList';
@@ -19,19 +18,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 
 // styles
 import './App.css';
-
-interface Project {
-	id: number;
-	name: string;
-	data: string;
-	image: string;
-	gif: string;
-	description: string;
-	tech: [];
-	repoLink: string;
-	liveLink: string;
-	clss?: string | null;
-}
 
 const CURR_PROJECT_INITIAL_STATE = {
 	id: 0,
@@ -104,17 +90,6 @@ function App() {
 						/>
 					</div>
 				</div>
-				{/* <ProjectModal
-					id={currentProject.id}
-					name={currentProject.name}
-					data={currentProject.data}
-					image={currentProject.image}
-					gif={currentProject.gif}
-					description={currentProject.description}
-					tech={currentProject.tech}
-					repoLink={currentProject.repoLink}
-					liveLink={currentProject.liveLink}
-				/> */}
 			</Modal>
 
 			{/* Hero  */}
