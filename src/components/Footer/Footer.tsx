@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
 			<SocialIcons variant="footer" />
 			<span className="footer-text">
 				Designed & Built by{' '}
-				<a className="links" target="_blank" href={linkedIn}>
+				<a className="links" target="_blank" href={linkedIn} rel="noreferrer">
 					Kevin Reber
 				</a>
 			</span>
