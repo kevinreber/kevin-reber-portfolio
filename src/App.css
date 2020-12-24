@@ -60,7 +60,7 @@ p {
 	}
 }
 
-.tech {
+.tech-stack .tech {
 	display: flex;
 	margin-left: 0;
 }
