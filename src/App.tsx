@@ -45,6 +45,7 @@ function App() {
 	};
 
 	const handleClose = () => {
+		setCurrentProject(CURR_PROJECT_INITIAL_STATE);
 		setShowModal(false);
 	};
 	return (
