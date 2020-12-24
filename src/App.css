@@ -283,13 +283,11 @@ body {
 	stroke-width: 1px;
 }
 
-.modal {
-	max-height: 800px;
-}
 .modal-content {
 	height: 100%;
+	max-height: 740px;
 	max-width: 500px;
-	margin: auto;
+	margin: 2rem auto 0 auto;
 	display: flex;
 	flex-direction: column;
 	position: relative;
@@ -309,13 +307,16 @@ body {
 .modal-gif img.mastermind {
 	width: 250px;
 }
+.modal-gif img.stockFootage {
+	max-width: 360px;
+}
+.modal-gif img.dream-jobs {
+	max-width: 320px;
+}
+
 .modal-img {
 	width: 100%;
 	object-fit: cover;
-}
-.modal-img.mastermind {
-	width: 300px;
-	height: 100%;
 }
 .modal-header {
 	display: flex;
@@ -336,10 +337,15 @@ body {
 .modal-body .tech-stack {
 	align-self: flex-end;
 }
-.modal-footer {
+.modal-content > .modal-body .card-footer {
 	display: flex;
-	justify-content: space-around;
-	border: none;
+	justify-content: space-between;
+	padding: 1rem;
+}
+
+.card-footer:last-child,
+.modal-content .card-footer:last-child {
+	border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
 
 .card {
@@ -350,6 +356,11 @@ body {
 .card-img-top::before {
 	transition: all 0.1s linear;
 }
+
+[data-project='stockFootage'] > .card-img-top > img.card-img {
+	width: 100%;
+}
+
 #projects .card {
 	box-shadow: 0 0 8px #979797;
 }
@@ -434,6 +445,7 @@ body {
 	background-color: transparent;
 	padding: 1.25rem 0 0 0;
 	margin-top: auto;
+	border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 @media (min-width: 768px) {
 	.card-footer {
@@ -473,7 +485,8 @@ body {
 	position: relative;
 }
 
-.btn {
+.btn,
+.modal-content .btn {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -498,7 +511,8 @@ body {
 	transform: skewX(-45deg) translateX(0);
 	transition: none;
 }
-.btn:hover {
+.btn:hover,
+.modal-content .btn:hover {
 	color: #fff;
 	background-color: #54b78a;
 	border-color: #ffffff;
