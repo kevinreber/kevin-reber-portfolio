@@ -12,11 +12,11 @@ const ProjectTechList: React.FC<Props> = ({ tech = [] }) => {
 	return (
 		<>
 			{tech.map((t, i) => (
-				<>
+				<span key={t}>
 					<p className="txt-2-project">{t}</p>
 					{/* Add a '|' to separate tech[i] if tech[i] is not last */}
 					{i < n - 1 ? <p className="txt-2-project">|</p> : null}
-				</>
+				</span>
 			))}
 		</>
 	);

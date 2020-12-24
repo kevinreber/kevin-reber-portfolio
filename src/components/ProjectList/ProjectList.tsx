@@ -12,9 +12,8 @@ type Props = {
 
 const ProjectList: React.FC<Props> = ({ setModalProject }) => {
 	const List = PROJECTS.map((project) => (
-		<>
+		<div className="col mb-4" key={project.id}>
 			<ProjectCard
-				key={project.id}
 				id={project.id}
 				data={project.data}
 				name={project.name}
@@ -27,7 +26,7 @@ const ProjectList: React.FC<Props> = ({ setModalProject }) => {
 				clss={project.clss}
 				setModalProject={setModalProject}
 			/>
-		</>
+		</div>
 	));
 
 	return (
