@@ -16,7 +16,8 @@ const Contact: React.FC = () => {
 				<a
 					className="btn btn-contact"
 					href="mailto:kevinreber@berkeley.edu"
-					target="_blank">
+					target="_blank"
+					rel="noreferrer">
 					Say Hello
 				</a>
 			</div>
@@ -26,7 +27,11 @@ const Contact: React.FC = () => {
 				</h5>
 				<h5 className="contact-msg">
 					Checkout my design portfolio{' '}
-					<a className="links" href={DESIGN_PORTFOLIO} target="_blank">
+					<a
+						className="links"
+						href={DESIGN_PORTFOLIO}
+						target="_blank"
+						rel="noreferrer">
 						here!
 					</a>
 				</h5>
