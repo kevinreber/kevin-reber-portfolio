@@ -29,7 +29,7 @@ const Navbar = () => {
 	));
 
 	const NavSocialItems = SOCIALS.map((social) => (
-		<a key={social.id} href={social.src} target="_blank">
+		<a key={social.id} href={social.src} target="_blank" rel="noreferrer">
 			<i className={`fa fa-${social.id} footer-social-icon`}></i>
 		</a>
 	));
@@ -37,7 +37,7 @@ const Navbar = () => {
 	return (
 		<>
 			<nav className="navbar navbar-expand-sm fixed-top">
-				<a className="navbar-brand" href="#">
+				<a className="navbar-brand" href="#top">
 					<Logo />
 				</a>
 				<div className="burger">
