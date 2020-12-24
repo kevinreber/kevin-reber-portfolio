@@ -8,7 +8,7 @@ export const SOCIALS = [
 	{ id: 'github', src: 'https://github.com/kevinreber' },
 	{ id: 'linkedin', src: 'http://bit.ly/kevinreber-linkedin' },
 	{ id: 'codepen', src: 'https://codepen.io/kevinreber' },
-	{ id: 'instagram', src: 'https://www.instagram.com/kevin_reber/' },
+	{ id: 'instagram', src: 'https://www.instagram.com/k_reebz/' },
 	{ id: 'twitter', src: 'https://twitter.com/k_reebz' },
 ];
 
