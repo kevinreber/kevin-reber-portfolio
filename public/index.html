@@ -71,7 +71,7 @@
     const navSlide = () => {
       const nav = document.querySelector('.nav-links');
       const burger = document.querySelector('.burger');
-      const navLinks = document.querySelectorAll('.nav-links li');
+      const navLinks = document.querySelectorAll('.nav-links .nav-items li');
 
       nav.classList.toggle('nav-active');
 
@@ -91,7 +91,42 @@
     };
 
     // Event Listener for 'page slide' effect
-    document.querySelector('.burger').addEventListener('click', navSlide);
+    window.setTimeout(() => {
+      document.querySelector('.burger').addEventListener('click', navSlide);
+    }, 100);
+  </script>
+
+  <script>
+    // Removes overlay display and add transition effect to all sections on page
+    window.setTimeout(() => {
+      // overlay.style.display = 'none';
+
+      // const sections = document.querySelectorAll('section');
+      // const hRs = document.querySelectorAll('hr');
+
+      // for (let section of sections) {
+      //   section.classList.remove('hidden');
+      //   section.classList.add('transition');
+      // }
+      // for (let hr of hRs) {
+      //   hr.classList.remove('hidden');
+      //   hr.classList.add('transition');
+      // }
+
+    }, 3000);
+
+    // Display rest of site with fade in effect
+    // window.setTimeout(() => {
+    //   const sections = document.querySelectorAll('section');
+    //   const hRs = document.querySelectorAll('hr');
+
+    //   for (let section of sections) {
+    //     section.classList.add('show');
+    //   }
+    //   for (let hr of hRs) {
+    //     hr.classList.add('show');
+    //   }
+    // }, 3200);
   </script>
 </body>
 
