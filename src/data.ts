@@ -20,7 +20,7 @@ export const ABOUT = {
 };
 
 const THUMB_SRC =
-	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/thumbnails';
+	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/archives/public/images/project%20demos/thumbnails/';
 
 // const GIF_SRC =
 // 	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/gifs';
