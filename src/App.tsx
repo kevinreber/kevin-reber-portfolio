@@ -10,6 +10,9 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ProjectModal from './components/ProjectModal/ProjectModal';
 
+import ProjectCardButtons from './components/ProjectCardButtons/ProjectCardButtons';
+import ProjectTechList from './components/ProjectTechList/ProjectTechList';
+
 // MUI
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -77,7 +80,31 @@ function App() {
 				BackdropComponent={Backdrop}
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description">
-				<ProjectModal
+				<div className="modal-content">
+					<div className="modal-gif">
+						<img
+							src={currentProject.gif}
+							className={`modal-img ${currentProject.data}`}
+							alt={currentProject.name}
+						/>
+					</div>
+					<div className="modal-body">
+						<div className="modal-header">
+							<h5 className="modal-title card-title">{currentProject.name}</h5>
+							<p className="modal-text card-text">
+								{currentProject.description}
+							</p>
+						</div>
+						<div className="tech-stack text-right">
+							<ProjectTechList tech={currentProject.tech} />
+						</div>
+						<ProjectCardButtons
+							repoSrc={currentProject.repoLink}
+							liveSrc={currentProject.liveLink}
+						/>
+					</div>
+				</div>
+				{/* <ProjectModal
 					id={currentProject.id}
 					name={currentProject.name}
 					data={currentProject.data}
@@ -87,7 +114,7 @@ function App() {
 					tech={currentProject.tech}
 					repoLink={currentProject.repoLink}
 					liveLink={currentProject.liveLink}
-				/>
+				/> */}
 			</Modal>
 
 			{/* Hero  */}

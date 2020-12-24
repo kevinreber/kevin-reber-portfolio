@@ -32,21 +32,23 @@ const ProjectModal: React.FC<Props> = ({
 	liveLink,
 }) => {
 	return (
-		<div className="modal-content">
-			<div className="modal-gif">
-				<img src={gif} className={`modal-img ${data}`} alt={name} />
-			</div>
-			<div className="modal-body">
-				<div className="modal-header">
-					<h5 className="modal-title card-title">{name}</h5>
-					<p className="modal-text card-text">{description}</p>
+		<React.Fragment>
+			<div className="modal-content">
+				<div className="modal-gif">
+					<img src={gif} className={`modal-img ${data}`} alt={name} />
 				</div>
-				<div className="tech-stack text-right">
-					<ProjectTechList tech={tech} />
+				<div className="modal-body">
+					<div className="modal-header">
+						<h5 className="modal-title card-title">{name}</h5>
+						<p className="modal-text card-text">{description}</p>
+					</div>
+					<div className="tech-stack text-right">
+						<ProjectTechList tech={tech} />
+					</div>
+					<ProjectCardButtons repoSrc={repoLink} liveSrc={liveLink} />
 				</div>
-				<ProjectCardButtons repoSrc={repoLink} liveSrc={liveLink} />
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 
