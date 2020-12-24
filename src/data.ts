@@ -20,8 +20,10 @@ export const ABOUT = {
 const THUMB_SRC =
 	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/thumbnails';
 
-const GIF_SRC =
-	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/gifs';
+// const GIF_SRC =
+// 	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/public/images/project%20demos/gifs';
+
+const GIF_SRC = 'https://media.giphy.com/media';
 
 export const PROJECTS = [
 	{
@@ -29,7 +31,7 @@ export const PROJECTS = [
 		name: 'Student Networking Platform',
 		data: 'pare',
 		image: `${THUMB_SRC}/pare.jpg`,
-		gif: `${GIF_SRC}/pare.gif`,
+		gif: `${GIF_SRC}/splNgXYOLuVWzfBcfF/source.gif`,
 		description:
 			'Welcome to Pare! A platform to help college students connect with each other and learn more about campus resources and events.',
 		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
@@ -42,7 +44,7 @@ export const PROJECTS = [
 		name: 'Stock Footage Manager',
 		data: 'stockFootage',
 		image: `${THUMB_SRC}/stock-footage.jpg`,
-		gif: `${GIF_SRC}/stock-footage.gif`,
+		gif: `${GIF_SRC}/xqw6X7FFtZrmuIe1Di/source.gif`,
 		description:
 			'Full-stack web application to help users manage and sell their stock footage to various stock footage agencies, such as ShutterStock, Pond5 and Adobe stock.',
 		tech: ['Flask', 'Pandas', 'Google Cloud Platform'],
@@ -55,7 +57,7 @@ export const PROJECTS = [
 		name: 'Repo Land',
 		data: 'repo-land',
 		image: `${THUMB_SRC}/repo-land.jpg`,
-		gif: `${GIF_SRC}/repo-land.gif`,
+		gif: `${GIF_SRC}/PpMHgwZmlfCn5Ut6Zz/source.gif`,
 		description:
 			"Welcome to Repo Land! View all of your favorite organization's github repositories and latest contributions!",
 		tech: ['React', 'Twitter Bootstrap', 'Github API'],
@@ -68,20 +70,20 @@ export const PROJECTS = [
 		name: 'Mastermind',
 		data: 'mastermind',
 		image: `${THUMB_SRC}/mastermind.jpg`,
-		gif: `${GIF_SRC}/mastermind.gif`,
+		gif: `${GIF_SRC}/8tLVeXyfuiA5Txc124/source.gif`,
 		description:
 			"Game where player has 10 attempts to guess 4 randomly generated numbers using Random.org's API. Relies heavily on event handling and manipulating various DOM elements with vanilla Javascript.",
 		tech: ['Axios', 'Sass', 'Random API'],
 		repoLink: 'http://bit.ly/kevinreber-code-mastermind',
 		liveLink: 'https://kevinreber.github.io/mastermind/',
-		clss: 'mastermind',
+		clss: '',
 	},
 	{
 		id: 5,
 		name: 'Dream Jobs',
 		data: 'dream-jobs',
 		image: `${THUMB_SRC}/dream-jobs.jpg`,
-		gif: `${GIF_SRC}/dream-jobs.gif`,
+		gif: `${GIF_SRC}/IivpuVQP4IMTwTf7GV/source.gif`,
 		description:
 			'Looking for a new career? Checkout exciting new opportunities on Dream Jobs!',
 		tech: ['React', 'Node.JS', 'PostgreSQL', 'Netlify'],
@@ -94,7 +96,7 @@ export const PROJECTS = [
 		name: 'Warbler',
 		data: 'warbler',
 		image: `${THUMB_SRC}/warbler.jpg`,
-		gif: `${GIF_SRC}/warbler.gif`,
+		gif: `${GIF_SRC}/qMqkMna8HeLs0QdOMe/source.gif`,
 		description: 'Full-stack Twitter clone built using Python technologies.',
 		tech: ['Flask', 'WTForms', 'PostgreSQL'],
 		repoLink: 'https://bit.ly/kevinreber-warbler',
