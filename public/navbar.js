@@ -24,4 +24,4 @@ const navSlide = () => {
 // Event Listener for 'page slide' effect
 window.setTimeout(() => {
 	document.querySelector('.burger').addEventListener('click', navSlide);
-}, 100);
+}, 3000);
