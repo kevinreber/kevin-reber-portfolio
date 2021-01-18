@@ -20,7 +20,7 @@ export const ABOUT = {
 };
 
 const THUMB_SRC =
-	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/archives/public/images/project%20demos/thumbnails/';
+	'https://github.com/kevinreber/kevin-reber-portfolio/blob/master/archives/public/images/project%20demos/thumbnails';
 
 const GIF_SRC = 'https://media.giphy.com/media';
 
@@ -29,10 +29,10 @@ export const PROJECTS = [
 		id: 1,
 		name: 'Student Networking Platform',
 		data: 'pare',
-		image: `${THUMB_SRC}/pare.jpg`,
+		image: `${THUMB_SRC}/pare-fs.jpg`,
 		gif: `${GIF_SRC}/splNgXYOLuVWzfBcfF/source.gif`,
 		description:
-			'Welcome to Pare! A platform to help college students connect with each other and learn more about campus resources and events.',
+			'A platform to help college students connect with each other and learn more about campus resources and events.',
 		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
 		repoLink: 'https://github.com/kevinreber/pare',
 		liveLink: 'https://pare-afb7e.web.app/login',
