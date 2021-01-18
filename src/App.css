@@ -367,6 +367,7 @@ body {
 	transition: all 0.1s linear;
 }
 
+[data-project='pare'] > .card-img-top > img.card-img,
 [data-project='stockFootage'] > .card-img-top > img.card-img {
 	width: 100%;
 }
