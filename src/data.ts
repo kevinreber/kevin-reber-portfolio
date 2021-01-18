@@ -111,7 +111,12 @@ export const SKILLS = [
 	},
 	{
 		title: 'Front End',
-		skills: ['HTML', 'CSS | SASS', 'Javascript | jQuery', 'React JS'],
+		skills: [
+			'HTML',
+			'CSS | SASS',
+			'Javascript | TypeScript',
+			'React JS | jQuery',
+		],
 	},
 	{
 		title: 'Server',
