@@ -168,8 +168,8 @@ svg .svg-elem-1 {
 #logo-animation {
 	stroke-width: 1;
 	stroke-dasharray: 1214.0701904297px;
-	-webkit-animation: KR-logo 2s ease-in;
-	animation: KR-logo 2s ease-in-out;
+	-webkit-animation: KR-logo 1.5s ease-in;
+	animation: KR-logo 1.5s ease-in-out;
 }
 
 @keyframes KR-logo {

@@ -14,7 +14,7 @@ $(document).ready(() => {
 // Remove Overlay after animation
 window.setTimeout(() => {
 	document.getElementById('overlay').classList.add('hide');
-}, 2500);
+}, 2000);
 
 // Removes overlay display and add transition effect to all sections on page
 window.setTimeout(() => {
@@ -31,7 +31,7 @@ window.setTimeout(() => {
 		hr.classList.remove('hidden');
 		hr.classList.add('transition');
 	}
-}, 3000);
+}, 2500);
 
 // Display rest of site with fade in effect
 window.setTimeout(() => {
@@ -44,4 +44,4 @@ window.setTimeout(() => {
 	for (let hr of hRs) {
 		hr.classList.add('show');
 	}
-}, 3200);
+}, 2750);
