@@ -33,7 +33,7 @@ export const PROJECTS = [
 		gif: `${GIF_SRC}/splNgXYOLuVWzfBcfF/source.gif`,
 		description:
 			'A platform to help college students connect with each other and learn more about campus resources and events.',
-		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'Live Chat'],
+		tech: ['React', 'Redux', 'Material UI', 'Firebase', 'TypeScript'],
 		repoLink: 'https://github.com/kevinreber/pare',
 		liveLink: 'https://pare-afb7e.web.app/login',
 		clss: '',
