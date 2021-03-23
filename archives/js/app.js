@@ -243,7 +243,7 @@ function renderContact() {
     <div class="contact-content-container">
       <h5 class="contact-msg">I'm always looking for new opportunities to network and collab<br> with other talented
         engineers!</h5>
-      <a class="btn btn-contact" href="mailto:kevinreber@berkeley.edu" target="_blank">Say Hello</a>
+      <a class="btn btn-contact" href="mailto:kevinreber01@gmail.com" target="_blank">Say Hello</a>
     </div>
     <div class="contact-content-container design-content-container">
       <h5 id="design-heading" class="contact-msg">Want to See My Design Work?</h5>

@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
 				</h5>
 				<a
 					className="btn btn-contact"
-					href="mailto:kevinreber@berkeley.edu"
+					href="mailto:kevinreber01@gmail.com"
 					target="_blank"
 					rel="noreferrer">
 					Say Hello
