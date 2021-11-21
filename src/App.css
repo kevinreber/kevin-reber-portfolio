@@ -714,11 +714,11 @@ body {
 #hero {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .hero {
 	position: relative;
-	padding-top: 24%;
 	height: 100vh;
 	text-align: center;
 	width: 100%;
@@ -770,16 +770,22 @@ body {
 @media (max-width: 768px) {
 	.about-btn {
 		margin-top: 0;
-		/* margin-bottom: 16rem; */
 		margin-bottom: auto;
 		margin-left: auto;
 		margin-right: auto;
 		flex-direction: row;
 	}
 }
+
 @media (min-width: 769px) and (max-width: 991px) {
 	.about-btn {
 		flex-direction: column;
+	}
+}
+
+@media (max-width: 768px) {
+	.about-txt {
+		margin-top: auto;
 	}
 }
 
