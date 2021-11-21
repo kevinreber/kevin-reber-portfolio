@@ -718,17 +718,13 @@ body {
 
 .hero {
 	position: relative;
-	padding-top: 12rem;
+	padding-top: 24%;
 	height: 100vh;
 	text-align: center;
 	width: 100%;
 	margin-bottom: 1.5rem;
 }
-@media (max-width: 768px) {
-	.hero {
-		padding-top: 5rem;
-	}
-}
+
 .hero hr {
 	background-color: #54b78a;
 	width: 95%;
@@ -764,12 +760,26 @@ body {
 	display: flex;
 	margin: 6rem auto;
 }
+
+@media (max-width: 991px) {
+	.about-btn {
+		flex-direction: column;
+	}
+}
+
 @media (max-width: 768px) {
 	.about-btn {
 		margin-top: 0;
-		margin-bottom: 16rem;
+		/* margin-bottom: 16rem; */
+		margin-bottom: auto;
 		margin-left: auto;
 		margin-right: auto;
+		flex-direction: row;
+	}
+}
+@media (min-width: 769px) and (max-width: 991px) {
+	.about-btn {
+		flex-direction: column;
 	}
 }
 
