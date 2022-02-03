@@ -88,6 +88,10 @@ p {
 	color: #7c7c7c;
 }
 
+.about.line-2 >img.hand-gif{
+	max-width: 90px;
+}
+
 .about.line-1 {
 	font-family: 'SF Mono', monospace;
 	color: #54b78a;
@@ -100,7 +104,11 @@ p {
 }
 @media (min-width: 768px) {
 	.about.line-2 {
-		font-size: 5rem;
+		font-size: 4rem;
+	}
+	.about.line-2 >img.hand-gif{
+		width: 80px;
+		margin-left: 2rem;
 	}
 }
 .about.line-3 {
