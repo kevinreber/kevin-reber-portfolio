@@ -36,7 +36,7 @@ export const PROJECTS = [
     tech: ["Remix", "ShadCN", "Redis", "Prisma", "Supabase", "LLMs"],
     repoLink: "https://github.com/kevinreber/pare",
     liveLink: "https://pare-afb7e.web.app/login",
-    clss: "",
+    clss: "pixel-studio-ai",
   },
   {
     id: 2,
