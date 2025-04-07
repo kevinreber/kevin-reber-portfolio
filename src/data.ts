@@ -34,8 +34,8 @@ export const PROJECTS = [
     description:
       "Social platform for AI generated content creators to share their work with a community of users. Content is generated using LLMs from OpenAI, Stable Diffusion, Black Forest Labs, and more.",
     tech: ["Remix", "ShadCN", "Redis", "Prisma", "Supabase", "LLMs"],
-    repoLink: "https://github.com/kevinreber/pare",
-    liveLink: "https://pare-afb7e.web.app/login",
+    repoLink: "",
+    liveLink: "https://www.pixelstudioai.com/",
     clss: "pixel-studio-ai",
   },
   {
