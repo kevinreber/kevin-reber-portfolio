@@ -27,6 +27,19 @@ const GIF_SRC = "https://media.giphy.com/media";
 export const PROJECTS = [
   {
     id: 1,
+    name: "Pixel Studio AI",
+    data: "pixel-studio-ai",
+    image: `${THUMB_SRC}/pixel-studio-ai.png`,
+    gif: `${GIF_SRC}/LSr9anHxh6ukbXF87V/source.gif`,
+    description:
+      "Social platform for AI generated content creators to share their work with a community of users. Content is generated using LLMs from OpenAI, Stable Diffusion, Black Forest Labs, and more.",
+    tech: ["Remix", "ShadCN", "Redis", "Prisma", "Supabase", "LLMs"],
+    repoLink: "https://github.com/kevinreber/pare",
+    liveLink: "https://pare-afb7e.web.app/login",
+    clss: "",
+  },
+  {
+    id: 2,
     name: "Student Networking Platform",
     data: "pare",
     image: `${THUMB_SRC}/pare-fs.jpg`,
@@ -39,7 +52,7 @@ export const PROJECTS = [
     clss: "",
   },
   {
-    id: 2,
+    id: 3,
     name: "Stock Footage Manager",
     data: "stockFootage",
     image: `${THUMB_SRC}/stock-footage.jpg`,
@@ -52,7 +65,7 @@ export const PROJECTS = [
     clss: "",
   },
   {
-    id: 3,
+    id: 4,
     name: "Repo Land",
     data: "repo-land",
     image: `${THUMB_SRC}/repo-land.jpg`,
@@ -65,7 +78,7 @@ export const PROJECTS = [
     clss: "",
   },
   {
-    id: 4,
+    id: 5,
     name: "Mastermind",
     data: "mastermind",
     image: `${THUMB_SRC}/mastermind.jpg`,
@@ -77,19 +90,19 @@ export const PROJECTS = [
     liveLink: "https://kevinreber.github.io/mastermind/",
     clss: "",
   },
-  {
-    id: 5,
-    name: "Dream Jobs",
-    data: "dream-jobs",
-    image: `${THUMB_SRC}/dream-jobs.jpg`,
-    gif: `${GIF_SRC}/IivpuVQP4IMTwTf7GV/source.gif`,
-    description:
-      "Looking for a new career? Checkout exciting new opportunities on Dream Jobs!",
-    tech: ["React", "Node.JS", "PostgreSQL", "Netlify"],
-    repoLink: "https://github.com/kevinreber/react-jobly",
-    liveLink: "https://gallant-leakey-b85924.netlify.app/login",
-    clss: "",
-  },
+  // {
+  //   id: 5,
+  //   name: "Dream Jobs",
+  //   data: "dream-jobs",
+  //   image: `${THUMB_SRC}/dream-jobs.jpg`,
+  //   gif: `${GIF_SRC}/IivpuVQP4IMTwTf7GV/source.gif`,
+  //   description:
+  //     "Looking for a new career? Checkout exciting new opportunities on Dream Jobs!",
+  //   tech: ["React", "Node.JS", "PostgreSQL", "Netlify"],
+  //   repoLink: "https://github.com/kevinreber/react-jobly",
+  //   liveLink: "https://gallant-leakey-b85924.netlify.app/login",
+  //   clss: "",
+  // },
   {
     id: 6,
     name: "Warbler",
@@ -120,10 +133,15 @@ export const SKILLS = [
   },
   {
     title: "Server",
-    skills: ["Python | Flask", "NodeJS", "Express", "GoLang"],
+    skills: [
+      "Python | Flask",
+      "NodeJS | Express",
+      "gRPC | Protobufs",
+      "Golang",
+    ],
   },
   {
     title: "Data",
-    skills: ["SQL", "PostgreSQL", "MongoDB", "GraphQL"],
+    skills: ["PostgreSQL", "MongoDB", "GraphQL", "Redis"],
   },
 ];
