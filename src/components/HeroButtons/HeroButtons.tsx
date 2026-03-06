@@ -1,6 +1,5 @@
 import React from 'react';
 
-// @ts-ignore
 import RESUME from '../../resume/Kevin_Reber_Resume.pdf';
 
 const HeroButtons = () => {

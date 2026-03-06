@@ -17,7 +17,20 @@ import Fade from "@material-ui/core/Fade";
 // styles
 import "./App.css";
 
-const CURR_PROJECT_INITIAL_STATE = {
+interface Project {
+  id: number;
+  name: string;
+  data: string;
+  image: string;
+  gif: string;
+  description: string;
+  tech: string[];
+  repoLink: string;
+  liveLink: string;
+  clss: string;
+}
+
+const CURR_PROJECT_INITIAL_STATE: Project = {
   id: 0,
   name: "",
   data: "",
@@ -36,7 +49,7 @@ function App() {
   );
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleOpen = (project: any) => {
+  const handleOpen = (project: Project) => {
     setCurrentProject(project);
     setShowModal(true);
   };
