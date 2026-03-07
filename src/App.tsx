@@ -140,57 +140,59 @@ function App() {
       </Modal>
 
       {/* Hero  */}
-      <section id="hero" className="hero text-sm-center container">
+      <header id="hero" className="hero text-sm-center container">
         <Hero />
-      </section>
+      </header>
 
-      {/* Skills  */}
-      <section id="skills" className="container section-offset">
-        <ScrollReveal>
-          <Skills />
-        </ScrollReveal>
-      </section>
+      <main>
+        {/* Skills  */}
+        <section id="skills" className="container section-offset">
+          <ScrollReveal>
+            <Skills />
+          </ScrollReveal>
+        </section>
 
-      <hr className="section-hr" />
+        <hr className="section-hr" />
 
-      {/* Projects  */}
-      <section id="projects" className="container section-offset">
-        <ScrollReveal>
-          <Projects setModalProject={handleOpen} />
-        </ScrollReveal>
-      </section>
+        {/* Projects  */}
+        <section id="projects" className="container section-offset">
+          <ScrollReveal>
+            <Projects setModalProject={handleOpen} />
+          </ScrollReveal>
+        </section>
 
-      <hr className="section-hr" />
+        <hr className="section-hr" />
 
-      {/* GitHub Contributions */}
-      <section id="contributions" className="container section-offset">
-        <ScrollReveal>
-          <GitHubContributions />
-        </ScrollReveal>
-      </section>
+        {/* GitHub Contributions */}
+        <section id="contributions" className="container section-offset">
+          <ScrollReveal>
+            <GitHubContributions />
+          </ScrollReveal>
+        </section>
 
-      {/* TODO: Uncomment "Blog" section when posts are published
-      <hr className="section-hr" />
-      <section id="blog" className="container section-offset">
-        <ScrollReveal>
-          <BlogSection />
-        </ScrollReveal>
-      </section>
-      */}
+        {/* TODO: Uncomment "Blog" section when posts are published
+        <hr className="section-hr" />
+        <section id="blog" className="container section-offset">
+          <ScrollReveal>
+            <BlogSection />
+          </ScrollReveal>
+        </section>
+        */}
 
-      <hr className="section-hr" />
+        <hr className="section-hr" />
 
-      {/* Contact  */}
-      <section id="contact" className="container section-offset">
-        <ScrollReveal>
-          <Contact />
-        </ScrollReveal>
-      </section>
+        {/* Contact  */}
+        <section id="contact" className="container section-offset">
+          <ScrollReveal>
+            <Contact />
+          </ScrollReveal>
+        </section>
+      </main>
 
       {/* Footer  */}
-      <section id="footer" className="container footer">
+      <footer id="footer" className="container footer">
         <Footer />
-      </section>
+      </footer>
     </div>
   );
 }
