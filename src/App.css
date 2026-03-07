@@ -1102,11 +1102,15 @@ body {
   height: 40px;
 }
 .pulse-bar-col {
+  position: relative;
   display: flex;
   align-items: flex-end;
   width: 14px;
   height: 100%;
-  cursor: default;
+  cursor: pointer;
+}
+.pulse-bar-col:hover .pulse-bar {
+  background-color: #3d9d72;
 }
 @media (max-width: 768px) {
   .pulse-bar-col {
@@ -1118,7 +1122,54 @@ body {
   min-height: 2px;
   background-color: #54b78a;
   border-radius: 2px 2px 0 0;
-  transition: height 0.3s ease;
+  transition: height 0.3s ease, background-color 0.15s ease;
+}
+
+/* Pulse bar tooltip */
+.pulse-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.pulse-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #222;
+}
+.pulse-tooltip-count {
+  font-family: "SF Mono", monospace;
+  font-size: 16px;
+  font-weight: 700;
+}
+.pulse-tooltip-label {
+  font-family: "SF Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+}
+.pulse-tooltip-week {
+  font-family: "SF Mono", monospace;
+  font-size: 10px;
+  color: #ccc;
+  margin-top: 2px;
 }
 .pulse-chart-label {
   font-family: "SF Mono", monospace;
@@ -1214,9 +1265,9 @@ body {
   font-size: 12px;
   color: #555;
   line-height: 1.8;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
 }
 .contribution-commit::before {
   content: "";
@@ -1227,13 +1278,43 @@ body {
   height: 5px;
   border-radius: 50%;
   background-color: #54b78a;
+  flex-shrink: 0;
 }
-.contribution-more {
-  color: #7c7c7c;
+.contribution-commit-msg {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.contribution-card-expanded .contribution-commit-msg {
+  white-space: normal;
+  overflow: visible;
+}
+.contribution-commit-date {
+  font-size: 10px;
+  color: #999;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Expand/collapse toggle */
+.contribution-toggle {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  color: #54b78a;
+  cursor: pointer;
   font-style: italic;
+  transition: color 0.15s ease;
 }
-.contribution-more::before {
-  background-color: #ccc;
+.contribution-toggle:hover {
+  color: #3d9d72;
+  text-decoration: underline;
 }
 
 [data-theme="dark"] .contribution-card {
@@ -1246,8 +1327,17 @@ body {
 [data-theme="dark"] .contribution-commit {
   color: #a0a0a0;
 }
+[data-theme="dark"] .contribution-commit-date {
+  color: #666;
+}
 [data-theme="dark"] .contribution-repo-name {
   color: #54b78a;
+}
+[data-theme="dark"] .contribution-toggle {
+  color: #54b78a;
+}
+[data-theme="dark"] .contribution-toggle:hover {
+  color: #66bf96;
 }
 
 /* ===== BLOG SECTION ===== */

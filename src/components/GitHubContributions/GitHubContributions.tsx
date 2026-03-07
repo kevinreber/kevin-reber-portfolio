@@ -4,6 +4,7 @@ const GITHUB_USERNAME = 'kevinreber';
 const CACHE_KEY = 'github_contributions';
 const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 const MONTHS_BACK = 6;
+const VISIBLE_COMMITS = 5;
 
 interface Commit {
 	message: string;
@@ -41,7 +42,6 @@ function getSinceDate(): string {
 }
 
 function formatCommitMessage(message: string): string {
-	// Take only the first line of the commit message
 	return message.split('\n')[0];
 }
 
@@ -57,23 +57,27 @@ function isMeaningfulCommit(message: string): boolean {
 	return !NOISE_PATTERNS.some((pattern) => pattern.test(message));
 }
 
+function formatCommitDate(dateStr: string): string {
+	return new Date(dateStr).toLocaleDateString('en-US', {
+		month: 'short',
+		day: 'numeric',
+	});
+}
+
 async function fetchContributions(): Promise<RepoContribution[]> {
 	const sinceDate = getSinceDate();
 
-	// Fetch repos sorted by most recently pushed
 	const reposRes = await fetch(
 		`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`
 	);
 	if (!reposRes.ok) throw new Error('Failed to fetch repos');
 	const repos = await reposRes.json();
 
-	// Filter repos that were pushed to within our time window
 	const recentRepos = repos.filter(
 		(repo: { pushed_at: string; fork: boolean }) =>
 			new Date(repo.pushed_at) >= new Date(sinceDate) && !repo.fork
 	);
 
-	// Fetch recent commits for each repo (in parallel)
 	const contributions: RepoContribution[] = (
 		await Promise.all(
 			recentRepos.slice(0, 6).map(
@@ -129,7 +133,6 @@ function computePulse(contributions: RepoContribution[]): PulseStats {
 	const totalCommits = allCommits.length;
 	const activeRepos = contributions.length;
 
-	// Sort all commit dates
 	const dates = allCommits
 		.map((c) => new Date(c.date))
 		.sort((a, b) => a.getTime() - b.getTime());
@@ -143,7 +146,6 @@ function computePulse(contributions: RepoContribution[]): PulseStats {
 			  })
 			: '';
 
-	// Build weekly buckets for the last 12 weeks
 	const now = new Date();
 	const weeks: WeekBucket[] = [];
 	for (let i = 11; i >= 0; i--) {
@@ -204,6 +206,20 @@ const GitHubContributions: React.FC = () => {
 	const [contributions, setContributions] = useState<RepoContribution[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
+	const [expandedRepos, setExpandedRepos] = useState<Set<string>>(new Set());
+	const [hoveredBar, setHoveredBar] = useState<number | null>(null);
+
+	const toggleRepo = (name: string) => {
+		setExpandedRepos((prev) => {
+			const next = new Set(prev);
+			if (next.has(name)) {
+				next.delete(name);
+			} else {
+				next.add(name);
+			}
+			return next;
+		});
+	};
 
 	useEffect(() => {
 		const cached = getCached();
@@ -268,11 +284,27 @@ const GitHubContributions: React.FC = () => {
 				<div className="pulse-chart">
 					<div className="pulse-chart-bars">
 						{pulse.weeklyActivity.map((week, i) => (
-							<div key={i} className="pulse-bar-col" title={`${week.weekLabel}: ${week.count} commits`}>
+							<div
+								key={i}
+								className="pulse-bar-col"
+								onMouseEnter={() => setHoveredBar(i)}
+								onMouseLeave={() => setHoveredBar(null)}
+							>
 								<div
 									className="pulse-bar"
 									style={{ height: `${(week.count / maxWeekCount) * 100}%` }}
 								/>
+								{hoveredBar === i && (
+									<div className="pulse-tooltip">
+										<span className="pulse-tooltip-count">{week.count}</span>
+										<span className="pulse-tooltip-label">
+											commit{week.count !== 1 ? 's' : ''}
+										</span>
+										<span className="pulse-tooltip-week">
+											Week of {week.weekLabel}
+										</span>
+									</div>
+								)}
 							</div>
 						))}
 					</div>
@@ -281,38 +313,57 @@ const GitHubContributions: React.FC = () => {
 			</div>
 
 			<div className="contributions-grid">
-				{contributions.map((repo) => (
-					<div key={repo.name} className="contribution-card">
-						<div className="contribution-card-header">
-							<a
-								href={repo.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="contribution-repo-name"
-							>
-								{repo.name}
-							</a>
-							<span className="contribution-count">
-								{repo.commits.length} commit{repo.commits.length !== 1 ? 's' : ''}
-							</span>
-						</div>
-						{repo.description && (
-							<p className="contribution-description">{repo.description}</p>
-						)}
-						<ul className="contribution-commits">
-							{repo.commits.slice(0, 5).map((commit, i) => (
-								<li key={i} className="contribution-commit">
-									{commit.message}
-								</li>
-							))}
-							{repo.commits.length > 5 && (
-								<li className="contribution-commit contribution-more">
-									+{repo.commits.length - 5} more
-								</li>
+				{contributions.map((repo) => {
+					const isExpanded = expandedRepos.has(repo.name);
+					const hasMore = repo.commits.length > VISIBLE_COMMITS;
+					const visibleCommits = isExpanded
+						? repo.commits
+						: repo.commits.slice(0, VISIBLE_COMMITS);
+
+					return (
+						<div
+							key={repo.name}
+							className={`contribution-card ${isExpanded ? 'contribution-card-expanded' : ''}`}
+						>
+							<div className="contribution-card-header">
+								<a
+									href={repo.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="contribution-repo-name"
+								>
+									{repo.name}
+								</a>
+								<span className="contribution-count">
+									{repo.commits.length} commit{repo.commits.length !== 1 ? 's' : ''}
+								</span>
+							</div>
+							{repo.description && (
+								<p className="contribution-description">{repo.description}</p>
 							)}
-						</ul>
-					</div>
-				))}
+							<ul className="contribution-commits">
+								{visibleCommits.map((commit, i) => (
+									<li key={i} className="contribution-commit">
+										<span className="contribution-commit-msg">{commit.message}</span>
+										<span className="contribution-commit-date">
+											{formatCommitDate(commit.date)}
+										</span>
+									</li>
+								))}
+							</ul>
+							{hasMore && (
+								<button
+									className="contribution-toggle"
+									onClick={() => toggleRepo(repo.name)}
+								>
+									{isExpanded
+										? 'Show less'
+										: `+${repo.commits.length - VISIBLE_COMMITS} more`}
+								</button>
+							)}
+						</div>
+					);
+				})}
 			</div>
 		</>
 	);
