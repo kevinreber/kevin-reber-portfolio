@@ -1131,7 +1131,7 @@ body {
 /* Pulse bar tooltip */
 .pulse-tooltip {
   position: absolute;
-  bottom: calc(100% + 8px);
+  top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
   background-color: #222;
@@ -1150,11 +1150,11 @@ body {
 .pulse-tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   border: 5px solid transparent;
-  border-top-color: #222;
+  border-bottom-color: #222;
 }
 .pulse-tooltip-count {
   font-family: "SF Mono", monospace;
