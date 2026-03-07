@@ -12,8 +12,8 @@ import { SOCIALS, NAV_ITEMS } from '../../data';
 
 import RESUME from '../../resume/Kevin_Reber_Resume.pdf';
 
-// TODO: Add 'currently-building' and 'blog' back when those sections are uncommented
-const SECTION_IDS = ['skills', 'projects', 'contact'];
+// TODO: Add 'blog' back when that section is uncommented
+const SECTION_IDS = ['skills', 'projects', 'contributions', 'contact'];
 
 const Navbar = () => {
 	const activeId = useScrollSpy(SECTION_IDS);

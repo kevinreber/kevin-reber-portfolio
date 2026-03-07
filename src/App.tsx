@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
+import GitHubContributions from "./components/GitHubContributions/GitHubContributions";
 // TODO: Uncomment when content is ready
-// import CurrentlyBuilding from "./components/CurrentlyBuilding/CurrentlyBuilding";
 // import BlogSection from "./components/BlogSection/BlogSection";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
@@ -160,14 +160,14 @@ function App() {
         </ScrollReveal>
       </section>
 
-      {/* TODO: Uncomment "Currently Building" section when content is ready
       <hr className="section-hr" />
-      <section id="currently-building" className="container section-offset">
+
+      {/* GitHub Contributions */}
+      <section id="contributions" className="container section-offset">
         <ScrollReveal>
-          <CurrentlyBuilding />
+          <GitHubContributions />
         </ScrollReveal>
       </section>
-      */}
 
       {/* TODO: Uncomment "Blog" section when posts are published
       <hr className="section-hr" />
