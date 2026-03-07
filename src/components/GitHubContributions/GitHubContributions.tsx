@@ -17,6 +17,18 @@ interface RepoContribution {
 	commits: Commit[];
 }
 
+interface WeekBucket {
+	weekLabel: string;
+	count: number;
+}
+
+interface PulseStats {
+	totalCommits: number;
+	activeRepos: number;
+	weeklyActivity: WeekBucket[];
+	lastCommitDate: string;
+}
+
 interface CachedData {
 	timestamp: number;
 	contributions: RepoContribution[];
@@ -94,6 +106,61 @@ async function fetchContributions(): Promise<RepoContribution[]> {
 	return contributions;
 }
 
+function computePulse(contributions: RepoContribution[]): PulseStats {
+	const allCommits = contributions.flatMap((r) => r.commits);
+	const totalCommits = allCommits.length;
+	const activeRepos = contributions.length;
+
+	// Sort all commit dates
+	const dates = allCommits
+		.map((c) => new Date(c.date))
+		.sort((a, b) => a.getTime() - b.getTime());
+
+	const lastCommitDate =
+		dates.length > 0
+			? dates[dates.length - 1].toLocaleDateString('en-US', {
+					month: 'short',
+					day: 'numeric',
+					year: 'numeric',
+			  })
+			: '';
+
+	// Build weekly buckets for the last 12 weeks
+	const now = new Date();
+	const weeks: WeekBucket[] = [];
+	for (let i = 11; i >= 0; i--) {
+		const weekStart = new Date(now);
+		weekStart.setDate(weekStart.getDate() - i * 7);
+		weekStart.setHours(0, 0, 0, 0);
+		const weekEnd = new Date(weekStart);
+		weekEnd.setDate(weekEnd.getDate() + 7);
+
+		const count = dates.filter(
+			(d) => d >= weekStart && d < weekEnd
+		).length;
+
+		weeks.push({
+			weekLabel: weekStart.toLocaleDateString('en-US', {
+				month: 'short',
+				day: 'numeric',
+			}),
+			count,
+		});
+	}
+
+	return { totalCommits, activeRepos, weeklyActivity: weeks, lastCommitDate };
+}
+
+function getActivityLevel(pulse: PulseStats): { label: string; className: string } {
+	const recentWeeks = pulse.weeklyActivity.slice(-4);
+	const recentCommits = recentWeeks.reduce((sum, w) => sum + w.count, 0);
+
+	if (recentCommits >= 15) return { label: 'Very Active', className: 'pulse-level-high' };
+	if (recentCommits >= 5) return { label: 'Active', className: 'pulse-level-medium' };
+	if (recentCommits >= 1) return { label: 'Moderate', className: 'pulse-level-low' };
+	return { label: 'Quiet', className: 'pulse-level-quiet' };
+}
+
 function getCached(): RepoContribution[] | null {
 	try {
 		const raw = sessionStorage.getItem(CACHE_KEY);
@@ -150,9 +217,51 @@ const GitHubContributions: React.FC = () => {
 		return null;
 	}
 
+	const pulse = computePulse(contributions);
+	const activity = getActivityLevel(pulse);
+	const maxWeekCount = Math.max(...pulse.weeklyActivity.map((w) => w.count), 1);
+
 	return (
 		<>
 			<h3 className="section-heading">Recent Contributions</h3>
+
+			{/* Activity Pulse */}
+			<div className="pulse-container">
+				<div className="pulse-stats">
+					<div className="pulse-stat">
+						<span className="pulse-stat-value">{pulse.totalCommits}</span>
+						<span className="pulse-stat-label">Commits</span>
+					</div>
+					<div className="pulse-stat">
+						<span className="pulse-stat-value">{pulse.activeRepos}</span>
+						<span className="pulse-stat-label">Active Repos</span>
+					</div>
+					<div className="pulse-stat">
+						<span className={`pulse-stat-value pulse-level ${activity.className}`}>
+							{activity.label}
+						</span>
+						<span className="pulse-stat-label">Status</span>
+					</div>
+					<div className="pulse-stat">
+						<span className="pulse-stat-value pulse-stat-date">{pulse.lastCommitDate}</span>
+						<span className="pulse-stat-label">Last Commit</span>
+					</div>
+				</div>
+				<div className="pulse-chart">
+					<div className="pulse-chart-bars">
+						{pulse.weeklyActivity.map((week, i) => (
+							<div key={i} className="pulse-bar-col" title={`${week.weekLabel}: ${week.count} commits`}>
+								<div
+									className="pulse-bar"
+									style={{ height: `${(week.count / maxWeekCount) * 100}%` }}
+								/>
+							</div>
+						))}
+					</div>
+					<div className="pulse-chart-label">Last 12 weeks</div>
+				</div>
+			</div>
+
 			<div className="contributions-grid">
 				{contributions.map((repo) => (
 					<div key={repo.name} className="contribution-card">
