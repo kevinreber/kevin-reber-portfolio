@@ -1018,6 +1018,7 @@ body {
   border-radius: 8px;
   padding: 1.25rem 1.5rem;
   margin-bottom: 1.5rem;
+  overflow: visible;
 }
 @media (max-width: 768px) {
   .pulse-container {
@@ -1088,6 +1089,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
 }
 @media (max-width: 768px) {
   .pulse-chart {
@@ -1100,6 +1102,7 @@ body {
   align-items: flex-end;
   gap: 3px;
   height: 40px;
+  overflow: visible;
 }
 .pulse-bar-col {
   position: relative;
