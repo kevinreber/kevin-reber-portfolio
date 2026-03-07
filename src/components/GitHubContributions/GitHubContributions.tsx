@@ -45,6 +45,18 @@ function formatCommitMessage(message: string): string {
 	return message.split('\n')[0];
 }
 
+const NOISE_PATTERNS = [
+	/^Merge pull request #\d+/i,
+	/^Merge branch /i,
+	/^Merge remote-tracking branch /i,
+	/^Auto-merge /i,
+	/^Automatic merge/i,
+];
+
+function isMeaningfulCommit(message: string): boolean {
+	return !NOISE_PATTERNS.some((pattern) => pattern.test(message));
+}
+
 async function fetchContributions(): Promise<RepoContribution[]> {
 	const sinceDate = getSinceDate();
 
@@ -79,11 +91,8 @@ async function fetchContributions(): Promise<RepoContribution[]> {
 
 						if (commits.length === 0) return null;
 
-						return {
-							name: repo.name,
-							url: repo.html_url,
-							description: repo.description,
-							commits: commits.map(
+						const mappedCommits: Commit[] = commits
+							.map(
 								(c: {
 									commit: {
 										message: string;
@@ -93,7 +102,16 @@ async function fetchContributions(): Promise<RepoContribution[]> {
 									message: formatCommitMessage(c.commit.message),
 									date: c.commit.author.date,
 								})
-							),
+							)
+							.filter((c: Commit) => isMeaningfulCommit(c.message));
+
+						if (mappedCommits.length === 0) return null;
+
+						return {
+							name: repo.name,
+							url: repo.html_url,
+							description: repo.description,
+							commits: mappedCommits,
 						};
 					} catch {
 						return null;
