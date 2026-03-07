@@ -1,4 +1,5 @@
 import React from "react";
+import { Project } from "../../App";
 
 type Props = {
   id: number;
@@ -11,7 +12,7 @@ type Props = {
   repoSrc: string;
   liveSrc: string;
   clss?: string | null;
-  setModalProject: (project: object) => void;
+  setModalProject: (project: Project) => void;
 };
 
 const ProjectCard: React.FC<Props> = ({

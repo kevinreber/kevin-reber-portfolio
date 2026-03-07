@@ -90,19 +90,6 @@ export const PROJECTS = [
     liveLink: "https://kevinreber.github.io/mastermind/",
     clss: "",
   },
-  // {
-  //   id: 5,
-  //   name: "Dream Jobs",
-  //   data: "dream-jobs",
-  //   image: `${THUMB_SRC}/dream-jobs.jpg`,
-  //   gif: `${GIF_SRC}/IivpuVQP4IMTwTf7GV/source.gif`,
-  //   description:
-  //     "Looking for a new career? Checkout exciting new opportunities on Dream Jobs!",
-  //   tech: ["React", "Node.JS", "PostgreSQL", "Netlify"],
-  //   repoLink: "https://github.com/kevinreber/react-jobly",
-  //   liveLink: "https://gallant-leakey-b85924.netlify.app/login",
-  //   clss: "",
-  // },
   {
     id: 6,
     name: "Warbler",

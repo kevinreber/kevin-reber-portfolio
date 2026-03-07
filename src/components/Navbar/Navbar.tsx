@@ -6,7 +6,6 @@ import Logo from '../Logo/Logo';
 // constants
 import { SOCIALS, NAV_ITEMS } from '../../data';
 
-// @ts-ignore
 import RESUME from '../../resume/Kevin_Reber_Resume.pdf';
 
 const Navbar = () => {

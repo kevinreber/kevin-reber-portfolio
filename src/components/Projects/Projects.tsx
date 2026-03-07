@@ -5,9 +5,10 @@ import ProjectCard from "../ProjectCard/ProjectCard";
 
 // constants
 import { PROJECTS } from "../../data";
+import { Project } from "../../App";
 
 type Props = {
-  setModalProject: (project: object) => void;
+  setModalProject: (project: Project) => void;
 };
 
 const Projects: React.FC<Props> = ({ setModalProject }) => {
