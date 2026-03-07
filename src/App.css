@@ -92,7 +92,8 @@ p {
   max-width: 90px;
 }
 
-.about.line-1 {
+.about.line-1,
+.about.line-1 * {
   font-family: "SF Mono", monospace;
   color: #54b78a;
   font-size: 1.5rem;
