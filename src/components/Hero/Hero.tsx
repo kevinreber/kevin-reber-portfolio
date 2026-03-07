@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
     <>
       <div className='about-txt text-left'>
         <h5>
-          <span className='about line-1'>{ABOUT.greeting}</span>
+          <span className='about line-1' style={{ color: '#54b78a' }}>{ABOUT.greeting}</span>
           <br />
           <span
             className='about line-2'
