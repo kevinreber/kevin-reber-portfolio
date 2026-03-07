@@ -84,7 +84,7 @@ async function fetchContributions(): Promise<RepoContribution[]> {
 				}) => {
 					try {
 						const commitsRes = await fetch(
-							`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?author=${GITHUB_USERNAME}&since=${sinceDate}&per_page=10`
+							`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?since=${sinceDate}&per_page=10`
 						);
 						if (!commitsRes.ok) return null;
 						const commits = await commitsRes.json();
