@@ -17,7 +17,7 @@ import Fade from "@material-ui/core/Fade";
 // styles
 import "./App.css";
 
-interface Project {
+export interface Project {
   id: number;
   name: string;
   data: string;
@@ -27,7 +27,7 @@ interface Project {
   tech: string[];
   repoLink: string;
   liveLink: string;
-  clss: string;
+  clss?: string | null;
 }
 
 const CURR_PROJECT_INITIAL_STATE: Project = {
