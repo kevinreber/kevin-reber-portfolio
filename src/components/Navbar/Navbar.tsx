@@ -2,30 +2,46 @@ import React from 'react';
 
 // components
 import Logo from '../Logo/Logo';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
+
+// hooks
+import { useScrollSpy } from '../../hooks/useScrollSpy';
 
 // constants
 import { SOCIALS, NAV_ITEMS } from '../../data';
 
 import RESUME from '../../resume/Kevin_Reber_Resume.pdf';
 
+// TODO: Add 'currently-building' and 'blog' back when those sections are uncommented
+const SECTION_IDS = ['skills', 'projects', 'contact'];
+
 const Navbar = () => {
-	const NavItemList = NAV_ITEMS.map((item) => (
-		<li key={item} className="nav-item">
-			{item === 'Resume' ? (
-				<a
-					className="nav-link"
-					target="_blank"
-					rel="noopener noreferrer"
-					href={RESUME}>
-					{item}
-				</a>
-			) : (
-				<a className="nav-link" href={`#${item.toLowerCase()}`}>
-					{item}
-				</a>
-			)}
-		</li>
-	));
+	const activeId = useScrollSpy(SECTION_IDS);
+
+	const NavItemList = NAV_ITEMS.map((item) => {
+		const sectionId = item.toLowerCase();
+		const isActive = activeId === sectionId;
+
+		return (
+			<li key={item} className="nav-item">
+				{item === 'Resume' ? (
+					<a
+						className="nav-link"
+						target="_blank"
+						rel="noopener noreferrer"
+						href={RESUME}>
+						{item}
+					</a>
+				) : (
+					<a
+						className={`nav-link${isActive ? ' nav-link-active' : ''}`}
+						href={`#${sectionId}`}>
+						{item}
+					</a>
+				)}
+			</li>
+		);
+	});
 
 	const NavSocialItems = SOCIALS.map((social) => (
 		<a key={social.id} href={social.src} target="_blank" rel="noreferrer">
@@ -39,6 +55,7 @@ const Navbar = () => {
 				<a className="navbar-brand" href="#top">
 					<Logo />
 				</a>
+				<ThemeToggle />
 				<div className="burger">
 					<div className="line1"></div>
 					<div className="line2"></div>

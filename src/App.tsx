@@ -6,8 +6,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Skills from "./components/Skills/Skills";
 import Projects from "./components/Projects/Projects";
+// TODO: Uncomment when content is ready
+// import CurrentlyBuilding from "./components/CurrentlyBuilding/CurrentlyBuilding";
+// import BlogSection from "./components/BlogSection/BlogSection";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
 // MUI
 import Modal from "@material-ui/core/Modal";
@@ -142,21 +146,45 @@ function App() {
 
       {/* Skills  */}
       <section id="skills" className="container section-offset">
-        <Skills />
+        <ScrollReveal>
+          <Skills />
+        </ScrollReveal>
       </section>
 
       <hr className="section-hr" />
 
       {/* Projects  */}
       <section id="projects" className="container section-offset">
-        <Projects setModalProject={handleOpen} />
+        <ScrollReveal>
+          <Projects setModalProject={handleOpen} />
+        </ScrollReveal>
       </section>
+
+      {/* TODO: Uncomment "Currently Building" section when content is ready
+      <hr className="section-hr" />
+      <section id="currently-building" className="container section-offset">
+        <ScrollReveal>
+          <CurrentlyBuilding />
+        </ScrollReveal>
+      </section>
+      */}
+
+      {/* TODO: Uncomment "Blog" section when posts are published
+      <hr className="section-hr" />
+      <section id="blog" className="container section-offset">
+        <ScrollReveal>
+          <BlogSection />
+        </ScrollReveal>
+      </section>
+      */}
 
       <hr className="section-hr" />
 
       {/* Contact  */}
       <section id="contact" className="container section-offset">
-        <Contact />
+        <ScrollReveal>
+          <Contact />
+        </ScrollReveal>
       </section>
 
       {/* Footer  */}

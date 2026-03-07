@@ -1,27 +1,38 @@
 import React from "react";
+import { TypeAnimation } from "react-type-animation";
 
 // components
 import HeroButtons from "../HeroButtons/HeroButtons";
 import SocialIcons from "../SocialIcons/SocialIcons";
 
-import { ABOUT, MATE } from "../../data";
+import { MATE } from "../../data";
 
 const Hero: React.FC = () => {
   return (
     <>
       <div className='about-txt text-left'>
         <h5>
-          <span className='about line-1'>{ABOUT.greeting}</span>
+          <span className='about line-1'>
+            <TypeAnimation
+              sequence={['Hello World, my name is', 1000]}
+              speed={50}
+              cursor={false}
+            />
+          </span>
           <br />
           <span
             className='about line-2'
             style={{ display: "flex", alignItems: "center" }}
           >
-            {ABOUT.subGreeting}
+            <TypeAnimation
+              sequence={[1500, 'Kevin Reber']}
+              speed={40}
+              cursor={true}
+            />
             <img
               src='https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif'
               className='hand-gif'
-              alt='👋'
+              alt='wave'
             ></img>
           </span>
           <br />
