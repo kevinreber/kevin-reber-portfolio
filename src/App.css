@@ -1007,6 +1007,108 @@ body {
   line-height: 1.6;
 }
 
+/* ===== GITHUB CONTRIBUTIONS ===== */
+.contributions-loading {
+  color: #7c7c7c;
+  font-style: italic;
+}
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.contribution-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+.contribution-card:hover {
+  border-color: #54b78a;
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(84, 183, 138, 0.15);
+}
+.contribution-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.contribution-repo-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #54b78a;
+  text-decoration: none;
+  font-family: "SF Mono", monospace;
+}
+.contribution-repo-name:hover {
+  text-decoration: underline;
+}
+.contribution-count {
+  font-family: "SF Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: rgba(84, 183, 138, 0.15);
+  color: #54b78a;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.contribution-description {
+  color: #7c7c7c;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+  font-size: 13px;
+}
+.contribution-commits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contribution-commit {
+  position: relative;
+  padding-left: 1rem;
+  font-family: "SF Mono", monospace;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contribution-commit::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #54b78a;
+}
+.contribution-more {
+  color: #7c7c7c;
+  font-style: italic;
+}
+.contribution-more::before {
+  background-color: #ccc;
+}
+
+[data-theme="dark"] .contribution-card {
+  background-color: #16213e;
+  border-color: #333;
+}
+[data-theme="dark"] .contribution-card:hover {
+  border-color: #54b78a;
+}
+[data-theme="dark"] .contribution-commit {
+  color: #a0a0a0;
+}
+[data-theme="dark"] .contribution-repo-name {
+  color: #54b78a;
+}
+
 /* ===== BLOG SECTION ===== */
 .blog-grid {
   display: grid;

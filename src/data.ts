@@ -1,4 +1,4 @@
-export const NAV_ITEMS = ["Skills", "Projects", "Contact", "Resume"];
+export const NAV_ITEMS = ["Skills", "Projects", "Contributions", "Contact", "Resume"];
 
 export const DESIGN_PORTFOLIO = "https://www.kevinreber.net/";
 
