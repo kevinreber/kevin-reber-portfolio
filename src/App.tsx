@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import Overlay from "./components/Overlay/Overlay";
@@ -52,6 +52,24 @@ function App() {
     CURR_PROJECT_INITIAL_STATE
   );
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [overlayHide, setOverlayHide] = useState<boolean>(false);
+  const [overlayDone, setOverlayDone] = useState<boolean>(false);
+  const [contentVisible, setContentVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    // Fade out overlay after logo animation
+    const hideTimer = setTimeout(() => setOverlayHide(true), 2000);
+    // Remove overlay from layout and start content transition
+    const doneTimer = setTimeout(() => {
+      setOverlayDone(true);
+      // Small delay before showing content for fade-in effect
+      setTimeout(() => setContentVisible(true), 250);
+    }, 2500);
+    return () => {
+      clearTimeout(hideTimer);
+      clearTimeout(doneTimer);
+    };
+  }, []);
 
   const handleOpen = (project: Project) => {
     setCurrentProject(project);
@@ -67,12 +85,14 @@ function App() {
   return (
     <div className="App">
       {/* Overlay */}
-      <div id="overlay">
-        <Overlay />
-      </div>
+      {!overlayDone && (
+        <div id="overlay" className={overlayHide ? "hide" : ""}>
+          <Overlay />
+        </div>
+      )}
 
       {/* <!-- Navbar --> */}
-      <section id="navbar">
+      <section id="navbar" className={`transition ${contentVisible ? "show" : "hide"}`}>
         <Navbar />
       </section>
 
@@ -140,11 +160,11 @@ function App() {
       </Modal>
 
       {/* Hero  */}
-      <header id="hero" className="hero text-sm-center container">
+      <header id="hero" className={`hero text-sm-center container transition ${contentVisible ? "show" : "hide"}`}>
         <Hero />
       </header>
 
-      <main>
+      <main className={`transition ${contentVisible ? "show" : "hide"}`}>
         {/* Skills  */}
         <section id="skills" className="container section-offset">
           <ScrollReveal>
@@ -190,7 +210,7 @@ function App() {
       </main>
 
       {/* Footer  */}
-      <footer id="footer" className="container footer">
+      <footer id="footer" className={`container footer transition ${contentVisible ? "show" : "hide"}`}>
         <Footer />
       </footer>
     </div>
