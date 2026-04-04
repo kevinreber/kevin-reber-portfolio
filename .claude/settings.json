@@ -2,21 +2,26 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash(git commit*)",
-        "command": "npm run build --silent 2>&1 | tail -20",
-        "description": "Verify production build succeeds before committing"
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "case \"$TOOL_INPUT\" in *'git commit'*) npm run build --silent 2>&1 | tail -20 ;; *) true ;; esac",
+            "description": "Verify production build succeeds before committing"
+          }
+        ]
       }
     ],
     "PostToolUse": [
       {
-        "matcher": "Edit(src/**/*.tsx)",
-        "command": "npx tsc --noEmit --strict 2>&1 | tail -10 || true",
-        "description": "Run TypeScript check after editing .tsx files"
-      },
-      {
-        "matcher": "Edit(src/**/*.ts)",
-        "command": "npx tsc --noEmit --strict 2>&1 | tail -10 || true",
-        "description": "Run TypeScript check after editing .ts files"
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "case \"$TOOL_INPUT\" in *.tsx|*.ts) npx tsc --noEmit --strict 2>&1 | tail -10 || true ;; *) true ;; esac",
+            "description": "Run TypeScript check after editing .ts/.tsx files"
+          }
+        ]
       }
     ]
   }
