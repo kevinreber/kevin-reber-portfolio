@@ -345,3 +345,28 @@ main > section {
 [class^="fa-"], [class*=" fa-"] {
 	font-family: FontAwesome !important;
 }
+
+/* ---------------------------------------------------------------------------
+ * 8. Project card image treatment
+ * App.css grayscales every card image and lays #54b78a over it at
+ * mix-blend-mode: multiply, opacity 0.8, reversing both on hover. Two
+ * unifying treatments stacked that far erase the screenshots at rest, and
+ * because hover is the only thing that reverses them, touch devices never see
+ * an untreated image at all.
+ *
+ * Keeps the green wash for cohesion, drops the grayscale, and gives pointer-
+ * less devices the plain image since they have no way to reveal it.
+ * ------------------------------------------------------------------------- */
+.card-img {
+	filter: none;
+}
+
+.card-img-top::before {
+	opacity: 0.25;
+}
+
+@media (hover: none) {
+	.card-img-top::before {
+		opacity: 0;
+	}
+}
