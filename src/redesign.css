@@ -18,9 +18,10 @@
 	--accent-strong: #3f9d72;
 	--accent-soft: rgba(84, 183, 138, 0.12);
 
-	--bg: #fbfbfa;
+	/* Original App.css background, restored. */
+	--bg: #ffffff;
 	--bg-raised: #ffffff;
-	--bg-sunken: #f2f3f1;
+	--bg-sunken: #f4f4f6;
 
 	--text: #1c1f1e;
 	--text-muted: #6b716e;
@@ -46,16 +47,17 @@
 	--accent-strong: #8bdcb4;
 	--accent-soft: rgba(110, 207, 160, 0.14);
 
-	/* Off-black, not #000 — keeps the green from vibrating against it. */
-	--bg: #101413;
-	--bg-raised: #171c1a;
-	--bg-sunken: #0b0e0d;
+	/* Original App.css dark navy, restored. Raised/sunken are derived from it
+	 * so card surfaces stay in the same hue family. */
+	--bg: #1a1a2e;
+	--bg-raised: #21213a;
+	--bg-sunken: #141426;
 
-	--text: #e8ece9;
-	--text-muted: #a3aca7;
-	--text-faint: #737d78;
+	--text: #e0e0e0;
+	--text-muted: #a8a8b8;
+	--text-faint: #7b7b8c;
 
-	--border: rgba(232, 236, 233, 0.12);
+	--border: rgba(224, 224, 224, 0.12);
 
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
 	--shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.5);
@@ -296,28 +298,60 @@ main > section {
 }
 
 /* ---------------------------------------------------------------------------
- * 6. Texture
- * A flat single-tone page reads as unfinished. This is a very low-contrast
- * grain, inlined as SVG so it costs no request.
+ * 6. Stack tags
+ * Replaces the four-column skill cards. Every tag is derived from the tech
+ * listed on a real project, so the list can't claim something unbacked.
  * ------------------------------------------------------------------------- */
-body::before {
-	content: "";
-	position: fixed;
-	inset: 0;
-	z-index: 0;
-	pointer-events: none;
-	opacity: 0.035;
-	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+.stack-intro {
+	color: var(--text-muted);
+	margin-bottom: 1.5rem;
 }
 
-[data-theme="dark"] body::before {
-	opacity: 0.05;
+.stack-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2.5rem;
 }
 
-/* Keep real content above the grain layer. */
-#root {
-	position: relative;
-	z-index: 1;
+.stack-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	padding: 0.35rem 0.7rem;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background-color: var(--bg-sunken);
+	font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+	font-size: 0.8rem;
+	color: var(--text);
+	transition: border-color 180ms var(--ease), color 180ms var(--ease);
+}
+
+.stack-tag:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* The count is the evidence: how many shipped projects use this. */
+.stack-count {
+	font-variant-numeric: tabular-nums;
+	font-size: 0.7rem;
+	color: var(--text-faint);
+}
+
+.stack-work {
+	color: var(--text-muted);
+	font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+	font-size: 0.85rem;
+	max-width: none;
+}
+
+.stack-work-label {
+	color: var(--accent);
+	margin-right: 0.6rem;
 }
 
 /* ---------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-export const NAV_ITEMS = ["Skills", "Projects", "Contributions", "Contact", "Resume"];
+export const NAV_ITEMS = ["Projects", "Stack", "Contributions", "Contact", "Resume"];
 
 export const DESIGN_PORTFOLIO = "https://www.kevinreber.net/";
 
@@ -18,10 +18,15 @@ export const ABOUT = {
   // Not currently rendered — Hero.tsx hardcodes its own copy. Kept in sync so
   // the two don't drift into contradicting each other.
   aboutLine1:
-    "I'm a Senior Software Engineer at LinkedIn. I build agentic AI systems for data center infrastructure, and the developer tooling that scales them across engineering teams.",
+    "I'm a Senior Software Engineer at LinkedIn, where I build AI agents that automate data center infrastructure work. I also ship the developer tooling other teams build on.",
   aboutLine2:
-    "Earlier, I co-founded an ed-tech startup through UC Berkeley's Skydeck accelerator.",
+    "Before LinkedIn I co-founded an ed-tech startup out of UC Berkeley's Skydeck.",
 };
+
+// Work stack that will never show up in a public repo, so it can't be derived
+// from projects.json like the rest of the tags are. Listed separately and
+// labelled as such rather than mixed in with the evidence-backed ones.
+export const WORK_STACK = ["Go", "gRPC", "Protobufs", "Temporal"];
 
 // ── Legacy hardcoded projects (kept for reference) ──────────────────────────
 // Projects are now fetched from GitHub at build time via scripts/prebuild.mjs

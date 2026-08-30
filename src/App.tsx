@@ -157,19 +157,19 @@ function App() {
       </header>
 
       <main className={`transition ${contentVisible ? "show" : "hide"}`}>
-        {/* Skills  */}
-        <section id="skills" className="container section-offset">
+        {/* Projects  */}
+        <section id="projects" className="container section-offset">
           <ScrollReveal>
-            <Skills />
+            <Projects setModalProject={handleOpen} />
           </ScrollReveal>
         </section>
 
         <hr className="section-hr" />
 
-        {/* Projects  */}
-        <section id="projects" className="container section-offset">
+        {/* Stack — a summary of the projects above, so it follows them */}
+        <section id="stack" className="container section-offset">
           <ScrollReveal>
-            <Projects setModalProject={handleOpen} />
+            <Skills />
           </ScrollReveal>
         </section>
 
