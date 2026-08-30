@@ -25,3 +25,6 @@ yarn-error.log*
 
 # generated build-time data
 /src/generated/
+
+# Local design explorations and case-study mockups (not part of the build)
+mock/
