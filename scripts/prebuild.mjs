@@ -34,6 +34,20 @@ const REPOS = [
   "tmux-configs",
 ];
 
+// Locally-hosted media that wins over the repo's own `.portfolio.json`.
+// These are in-app captures rather than landing pages — the repo thumbnails
+// mostly show a marketing hero, which says nothing about what the thing does.
+// Paths are served from `public/`, so they resolve at the site root.
+//
+// A repo with no entry here keeps whatever its `.portfolio.json` points at.
+// pixel-studio is deliberately absent: its existing media is good.
+const MEDIA_OVERRIDES = {
+  "clip-cut-ai": { thumbnail: "/media/clip-cut-ai.jpg" },
+  "watch-party": { thumbnail: "/media/watch-party.jpg" },
+  "data-center-tycoon": { thumbnail: "/media/data-center-tycoon.jpg" },
+  "bim-trace": { thumbnail: "/media/bim-trace.jpg" },
+};
+
 // ── Token ────────────────────────────────────────────────────────────────────
 function getToken() {
   if (process.env.GITHUB_TOKEN) return process.env.GITHUB_TOKEN;
@@ -73,8 +87,8 @@ async function fetchPortfolioMeta(repo) {
 
 function rawUrl(repo, path) {
   if (!path) return "";
-  // If already an absolute URL, return as-is
-  if (path.startsWith("http")) return path;
+  // Absolute URLs and site-root paths (local media) pass through untouched
+  if (path.startsWith("http") || path.startsWith("/")) return path;
   return `https://raw.githubusercontent.com/${OWNER}/${repo}/main/${path}`;
 }
 
@@ -92,13 +106,14 @@ async function buildProject(repo, index) {
   }
 
   const order = meta.order ?? index;
+  const override = MEDIA_OVERRIDES[repo] ?? {};
 
   return {
     id: order,
     name: meta.displayName ?? repoData.name,
     data: repoData.name,
-    image: rawUrl(repo, meta.thumbnail) || "",
-    gif: rawUrl(repo, meta.demo) || "",
+    image: rawUrl(repo, override.thumbnail ?? meta.thumbnail) || "",
+    gif: rawUrl(repo, override.demo ?? meta.demo) || "",
     description: meta.description ?? repoData.description ?? "",
     tech: meta.tech ?? repoData.topics ?? [],
     repoLink: repoData.private ? "" : repoData.html_url,
