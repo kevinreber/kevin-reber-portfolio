@@ -102,7 +102,9 @@ const ProjectCard: React.FC<Props> = ({
             </span>
           ))}
         </div>
-        <div className="card-footer">
+        {/* The card itself opens the modal, so a click on either link would
+            bubble up and leave the modal open behind the newly-opened tab. */}
+        <div className="card-footer" onClick={(e) => e.stopPropagation()}>
           {repoSrc && (
             <a href={repoSrc} className="btn" target="_blank" rel="noreferrer">
               Source Code

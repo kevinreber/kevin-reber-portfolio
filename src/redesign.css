@@ -234,10 +234,10 @@ button:focus:not(:focus-visible) {
 		transform 120ms var(--ease), border-color 200ms var(--ease);
 }
 
-.btn:hover {
-	border-color: var(--accent);
-	color: var(--accent);
-}
+/* No `color` or `border-color` override here. App.css already fills the button
+ * with the accent on hover and sets the label to #fff (or the dark navy in
+ * dark mode). Restating the accent as the text colour painted green on green
+ * and made the label vanish. */
 
 /* Physical press feedback. */
 .btn:active,
