@@ -23,15 +23,19 @@ const OUT_FILE = join(OUT_DIR, "projects.json");
 // ── Config ───────────────────────────────────────────────────────────────────
 const OWNER = "kevinreber";
 
+// Display order. Card order follows this array unless a repo's
+// `.portfolio.json` sets an explicit `order`.
 const REPOS = [
   "pixel-studio",
+  "data-center-tycoon",
   "clip-cut-ai",
   "watch-party",
-  "data-center-tycoon",
   "bim-trace",
   "aura",
-  "folio",
-  "tmux-configs",
+  // Hidden for now. Both are terminal-based, so neither has a screenshot worth
+  // showing, and both currently 404 on thumbnail and demo alike.
+  // "folio",
+  // "tmux-configs",
 ];
 
 // Local overrides that win over the repo's own `.portfolio.json`. Media paths
@@ -118,8 +122,10 @@ async function buildProject(repo, index) {
     return null;
   }
 
-  const order = meta.order ?? index;
   const override = OVERRIDES[repo] ?? {};
+  // Position in REPOS wins. Each repo's `.portfolio.json` sets its own `order`,
+  // which used to override this and made reordering here silently do nothing.
+  const order = override.order ?? index;
 
   return {
     id: order,
