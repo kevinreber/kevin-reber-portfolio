@@ -19,7 +19,7 @@ export const ABOUT = {
   // Not currently rendered — Hero.tsx hardcodes its own copy. Kept in sync so
   // the two don't drift into contradicting each other.
   aboutLine1:
-    "I'm a Senior Software Engineer at LinkedIn, working on automation and tooling for data center infrastructure. I build AI agents at work and on my own, and the tooling and playbooks I ship have reached 2,500+ people.",
+    "I'm a Senior Software Engineer at LinkedIn, working on automation and tooling for data center infrastructure. I build AI agents at work and on my own, and the tooling and playbooks I ship have reached 2,500+ people across engineering, product, design, and sales.",
   aboutLine2:
     "Before that I co-founded an ed-tech startup out of UC Berkeley's Skydeck.",
 };
