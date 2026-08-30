@@ -15,8 +15,12 @@ export const SOCIALS = [
 export const ABOUT = {
   greeting: "Hello World, my name is",
   subGreeting: "Kevin Reber",
-  aboutLine1: "I'm a self-taught developer with a passion to build & design.",
-  aboutLine2: "Co-Founder of an ed-tech platform @ Berkeley Skydeck!",
+  // Not currently rendered — Hero.tsx hardcodes its own copy. Kept in sync so
+  // the two don't drift into contradicting each other.
+  aboutLine1:
+    "I'm a Senior Software Engineer at LinkedIn. I build agentic AI systems for data center infrastructure, and the developer tooling that scales them across engineering teams.",
+  aboutLine2:
+    "Earlier, I co-founded an ed-tech startup through UC Berkeley's Skydeck accelerator.",
 };
 
 // ── Legacy hardcoded projects (kept for reference) ──────────────────────────

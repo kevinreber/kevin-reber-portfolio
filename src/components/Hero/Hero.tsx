@@ -37,11 +37,12 @@ const Hero: React.FC = () => {
           </span>
           <br />
           <span className='about line-3'>
-            I am a <strong>Co-Founder &amp; Engineer</strong> of an ed-tech
-            platform at <strong>U.C. Berkeley's SKYDECK</strong> accelerator
-            program!
+            I'm a <strong>Senior Software Engineer at LinkedIn</strong>. I build
+            agentic AI systems for data center infrastructure, and the developer
+            tooling that scales them across engineering teams.
             <br />
-            Currently helping students connect remotely, you can learn more{" "}
+            Earlier, I co-founded an ed-tech startup through{" "}
+            <strong>UC Berkeley's Skydeck</strong> accelerator. You can see it{" "}
             <a className='links' href={MATE}>
               here
             </a>
