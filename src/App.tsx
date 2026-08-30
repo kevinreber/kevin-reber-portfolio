@@ -23,6 +23,7 @@ import { Project } from "./types";
 
 // styles
 import "./App.css";
+import "./redesign.css";
 
 const CURR_PROJECT_INITIAL_STATE: Project = {
   id: 0,

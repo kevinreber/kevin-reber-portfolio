@@ -1,0 +1,332 @@
+/*
+ * Redesign overlay — loaded after App.css so equal-specificity rules win.
+ * Delete the import in App.tsx to revert; App.css is unmodified.
+ *
+ * Applied from the taste-skill `redesign-skill` audit. Fixes, in order of
+ * impact: a token layer replacing two hardcoded color systems, legible body
+ * weight, real focus states, and motion/viewport correctness.
+ */
+
+/* ---------------------------------------------------------------------------
+ * 1. Token layer
+ * App.css hardcodes light colors, then re-states every one of them under
+ * `[data-theme="dark"]`. Both systems collide through `*` selectors. These
+ * tokens give both themes one source of truth; the rules below consume them.
+ * ------------------------------------------------------------------------- */
+:root {
+	--accent: #54b78a;
+	--accent-strong: #3f9d72;
+	--accent-soft: rgba(84, 183, 138, 0.12);
+
+	--bg: #fbfbfa;
+	--bg-raised: #ffffff;
+	--bg-sunken: #f2f3f1;
+
+	--text: #1c1f1e;
+	--text-muted: #6b716e;
+	--text-faint: #9aa09d;
+
+	--border: rgba(28, 31, 30, 0.1);
+
+	/* Shadows tinted toward the surface hue rather than pure black. */
+	--shadow-sm: 0 1px 2px rgba(28, 40, 35, 0.06);
+	--shadow-md: 0 4px 16px -4px rgba(28, 40, 35, 0.12);
+	--shadow-lg: 0 18px 40px -12px rgba(28, 40, 35, 0.18);
+
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+
+	--container: 1200px;
+	--ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+[data-theme="dark"] {
+	--accent: #6ecfa0;
+	--accent-strong: #8bdcb4;
+	--accent-soft: rgba(110, 207, 160, 0.14);
+
+	/* Off-black, not #000 — keeps the green from vibrating against it. */
+	--bg: #101413;
+	--bg-raised: #171c1a;
+	--bg-sunken: #0b0e0d;
+
+	--text: #e8ece9;
+	--text-muted: #a3aca7;
+	--text-faint: #737d78;
+
+	--border: rgba(232, 236, 233, 0.12);
+
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+	--shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.5);
+	--shadow-lg: 0 18px 40px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------------------------------------------------------
+ * 2. Typography
+ * App.css sets `font-family` and `color` on `*`, which forces both onto every
+ * node and blocks the cascade. Re-point them at tokens at the same specificity.
+ * ------------------------------------------------------------------------- */
+* {
+	font-family: "Outfit", "Roboto", system-ui, -apple-system, sans-serif;
+	color: inherit;
+}
+
+[data-theme="dark"] * {
+	color: inherit;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Body copy was `font-weight: 100` — hairline Roboto at 12–16px is the single
+ * worst legibility problem on the page. 400 is the floor for running text. */
+p {
+	font-weight: 400;
+	line-height: 1.7;
+	color: var(--text-muted);
+	max-width: 68ch; /* ~65 characters */
+	text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+	color: var(--text);
+	text-wrap: balance;
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	font-weight: 600;
+}
+
+/* Fluid display type instead of three fixed px breakpoints. */
+.about.line-2 {
+	font-size: clamp(2.5rem, 7vw, 4.5rem);
+	font-weight: 600;
+	letter-spacing: -0.03em;
+	line-height: 1.05;
+	text-wrap: balance;
+}
+
+.about.line-1,
+.about.line-1 * {
+	font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+	color: var(--accent);
+	font-size: clamp(1rem, 2.2vw, 1.4rem);
+	letter-spacing: 0.01em;
+}
+
+.about.line-3 {
+	color: var(--text-muted);
+	font-size: clamp(1.05rem, 2vw, 1.3rem);
+	font-weight: 400;
+	max-width: 60ch;
+}
+
+.section-heading {
+	font-size: clamp(1.6rem, 3.5vw, 2.15rem);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	color: var(--text);
+}
+
+.section-heading::before {
+	background-color: var(--accent);
+	border-radius: 999px;
+}
+
+.btn,
+.txt-2,
+.txt-2-project,
+.footer-text {
+	font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+}
+
+/* Dates, counts, and stat figures line up in columns. */
+.txt-2, .txt-2-project, .footer-text, .card-footer, time {
+	font-variant-numeric: tabular-nums;
+}
+
+.txt-2.skill, .txt-2-project { color: var(--text-faint); }
+.footer-text { color: var(--text-faint); }
+.links, .card-title { color: var(--accent); }
+
+/* ---------------------------------------------------------------------------
+ * 3. Surfaces
+ * ------------------------------------------------------------------------- */
+[data-theme="dark"] body,
+[data-theme="dark"] .navbar,
+[data-theme="dark"] #overlay,
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .card {
+	background-color: var(--bg);
+	color: var(--text);
+}
+
+.card,
+.building-card,
+.blog-card,
+#projects .card {
+	background-color: var(--bg-raised);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+	transition: transform 220ms var(--ease), box-shadow 220ms var(--ease),
+		border-color 220ms var(--ease);
+}
+
+/* Inner elements get a tighter radius than their container. */
+.card img,
+.card .tech,
+.card-skill {
+	border-radius: var(--radius-sm);
+}
+
+.card:hover,
+.building-card:hover,
+.blog-card:hover,
+#projects .card:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--shadow-lg);
+	border-color: var(--accent-soft);
+}
+
+/* Cards in a row often hold different amounts of copy; pin the CTA so the
+ * buttons form one line instead of floating at random heights. */
+.card {
+	display: flex;
+	flex-direction: column;
+}
+.card .card-footer,
+.card .btn {
+	margin-top: auto;
+}
+
+.section-hr {
+	border-color: var(--border);
+}
+
+/* ---------------------------------------------------------------------------
+ * 4. Interaction and accessibility
+ * App.css had zero `:focus` rules — keyboard users got no indication at all.
+ * ------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: var(--radius-sm);
+}
+
+/* Only suppress the default ring for mouse users, never for keyboard. */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+.btn {
+	transition: background-color 200ms var(--ease), color 200ms var(--ease),
+		transform 120ms var(--ease), border-color 200ms var(--ease);
+}
+
+.btn:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* Physical press feedback. */
+.btn:active,
+button:active {
+	transform: translateY(1px) scale(0.985);
+}
+
+.navbar a,
+.nav-links a {
+	transition: color 180ms var(--ease);
+}
+
+.navbar a:hover,
+.nav-links a:hover,
+.nav-link-active {
+	color: var(--accent);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Respect the OS reduced-motion setting — required for vestibular safety. */
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* ---------------------------------------------------------------------------
+ * 5. Layout
+ * ------------------------------------------------------------------------- */
+
+/* 100vh overflows on iOS Safari because the URL bar is not subtracted. */
+.hero,
+#hero,
+.full-height {
+	min-height: 100dvh;
+}
+
+.container,
+.section-container {
+	max-width: var(--container);
+	margin-inline: auto;
+}
+
+/* Scoped to `main` — the navbar sits in its own bare <section> outside main, and
+ * blanket section padding put 240px of dead space above the fold.
+ * Bottom padding reads lighter than top at equal values; nudge it optically. */
+main > section {
+	padding-block: clamp(4rem, 9vw, 7rem) clamp(4.5rem, 10vw, 8rem);
+}
+
+/* ---------------------------------------------------------------------------
+ * 6. Texture
+ * A flat single-tone page reads as unfinished. This is a very low-contrast
+ * grain, inlined as SVG so it costs no request.
+ * ------------------------------------------------------------------------- */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	opacity: 0.035;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] body::before {
+	opacity: 0.05;
+}
+
+/* Keep real content above the grain layer. */
+#root {
+	position: relative;
+	z-index: 1;
+}
+
+/* ---------------------------------------------------------------------------
+ * 7. Icon-font guard
+ * Font Awesome 4.7 is loaded in index.html and renders glyphs through
+ * `font-family`. Class selectors already outrank the `*` rule above, but state
+ * it explicitly so a future refactor can't silently turn icons into letters.
+ * ------------------------------------------------------------------------- */
+.fa, .fa::before, .fa::after,
+[class^="fa-"], [class*=" fa-"] {
+	font-family: FontAwesome !important;
+}
