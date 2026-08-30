@@ -23,10 +23,34 @@ export const ABOUT = {
     "Before LinkedIn I co-founded an ed-tech startup out of UC Berkeley's Skydeck.",
 };
 
-// Work stack that will never show up in a public repo, so it can't be derived
-// from projects.json like the rest of the tags are. Listed separately and
-// labelled as such rather than mixed in with the evidence-backed ones.
-export const WORK_STACK = ["Go", "gRPC", "Protobufs", "Temporal"];
+// Hand-curated: things worth defending in an interview, in reading order
+// rather than alphabetical. Skills.tsx intersects this with the tech actually
+// declared in generated/projects.json, so an entry only renders if a shipped
+// project backs it up, and a project's implementation details (FFmpeg.wasm,
+// IFC.js, PDF.js, Nerd Fonts) never leak in just by being in the repo data.
+//
+// Deliberately absent: Rust, Axum, Ratatui. Folio uses them, but the code was
+// AI-written and Kevin wouldn't claim the language in an interview. Project
+// usage and personal fluency are different claims; this list is the second one.
+export const STACK = [
+  "TypeScript",
+  "Python",
+  "React",
+  "Remix",
+  "TanStack Start",
+  "Tailwind",
+  "Three.js",
+  "Flask",
+  "Convex",
+  "Supabase",
+  "Prisma",
+  "Redis",
+  "Kafka",
+  "SQLite",
+  "Stripe",
+  "LangChain",
+  "Claude API",
+];
 
 // ── Legacy hardcoded projects (kept for reference) ──────────────────────────
 // Projects are now fetched from GitHub at build time via scripts/prebuild.mjs

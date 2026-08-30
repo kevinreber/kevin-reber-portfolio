@@ -335,25 +335,6 @@ main > section {
 	color: var(--accent);
 }
 
-/* The count is the evidence: how many shipped projects use this. */
-.stack-count {
-	font-variant-numeric: tabular-nums;
-	font-size: 0.7rem;
-	color: var(--text-faint);
-}
-
-.stack-work {
-	color: var(--text-muted);
-	font-family: "JetBrains Mono", "SF Mono", ui-monospace, monospace;
-	font-size: 0.85rem;
-	max-width: none;
-}
-
-.stack-work-label {
-	color: var(--accent);
-	margin-right: 0.6rem;
-}
-
 /* ---------------------------------------------------------------------------
  * 7. Icon-font guard
  * Font Awesome 4.7 is loaded in index.html and renders glyphs through

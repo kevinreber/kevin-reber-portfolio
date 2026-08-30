@@ -2,55 +2,42 @@ import React from 'react';
 
 // data
 import generatedProjects from '../../generated/projects.json';
-import { WORK_STACK } from '../../data';
+import { STACK } from '../../data';
 
 type GeneratedProject = { tech?: string[] };
 
 /**
- * Builds the tag list from the tech each project actually declares, so nothing
- * here can claim a technology no shipped project backs up. Sorted by how many
- * projects use it, then alphabetically to keep equal counts stable.
+ * STACK is the claim (what Kevin would defend); projects.json is the evidence.
+ * Rendering only the intersection means the list can't drift into naming
+ * something no shipped project uses, and can't pull in a project's incidental
+ * dependencies either. Order follows STACK, not the project data.
  */
-const deriveStack = (projects: GeneratedProject[]) => {
-	const counts = new Map<string, number>();
-
+const resolveStack = (projects: GeneratedProject[]) => {
+	const used = new Set<string>();
 	projects.forEach((project) => {
-		(project.tech ?? []).forEach((tech) => {
-			counts.set(tech, (counts.get(tech) ?? 0) + 1);
-		});
+		(project.tech ?? []).forEach((tech) => used.add(tech));
 	});
 
-	return Array.from(counts.entries())
-		.sort(([aName, aCount], [bName, bCount]) =>
-			bCount - aCount || aName.localeCompare(bName)
-		)
-		.map(([name, count]) => ({ name, count }));
+	return STACK.filter((tech) => used.has(tech));
 };
 
 const Skills: React.FC = () => {
-	const stack = deriveStack(generatedProjects as GeneratedProject[]);
+	const stack = resolveStack(generatedProjects as GeneratedProject[]);
 
 	return (
 		<>
 			<h3 className="section-heading">Stack</h3>
 			<p className="stack-intro">
-				Everything below is pulled from the projects above. The number is how
-				many of them use it.
+				What I reach for most. Every one of these is used by a project above.
 			</p>
 
 			<ul className="stack-tags">
-				{stack.map(({ name, count }) => (
-					<li key={name} className="stack-tag">
-						{name}
-						{count > 1 && <span className="stack-count">{count}</span>}
+				{stack.map((tech) => (
+					<li key={tech} className="stack-tag">
+						{tech}
 					</li>
 				))}
 			</ul>
-
-			<p className="stack-work">
-				<span className="stack-work-label">At work</span>
-				{WORK_STACK.join('  ·  ')}
-			</p>
 		</>
 	);
 };
