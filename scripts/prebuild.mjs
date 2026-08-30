@@ -34,18 +34,18 @@ const REPOS = [
   "tmux-configs",
 ];
 
-// Locally-hosted media that wins over the repo's own `.portfolio.json`.
+// Local overrides that win over the repo's own `.portfolio.json`. Media paths
+// starting with `/` are served from `public/`; anything else is resolved
+// against the repo. A repo with no entry here is left entirely alone.
+//
 // These are in-app captures rather than landing pages — the repo thumbnails
 // mostly show a marketing hero, which says nothing about what the thing does.
-// Paths are served from `public/`, so they resolve at the site root.
-//
-// A repo with no entry here keeps whatever its `.portfolio.json` points at.
 //
 // pixel-studio pins the media that has always been on kevinreber.dev: the
 // archived thumbnail in this repo and the Giphy demo. Its `.portfolio.json`
 // points somewhere else (a smaller docs/images thumbnail, and a demo.gif that
 // 404s), which is why the card lost its GIF when prebuild took over.
-const MEDIA_OVERRIDES = {
+const OVERRIDES = {
   "pixel-studio": {
     thumbnail:
       "https://raw.githubusercontent.com/kevinreber/kevin-reber-portfolio/master/archives/public/images/project%20demos/thumbnails/pixel-studio-ai.png?raw=true",
@@ -53,7 +53,11 @@ const MEDIA_OVERRIDES = {
   },
   "clip-cut-ai": { thumbnail: "/media/clip-cut-ai.jpg" },
   "watch-party": { thumbnail: "/media/watch-party.jpg" },
-  "data-center-tycoon": { thumbnail: "/media/data-center-tycoon.jpg" },
+  "data-center-tycoon": {
+    // The app calls itself "DC TYCOON" in its own header; match it.
+    displayName: "DC Tycoon",
+    thumbnail: "/media/data-center-tycoon.jpg",
+  },
   "bim-trace": { thumbnail: "/media/bim-trace.jpg" },
 };
 
@@ -115,15 +119,15 @@ async function buildProject(repo, index) {
   }
 
   const order = meta.order ?? index;
-  const override = MEDIA_OVERRIDES[repo] ?? {};
+  const override = OVERRIDES[repo] ?? {};
 
   return {
     id: order,
-    name: meta.displayName ?? repoData.name,
+    name: override.displayName ?? meta.displayName ?? repoData.name,
     data: repoData.name,
     image: rawUrl(repo, override.thumbnail ?? meta.thumbnail) || "",
     gif: rawUrl(repo, override.demo ?? meta.demo) || "",
-    description: meta.description ?? repoData.description ?? "",
+    description: override.description ?? meta.description ?? repoData.description ?? "",
     tech: meta.tech ?? repoData.topics ?? [],
     repoLink: repoData.private ? "" : repoData.html_url,
     liveLink: meta.liveUrl ?? repoData.homepage ?? "",
