@@ -42,8 +42,13 @@ const Hero: React.FC = () => {
             also ship the developer tooling other teams build on.
             <br />
             Before LinkedIn I co-founded an ed-tech startup out of{" "}
-            <strong>UC Berkeley's Skydeck</strong>. It's still live{" "}
-            <a className='links' href={MATE}>
+            <strong>UC Berkeley's Skydeck</strong>. The team is still at it{" "}
+            <a
+              className='links'
+              href={MATE}
+              target='_blank'
+              rel='noreferrer'
+            >
               here
             </a>
           </span>

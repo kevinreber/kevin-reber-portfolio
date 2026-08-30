@@ -2,7 +2,8 @@ export const NAV_ITEMS = ["Projects", "Stack", "Contributions", "Contact", "Resu
 
 export const DESIGN_PORTFOLIO = "https://www.kevinreber.net/";
 
-export const MATE = "http://mateapp.us/";
+// TikTok rather than mateapp.us — the account is the more current of the two.
+export const MATE = "https://www.tiktok.com/@mateapp.us";
 
 export const SOCIALS = [
   { id: "github", src: "https://github.com/kevinreber" },
