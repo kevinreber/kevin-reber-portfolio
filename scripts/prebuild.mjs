@@ -40,8 +40,17 @@ const REPOS = [
 // Paths are served from `public/`, so they resolve at the site root.
 //
 // A repo with no entry here keeps whatever its `.portfolio.json` points at.
-// pixel-studio is deliberately absent: its existing media is good.
+//
+// pixel-studio pins the media that has always been on kevinreber.dev: the
+// archived thumbnail in this repo and the Giphy demo. Its `.portfolio.json`
+// points somewhere else (a smaller docs/images thumbnail, and a demo.gif that
+// 404s), which is why the card lost its GIF when prebuild took over.
 const MEDIA_OVERRIDES = {
+  "pixel-studio": {
+    thumbnail:
+      "https://raw.githubusercontent.com/kevinreber/kevin-reber-portfolio/master/archives/public/images/project%20demos/thumbnails/pixel-studio-ai.png?raw=true",
+    demo: "https://media.giphy.com/media/LSr9anHxh6ukbXF87V/source.gif",
+  },
   "clip-cut-ai": { thumbnail: "/media/clip-cut-ai.jpg" },
   "watch-party": { thumbnail: "/media/watch-party.jpg" },
   "data-center-tycoon": { thumbnail: "/media/data-center-tycoon.jpg" },
