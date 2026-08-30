@@ -63,6 +63,9 @@ const OVERRIDES = {
     thumbnail: "/media/data-center-tycoon.jpg",
   },
   "bim-trace": { thumbnail: "/media/bim-trace.jpg" },
+  // The repo's docs/images/thumbnail.png is a much older light-theme build
+  // showing an empty chat panel over clipped widget cards.
+  "aura": { thumbnail: "/media/aura.png" },
 };
 
 // ── Token ────────────────────────────────────────────────────────────────────
