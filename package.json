@@ -19,8 +19,9 @@
     "web-vitals": "^3.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "prebuild": "node scripts/prebuild.mjs",
+    "start": "npm run prebuild && react-scripts start",
+    "build": "npm run prebuild && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

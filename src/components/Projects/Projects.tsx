@@ -3,9 +3,11 @@ import React from "react";
 // components
 import ProjectCard from "../ProjectCard/ProjectCard";
 
-// constants
-import { PROJECTS } from "../../data";
-import { Project } from "../../App";
+// data
+import generatedProjects from "../../generated/projects.json";
+import { Project } from "../../types";
+
+const PROJECTS: Project[] = generatedProjects;
 
 type Props = {
   setModalProject: (project: Project) => void;
@@ -28,7 +30,6 @@ const Projects: React.FC<Props> = ({ setModalProject }) => {
               tech={project.tech}
               repoSrc={project.repoLink}
               liveSrc={project.liveLink}
-              clss={project.clss}
               setModalProject={setModalProject}
             />
           </div>

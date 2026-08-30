@@ -18,21 +18,11 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
+// types
+import { Project } from "./types";
+
 // styles
 import "./App.css";
-
-export interface Project {
-  id: number;
-  name: string;
-  data: string;
-  image: string;
-  gif: string;
-  description: string;
-  tech: string[];
-  repoLink: string;
-  liveLink: string;
-  clss?: string | null;
-}
 
 const CURR_PROJECT_INITIAL_STATE: Project = {
   id: 0,
@@ -44,7 +34,6 @@ const CURR_PROJECT_INITIAL_STATE: Project = {
   tech: [],
   repoLink: "",
   liveLink: "",
-  clss: "",
 };
 
 function App() {
@@ -107,13 +96,15 @@ function App() {
       >
         <Fade in={showModal}>
           <div className="modal-content">
-            <div className="modal-gif">
-              <img
-                src={currentProject.gif}
-                className={`modal-img ${currentProject.data}`}
-                alt={currentProject.name}
-              />
-            </div>
+            {(currentProject.gif || currentProject.image) && (
+              <div className="modal-gif">
+                <img
+                  src={currentProject.gif || currentProject.image}
+                  className={`modal-img ${currentProject.data}`}
+                  alt={currentProject.name}
+                />
+              </div>
+            )}
             <div className="modal-body">
               <div className="modal-header">
                 <h5 className="modal-title card-title">

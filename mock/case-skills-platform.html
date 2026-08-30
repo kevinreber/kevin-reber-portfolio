@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills Platform · Kevin Reber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #faf8f3;
+      --bg-elev: #ffffff;
+      --text: #1a1815;
+      --text-muted: #6b6660;
+      --text-dim: #9a958c;
+      --accent: #54b78a;
+      --accent-deep: #3d9a6f;
+      --accent-dim: rgba(84, 183, 138, 0.12);
+      --border: #e6e1d8;
+      --border-soft: #efeae0;
+      --code-bg: #2a2520;
+      --code-text: #e8e2d4;
+      --code-comment: #8a7f6e;
+      --code-keyword: #c4a35a;
+      --code-string: #94c39a;
+      --code-fn: #d49a7a;
+      --radius: 8px;
+      --radius-sm: 6px;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'Geist Mono', 'SF Mono', Menlo, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--sans); font-weight: 300;
+      line-height: 1.65; font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--accent); color: #fff; }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(250, 248, 243, 0.78);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    nav .container-wide {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 1.25rem; padding-bottom: 1.25rem;
+    }
+    .logo { display: inline-flex; align-items: center; color: var(--text); text-decoration: none; }
+    .logo svg { width: 38px; height: 38px; display: block; }
+    .logo svg path {
+      fill: none; stroke: var(--accent); stroke-width: 2.5;
+      stroke-dasharray: 1214.07; stroke-dashoffset: 0;
+      animation: kr-draw 1.6s ease-in-out;
+    }
+    @keyframes kr-draw {
+      from { stroke-dashoffset: 1214.07; }
+      to { stroke-dashoffset: 0; }
+    }
+    nav ul {
+      display: flex; gap: 2.25rem; list-style: none;
+      font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.05em;
+    }
+    nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+
+    .case-header { padding: 9rem 0 4rem; border-bottom: 1px solid var(--border-soft); }
+    .breadcrumb {
+      font-family: var(--mono); font-size: 0.8125rem;
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.05em; display: inline-flex; align-items: center;
+      gap: 0.5rem; margin-bottom: 3rem; transition: color 0.2s;
+    }
+    .breadcrumb:hover { color: var(--accent-deep); }
+
+    .case-title {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+      line-height: 1.08; letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .case-title em { font-style: italic; color: var(--accent-deep); }
+    .case-deck {
+      font-family: var(--serif); font-size: 1.25rem;
+      color: var(--text-muted); font-weight: 300; max-width: 60ch;
+      line-height: 1.5;
+    }
+
+    .tldr {
+      background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      margin-top: 4rem;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    }
+    .tldr-item .label {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--text-dim); letter-spacing: 0.2em;
+      margin-bottom: 0.5rem;
+    }
+    .tldr-item .value {
+      font-family: var(--mono); font-size: 0.875rem;
+      color: var(--text); letter-spacing: 0.05em;
+    }
+    .tldr-item .value.accent { color: var(--accent-deep); }
+
+    .case-body { padding: 5rem 0; }
+    .case-body h2 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: 1.75rem; letter-spacing: -0.01em;
+      margin: 4rem 0 1.25rem;
+    }
+    .case-body h2:first-child { margin-top: 0; }
+    .case-body p { margin-bottom: 1.25rem; color: var(--text); font-size: 1.05rem; }
+    .case-body p:last-child { margin-bottom: 0; }
+    .case-body strong { font-weight: 500; color: var(--text); }
+    .case-body em { font-style: italic; color: var(--text); }
+
+    .pull-quote {
+      font-family: var(--serif); font-size: 1.5rem;
+      color: var(--text); font-weight: 300;
+      line-height: 1.4; letter-spacing: -0.01em;
+      border-left: 2px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      margin: 2.5rem 0;
+      font-style: italic;
+    }
+
+    .diagram {
+      margin: 3rem 0;
+      background: linear-gradient(135deg, #f4f8f5 0%, #eef4ef 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+    }
+    .diagram svg { width: 100%; height: auto; display: block; }
+    .diagram-caption {
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--text-dim); letter-spacing: 0.1em;
+      margin-top: 1.5rem; text-align: center;
+    }
+
+    .decision {
+      margin: 2.5rem 0;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .decision-row {
+      display: grid; grid-template-columns: 220px 1fr;
+      gap: 1.5rem; padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .decision-row:last-child { border-bottom: none; }
+    .decision-row.chosen { background: var(--accent-dim); }
+    .decision-row .option {
+      font-family: var(--mono); font-size: 0.8125rem;
+      color: var(--text); letter-spacing: 0.05em;
+    }
+    .decision-row .option .badge {
+      display: inline-block; margin-left: 0.5rem;
+      padding: 0.1rem 0.5rem; border-radius: 3px;
+      font-size: 0.65rem; letter-spacing: 0.15em;
+      background: var(--accent-deep); color: #fff;
+    }
+    .decision-row .reason { color: var(--text-muted); font-size: 0.95rem; }
+
+    .code-block {
+      background: var(--code-bg); color: var(--code-text);
+      border-radius: var(--radius); margin: 2.5rem 0; overflow: hidden;
+    }
+    .code-header {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-family: var(--mono); font-size: 0.75rem;
+      color: var(--code-comment); display: flex;
+      justify-content: space-between; letter-spacing: 0.05em;
+    }
+    .code-header .lang { color: var(--accent); }
+    .code-block pre {
+      padding: 1.5rem 1.25rem; margin: 0;
+      font-family: var(--mono); font-size: 0.8125rem;
+      line-height: 1.7; overflow-x: auto;
+    }
+    .code-block .kw { color: var(--code-keyword); }
+    .code-block .str { color: var(--code-string); }
+    .code-block .fn { color: var(--code-fn); }
+    .code-block .cmt { color: var(--code-comment); font-style: italic; }
+
+    .outcome-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin: 2.5rem 0;
+    }
+    .outcome-stat {
+      background: var(--bg-elev); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .outcome-stat .number {
+      font-family: var(--serif); font-size: 2rem;
+      font-weight: 300; letter-spacing: -0.02em;
+      color: var(--accent-deep); margin-bottom: 0.25rem;
+    }
+    .outcome-stat .label {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--text-muted); letter-spacing: 0.15em;
+    }
+
+    .case-footer { padding: 5rem 0; border-top: 1px solid var(--border-soft); }
+    .nav-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .nav-card {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.5rem; text-decoration: none;
+      transition: all 0.2s; background: var(--bg-elev);
+    }
+    .nav-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .nav-card .label {
+      font-family: var(--mono); font-size: 0.7rem;
+      color: var(--text-dim); letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+    }
+    .nav-card .name {
+      font-family: var(--serif); font-size: 1.25rem;
+      color: var(--text); font-weight: 400;
+    }
+    .nav-card.next { text-align: right; }
+
+    @media (max-width: 800px) {
+      .tldr { grid-template-columns: repeat(2, 1fr); }
+      .outcome-stats { grid-template-columns: 1fr; }
+      .decision-row { grid-template-columns: 1fr; gap: 0.5rem; }
+      .nav-pair { grid-template-columns: 1fr; }
+      .nav-card.next { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container-wide">
+      <a href="./portfolio-warm.html" class="logo" aria-label="Kevin Reber — home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+          <path d="M51,6.16c0,.12,0,37.69,0,37.82V69.65c0,.06,0,.12,0,.23.09-.06.16-.08.2-.13a2.82,2.82,0,0,0,.18-.29l6.09-10.23a.4.4,0,0,1,.38-.25H76.76L77,59a2.32,2.32,0,0,1-.17.32l-6.42,11.4c-.75,1.34-1.5,2.68-2.27,4a.38.38,0,0,0,0,.46c.21.28.39.57.58.86q9.45,14.31,18.92,28.61c.38.57.75,1.15,1.12,1.72H68.31l-.2-.31-5-7.52L51.58,81.42l-.36-.53c-.06-.1-.12-.17-.26-.08v25.24c0,.11,0,.23,0,.34H34V14.74a72.93,72.93,0,0,0-23.75,93.72H88.75v1.46H11a72.93,72.93,0,0,0,101.94,27.34c-20.35-31-20.39-31.06-20.44-31.14L85.81,96Q79,85.74,72.27,75.5c-.27-.4-.16-.79-.19-1.21H82.7a13.33,13.33,0,0,0,2.44-.21,11.93,11.93,0,0,0,5.41-2.43,9,9,0,0,0,3.37-9.51,6.65,6.65,0,0,0-3.63-4.65,9.52,9.52,0,0,0-2.64-.87,15.33,15.33,0,0,0-3-.25H59.44l-.25,0,.2-.34Q63,49.91,66.57,43.84l.11-.23H91.4a.78.78,0,0,0,.21,0,31.17,31.17,0,0,1,4.83.53,24,24,0,0,1,5.63,1.73,16.9,16.9,0,0,1,9.39,10.39,21.29,21.29,0,0,1,1,4.87,22.39,22.39,0,0,1,0,4.63A16.15,16.15,0,0,1,111,71a18.52,18.52,0,0,1-4.86,6.27,25.7,25.7,0,0,1-9.35,5l-.44.14.17.28q4.35,6.75,8.71,13.5l6.42,10c0,.07.07.15,14,21.33A72.92,72.92,0,0,0,50.85,6.2"/>
+        </svg>
+      </a>
+      <ul>
+        <li><a href="./portfolio-warm.html#work">work</a></li>
+        <li><a href="./portfolio-warm.html#systems">systems</a></li>
+        <li><a href="./portfolio-warm.html#writing">writing</a></li>
+        <li><a href="./portfolio-warm.html#background">background</a></li>
+        <li><a href="./portfolio-warm.html#contact">say&nbsp;hi</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="case-header">
+    <div class="container">
+      <a href="./portfolio-warm.html#work" class="breadcrumb">← back to work</a>
+
+      <h1 class="case-title">
+        Building the AI tooling <em>every engineer at LinkedIn</em> uses.
+      </h1>
+      <p class="case-deck">
+        How we turned scattered one-off agents into a versioned, ACL-gated, marketplace-distributed platform of reusable AI workflows — and what it takes to ship safely at company scale.
+      </p>
+
+      <div class="tldr">
+        <div class="tldr-item">
+          <div class="label">ROLE</div>
+          <div class="value">Senior SWE · platform contributor</div>
+        </div>
+        <div class="tldr-item">
+          <div class="label">STACK</div>
+          <div class="value">TypeScript · Python · MCP · semver</div>
+        </div>
+        <div class="tldr-item">
+          <div class="label">REACH</div>
+          <div class="value accent">All LinkedIn engineering</div>
+        </div>
+        <div class="tldr-item">
+          <div class="label">STATUS</div>
+          <div class="value">In production · 8 plugin categories</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <article class="case-body">
+    <div class="container">
+
+      <h2>The problem</h2>
+      <p>
+        When AI-assisted engineering started landing inside the company, every team
+        built their own version of the same things. A team would write a "query Jira
+        and summarize" agent. Another would build their own. A third would copy the
+        first one but tweak it for their workflow. Five months in, we had a sprawl
+        of one-off agents that all needed the same things: auth, ACL, observability,
+        versioning, a way to ship.
+      </p>
+      <p>
+        The platform question wasn't "how do we build more agents?" It was:
+        <strong>how do we make the next agent take an afternoon, not a quarter?</strong>
+      </p>
+
+      <p class="pull-quote">
+        A skill I write for my team should be installable by your team without a
+        Slack thread, a copy-paste, or a code review.
+      </p>
+
+      <h2>The shape of the platform</h2>
+      <p>
+        Eight plugin categories — productivity, development, infrastructure,
+        observability, MAE, migration, specialized, ext — each shipping commands,
+        skills, agents, and MCP servers. Every plugin has standard anatomy:
+        a metadata file (<code>.claude-plugin/plugin.json</code>), a README,
+        ACL coverage (required for CI to pass), and optional capabilities.
+        Versioned with semver, distributed through an internal marketplace,
+        validated by pre-commit hooks.
+      </p>
+
+      <div class="diagram">
+        <svg viewBox="0 0 720 380" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <text x="20" y="28" font-family="JetBrains Mono, monospace" font-size="11" fill="#9a958c" letter-spacing="2.5">SKILLS PLATFORM · PLUGIN ANATOMY</text>
+          <line x1="20" y1="42" x2="700" y2="42" stroke="#d8d3c8" stroke-width="1"/>
+
+          <!-- Plugin categories grid -->
+          <g font-family="JetBrains Mono, monospace" font-size="9.5" letter-spacing="1.2">
+            <rect x="30" y="80" width="160" height="50" fill="#ffffff" stroke="#54b78a" stroke-width="1.5" rx="4"/>
+            <text x="110" y="103" text-anchor="middle" fill="#3d9a6f">PRODUCTIVITY</text>
+            <text x="110" y="118" text-anchor="middle" fill="#9a958c" font-size="8">Jira · Slack · Drive</text>
+
+            <rect x="200" y="80" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="280" y="103" text-anchor="middle" fill="#6b6660">DEVELOPMENT</text>
+            <text x="280" y="118" text-anchor="middle" fill="#9a958c" font-size="8">GitHub · Mint · Jarvis</text>
+
+            <rect x="370" y="80" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="450" y="103" text-anchor="middle" fill="#6b6660">INFRASTRUCTURE</text>
+            <text x="450" y="118" text-anchor="middle" fill="#9a958c" font-size="8">K8s · LIX · Fabric · Nimbus</text>
+
+            <rect x="540" y="80" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="620" y="103" text-anchor="middle" fill="#6b6660">OBSERVABILITY</text>
+            <text x="620" y="118" text-anchor="middle" fill="#9a958c" font-size="8">InGraphs · Kusto · Alerts</text>
+
+            <rect x="30" y="145" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="110" y="168" text-anchor="middle" fill="#6b6660">MAE</text>
+            <text x="110" y="183" text-anchor="middle" fill="#9a958c" font-size="8">Author · Review</text>
+
+            <rect x="200" y="145" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="280" y="168" text-anchor="middle" fill="#6b6660">MIGRATION</text>
+            <text x="280" y="183" text-anchor="middle" fill="#9a958c" font-size="8">Codemods · Refactors</text>
+
+            <rect x="370" y="145" width="160" height="50" fill="#ffffff" stroke="#54b78a" stroke-width="1.5" rx="4"/>
+            <text x="450" y="168" text-anchor="middle" fill="#3d9a6f">SPECIALIZED</text>
+            <text x="450" y="183" text-anchor="middle" fill="#9a958c" font-size="8">Network-oncall · Data · ML</text>
+
+            <rect x="540" y="145" width="160" height="50" fill="#ffffff" stroke="#d8d3c8" stroke-width="1.2" rx="4"/>
+            <text x="620" y="168" text-anchor="middle" fill="#6b6660">EXT</text>
+            <text x="620" y="183" text-anchor="middle" fill="#9a958c" font-size="8">External (infosec-gated)</text>
+          </g>
+
+          <!-- Standard anatomy block -->
+          <text x="30" y="230" font-family="JetBrains Mono, monospace" font-size="10" fill="#6b6660" letter-spacing="1.5">STANDARD PLUGIN ANATOMY</text>
+          <line x1="30" y1="240" x2="690" y2="240" stroke="#d8d3c8" stroke-width="1"/>
+
+          <g font-family="JetBrains Mono, monospace" font-size="9.5">
+            <text x="30" y="265" fill="#3d9a6f">.claude-plugin/plugin.json</text>
+            <text x="240" y="265" fill="#9a958c">— required: name, version (semver), category, owner</text>
+
+            <text x="30" y="290" fill="#3d9a6f">acl/</text>
+            <text x="240" y="290" fill="#9a958c">— required: ACL coverage. CI fails without it.</text>
+
+            <text x="30" y="315" fill="#3d9a6f">commands/ skills/ agents/</text>
+            <text x="240" y="315" fill="#9a958c">— optional: capability surface (any combination)</text>
+
+            <text x="30" y="340" fill="#3d9a6f">.mcp.json</text>
+            <text x="240" y="340" fill="#9a958c">— optional: MCP server config for tool integrations</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">FIG. 1 · 8 PLUGIN CATEGORIES, ONE STANDARD SHAPE</div>
+      </div>
+
+      <h2>The interesting decision — where does the version live?</h2>
+      <p>
+        Plugin versioning was the platform decision that mattered most. If the
+        marketplace owns versioning, plugins have to coordinate releases. If the
+        plugin owns versioning, we lose central visibility. We picked the second.
+      </p>
+
+      <div class="decision">
+        <div class="decision-row">
+          <div class="option">Versions in marketplace.json</div>
+          <div class="reason">Central, discoverable, but every release is a coordinated PR. Slows down plugin teams shipping independently.</div>
+        </div>
+        <div class="decision-row chosen">
+          <div class="option">Versions in plugin.json + auto-bump <span class="badge">CHOSEN</span></div>
+          <div class="reason">Each plugin owns its semver. <code>.auto-version</code> marker triggers patch bump on merge. Manual for minor/major. Marketplace stays a discovery layer, not a release gate.</div>
+        </div>
+        <div class="decision-row">
+          <div class="option">Git tags only</div>
+          <div class="reason">Simple but no per-plugin granularity. A single repo with 60+ plugins on monolithic tags is a coordination disaster.</div>
+        </div>
+      </div>
+
+      <p>
+        This decision had a non-obvious second-order effect: <em>plugins started
+        evolving at different speeds.</em> The Jira plugin shipped a new release every
+        week; the obscure data-warehouse plugin updated once a quarter. That's the
+        sign of a healthy marketplace — uneven cadence, owned by the people closest
+        to the work.
+      </p>
+
+      <h2>The thing that broke</h2>
+      <p>
+        Six weeks in, I shipped a PR that should have lived in <code>linkedin-plugins/</code>.
+        It accidentally leaked changes into <code>linkedin-dev-workflow</code>, a
+        different package in the same monorepo. Caught in review, but only barely.
+        Cleaning it up required closing the contaminated PR, hard-reseting locally,
+        and creating a clean replacement (#17068).
+      </p>
+      <p>
+        The fix wasn't more code — it was a <strong>pre-PR scope check</strong> baked into
+        the dev loop. A small script that diffs your branch against main, groups
+        changes by plugin, and warns when a single PR touches multiple plugin
+        boundaries. The lesson: <em>monorepos need scope guards as much as they need
+        merge gates.</em>
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span>scripts/scope-check.ts</span>
+          <span class="lang">TYPESCRIPT</span>
+        </div>
+        <pre><span class="cmt">// Warns when a PR touches multiple plugin boundaries.</span>
+<span class="cmt">// Hooked into pre-push so contamination is caught before review.</span>
+<span class="kw">async function</span> <span class="fn">checkScope</span>(branch: <span class="kw">string</span>) {
+  <span class="kw">const</span> changed = <span class="kw">await</span> <span class="fn">diffAgainstMain</span>(branch);
+  <span class="kw">const</span> plugins = <span class="kw">new</span> <span class="fn">Set</span>(changed.<span class="fn">map</span>(<span class="fn">extractPluginRoot</span>));
+
+  <span class="kw">if</span> (plugins.size &gt; <span class="kw">1</span>) {
+    <span class="fn">warn</span>(<span class="str">`PR touches ${plugins.size} plugin boundaries:`</span>);
+    plugins.<span class="fn">forEach</span>(p =&gt; <span class="fn">warn</span>(<span class="str">`  - ${p}`</span>));
+    <span class="fn">prompt</span>(<span class="str">"Continue? (y/N)"</span>);
+  }
+}</pre>
+      </div>
+
+      <h2>Outcome</h2>
+      <div class="outcome-stats">
+        <div class="outcome-stat">
+          <div class="number">8</div>
+          <div class="label">PLUGIN CATEGORIES</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="number">All</div>
+          <div class="label">LINKEDIN ENGINEERING</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="number">CI-gated</div>
+          <div class="label">ACL ENFORCEMENT</div>
+        </div>
+      </div>
+      <p>
+        The skills platform is now the standard surface for shipping AI workflows
+        at LinkedIn. New agents inherit auth, ACL coverage, observability, and
+        marketplace distribution by being a plugin. Specialized agents like
+        <a href="./case-netpilot.html">Netpilot</a> ship <em>through</em> the platform —
+        their plugin lives at <code>linkedin-plugins/specialized/network-oncall/</code>,
+        installable with one command.
+      </p>
+
+      <h2>What I'd do differently</h2>
+      <p>
+        I'd build the scope-check tooling from day one. It's the kind of guardrail
+        that costs nothing when there's nothing to guard, and pays for itself the
+        first time someone pushes a PR with leaked changes. I learned that lesson
+        the expensive way.
+      </p>
+      <p>
+        I'd also document the <em>"is this work platform or specialized?"</em> distinction
+        earlier. The healthiest test: <em>does this upstream into the shared ecosystem,
+        or only benefit one agent?</em> If it's the second, it doesn't belong in the
+        platform — even if it's tempting to put it there.
+      </p>
+    </div>
+  </article>
+
+  <footer class="case-footer">
+    <div class="container">
+      <div class="nav-pair">
+        <a class="nav-card" href="./case-netpilot.html">
+          <div class="label">← PREVIOUS</div>
+          <div class="name">Netpilot</div>
+        </a>
+        <a class="nav-card next" href="./case-neo-decom.html">
+          <div class="label">NEXT →</div>
+          <div class="name">Neo-decom</div>
+        </a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,5 +1,5 @@
-import React, { useRef, useCallback } from "react";
-import { Project } from "../../App";
+import React, { useRef, useState, useCallback } from "react";
+import { Project } from "../../types";
 
 type Props = {
   id: number;
@@ -11,7 +11,6 @@ type Props = {
   tech: string[];
   repoSrc: string;
   liveSrc: string;
-  clss?: string | null;
   setModalProject: (project: Project) => void;
 };
 
@@ -25,10 +24,10 @@ const ProjectCard: React.FC<Props> = ({
   tech,
   repoSrc,
   liveSrc,
-  clss,
   setModalProject,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [imgError, setImgError] = useState(false);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
@@ -60,7 +59,6 @@ const ProjectCard: React.FC<Props> = ({
       tech,
       repoLink: repoSrc,
       liveLink: liveSrc,
-      clss,
     };
 
     setModalProject(project);
@@ -76,13 +74,16 @@ const ProjectCard: React.FC<Props> = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="card-img-top">
-        <img
-          src={image + "?raw=true"}
-          className={`card-img ${clss}`}
-          alt={name}
-        />
-      </div>
+      {image && !imgError && (
+        <div className="card-img-top">
+          <img
+            src={image}
+            className="card-img"
+            alt={name}
+            onError={() => setImgError(true)}
+          />
+        </div>
+      )}
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
         <p className="card-text">{description}</p>

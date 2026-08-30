@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio mocks · A/B/C</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background: #faf8f3;
+      color: #1a1815;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 300;
+      margin: 0;
+      padding: 4rem 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #6b6660;
+      letter-spacing: 0.1em;
+      margin: 0 0 4rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      width: 100%;
+    }
+    a.card {
+      display: block;
+      border: 1px solid #e6e1d8;
+      border-radius: 8px;
+      padding: 2rem;
+      text-decoration: none;
+      color: #1a1815;
+      transition: all 0.2s;
+      min-height: 260px;
+      background: #ffffff;
+      position: relative;
+    }
+    a.card:hover {
+      border-color: #54b78a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px -8px rgba(84, 183, 138, 0.18);
+    }
+    a.card.recommended::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -10px; right: 16px;
+      background: #54b78a; color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: #3d9a6f;
+      margin-bottom: 1.5rem;
+    }
+    .title {
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: -0.015em;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+    .sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #6b6660;
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+    em { color: #3d9a6f; font-style: italic; }
+    .extras {
+      margin-top: 4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #9a958c;
+      letter-spacing: 0.1em;
+      text-align: center;
+      max-width: 720px;
+    }
+    .extras a {
+      color: #54b78a;
+      text-decoration: none;
+      border-bottom: 1px dotted #54b78a;
+    }
+    .extras a:hover { color: #3d9a6f; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <h1>Portfolio mocks</h1>
+  <p class="subtitle">three variants · scroll each, then decide</p>
+
+  <div class="grid">
+    <a class="card" href="./portfolio-v2.html">
+      <div class="label">A · WHOLE PERSON</div>
+      <div class="title">Architect, engineer,<br/>cinematographer, runner.</div>
+      <div class="sub">
+        Dark. Cycling-identity hero. Design + field notes get equal billing with engineering. <em>Higher signal of taste &amp; range</em>; <em>higher risk of "what role is this?"</em>
+      </div>
+    </a>
+
+    <a class="card" href="./portfolio-engineer-first.html">
+      <div class="label">B · ENGINEER FIRST</div>
+      <div class="title">Senior software engineer.<br/>Background in architecture.</div>
+      <div class="sub">
+        Dark. Engineer hierarchy. Architecture &amp; athletics demoted. <em>Resume-link safe</em> but cool / less inviting.
+      </div>
+    </a>
+
+    <a class="card recommended" href="./portfolio-warm.html">
+      <div class="label">C · WARM + ENGINEER FIRST</div>
+      <div class="title">Hi, I'm Kevin Reber 👋</div>
+      <div class="sub">
+        Light cream palette. Conversational hero with the wave. Same engineer hierarchy as B. Click "read the case study" on Neo-decom to see the full sub-page.
+      </div>
+    </a>
+  </div>
+
+  <div class="extras">
+    sample case studies →
+    <a href="./case-netpilot.html">netpilot</a>
+    ·
+    <a href="./case-skills-platform.html">skills platform</a>
+    ·
+    <a href="./case-neo-decom.html">neo-decom</a>
+    <br/><br/>
+    open variant C, scroll to a case card, click <em>"read the case study →"</em> to feel the click-through pattern.
+  </div>
+
+  <div class="locked">
+    Type system locked: <code>Newsreader</code> · <code>Geist</code> · <code>Geist Mono</code> — applied to landing + all case study pages.
+  </div>
+
+  <style>
+    .locked {
+      margin-top: 4rem; padding: 1rem 1.5rem;
+      border: 1px solid #54b78a; border-radius: 6px;
+      background: rgba(84, 183, 138, 0.06);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem; color: #6b6660;
+      letter-spacing: 0.05em;
+      max-width: 720px; text-align: center;
+    }
+    .locked code { color: #3d9a6f; font-family: inherit; }
+  </style>
+</body>
+</html>

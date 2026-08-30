@@ -361,10 +361,7 @@ body {
   padding: 1rem;
 }
 
-.card-img.pixel-studio-ai {
-  padding: 0;
-  width: 100%;
-}
+/* All card images use full-width, no padding */
 
 .card-footer:last-child,
 .modal-content .card-footer:last-child {
@@ -407,20 +404,21 @@ body {
 }
 .card-img {
   object-fit: cover;
-  height: 195px;
+  aspect-ratio: 1200 / 630;
+  width: 100%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   position: relative;
   filter: grayscale(100%);
-  width: auto;
-  padding: 0.5rem;
+  padding: 0;
 }
 .card-img-top {
   position: relative;
   text-align: center;
   border-bottom: 3px solid #54b78a;
+  overflow: hidden;
 }
 .card-img-top::before {
   content: "";
