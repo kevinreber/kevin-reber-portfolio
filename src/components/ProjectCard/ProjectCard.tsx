@@ -63,7 +63,13 @@ const ProjectCard: React.FC<Props> = ({
 
     setModalProject(project);
   };
-  const n = tech.length;
+  // Every project uses React and TypeScript, so listing them on each card
+  // costs two slots and differentiates nothing. The Stack section below the
+  // grid still names both, and reads from the unfiltered `tech` array — which
+  // is why this filter lives here at render time rather than in the data.
+  const BASELINE = ["React", "TypeScript"];
+  const shownTech = tech.filter((t) => !BASELINE.includes(t));
+  const n = shownTech.length;
   return (
     <div
       ref={cardRef}
@@ -88,7 +94,7 @@ const ProjectCard: React.FC<Props> = ({
         <h5 className="card-title">{name}</h5>
         <p className="card-text">{description}</p>
         <div className="tech-stack text-right">
-          {tech.map((t, i) => (
+          {shownTech.map((t, i) => (
             <span key={t} className="tech">
               <p className="txt-2-project">{t}</p>
               {/* Add a '|' to separate tech[i] if tech[i] is not last */}
