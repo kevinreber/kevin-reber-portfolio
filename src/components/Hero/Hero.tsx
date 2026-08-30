@@ -37,9 +37,11 @@ const Hero: React.FC = () => {
           </span>
           <br />
           <span className='about line-3'>
-            I'm a <strong>Senior Software Engineer at LinkedIn</strong>, where I
-            build AI agents that automate data center infrastructure work. I
-            also ship the developer tooling other teams build on.
+            I'm a <strong>Senior Software Engineer at LinkedIn</strong>, working
+            on automation and tooling for data center infrastructure. I build AI
+            agents at work and on my own, and the tooling and playbooks I ship
+            for them have reached a few thousand people across engineering,
+            product, and design.
             <br />
             Before LinkedIn I co-founded an ed-tech startup out of{" "}
             <strong>UC Berkeley's Skydeck</strong>. The team is still at it{" "}
