@@ -93,14 +93,26 @@ async function fetchJSON(url) {
   return res.json();
 }
 
+/**
+ * Reads `.portfolio.json` over raw.githubusercontent.com rather than the
+ * contents API. Both return the same file, but raw is not subject to the
+ * 60/hr unauthenticated limit that api.github.com enforces per IP.
+ *
+ * This halves API usage from 2 calls per repo to 1. On a shared Netlify build
+ * IP with no GITHUB_TOKEN that is the difference between 12 calls and 6, which
+ * is what exhausted the budget mid-build and left two repos unfetched.
+ *
+ * A missing or malformed file is not an error — most repos do not have one, and
+ * every field it supplies has a fallback in buildProject().
+ */
 async function fetchPortfolioMeta(repo) {
-  const url = `https://api.github.com/repos/${OWNER}/${repo}/contents/.portfolio.json`;
-  const file = await fetchJSON(url);
-  if (!file?.content) return {};
+  const url = `https://raw.githubusercontent.com/${OWNER}/${repo}/main/.portfolio.json`;
   try {
-    return JSON.parse(Buffer.from(file.content, "base64").toString("utf-8"));
+    const res = await fetch(url);
+    if (!res.ok) return {};
+    return await res.json();
   } catch {
-    console.warn(`  Warning: invalid .portfolio.json in ${repo}`);
+    console.warn(`  Warning: could not read .portfolio.json in ${repo}`);
     return {};
   }
 }

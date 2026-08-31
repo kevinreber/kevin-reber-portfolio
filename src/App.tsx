@@ -20,6 +20,7 @@ import Fade from "@material-ui/core/Fade";
 
 // types
 import { Project } from "./types";
+import { visibleTech } from "./data";
 
 // styles
 import "./App.css";
@@ -75,7 +76,10 @@ function App() {
     setShowModal(false);
   };
 
-  const n = currentProject.tech.length;
+  // Same filter the cards use, so clicking a card does not silently add
+  // React and TypeScript back to the tag row.
+  const modalTech = visibleTech(currentProject.tech);
+  const n = modalTech.length;
   return (
     <div className="App">
       {/* Overlay */}
@@ -125,7 +129,7 @@ function App() {
                 </p>
               </div>
               <div className="tech-stack text-right">
-                {currentProject.tech.map((t, i) => (
+                {modalTech.map((t, i) => (
                   <span key={t} className="tech">
                     <p className="txt-2-project">{t}</p>
                     {/* Add a '|' to separate tech[i] if tech[i] is not last */}
