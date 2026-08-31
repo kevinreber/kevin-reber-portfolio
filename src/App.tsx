@@ -18,21 +18,12 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 
+// types
+import { Project } from "./types";
+
 // styles
 import "./App.css";
-
-export interface Project {
-  id: number;
-  name: string;
-  data: string;
-  image: string;
-  gif: string;
-  description: string;
-  tech: string[];
-  repoLink: string;
-  liveLink: string;
-  clss?: string | null;
-}
+import "./redesign.css";
 
 const CURR_PROJECT_INITIAL_STATE: Project = {
   id: 0,
@@ -44,7 +35,6 @@ const CURR_PROJECT_INITIAL_STATE: Project = {
   tech: [],
   repoLink: "",
   liveLink: "",
-  clss: "",
 };
 
 function App() {
@@ -107,13 +97,15 @@ function App() {
       >
         <Fade in={showModal}>
           <div className="modal-content">
-            <div className="modal-gif">
-              <img
-                src={currentProject.gif}
-                className={`modal-img ${currentProject.data}`}
-                alt={currentProject.name}
-              />
-            </div>
+            {(currentProject.gif || currentProject.image) && (
+              <div className="modal-gif">
+                <img
+                  src={currentProject.gif || currentProject.image}
+                  className={`modal-img ${currentProject.data}`}
+                  alt={currentProject.name}
+                />
+              </div>
+            )}
             <div className="modal-body">
               <div className="modal-header">
                 <h5 className="modal-title card-title">
@@ -165,19 +157,19 @@ function App() {
       </header>
 
       <main className={`transition ${contentVisible ? "show" : "hide"}`}>
-        {/* Skills  */}
-        <section id="skills" className="container section-offset">
+        {/* Projects  */}
+        <section id="projects" className="container section-offset">
           <ScrollReveal>
-            <Skills />
+            <Projects setModalProject={handleOpen} />
           </ScrollReveal>
         </section>
 
         <hr className="section-hr" />
 
-        {/* Projects  */}
-        <section id="projects" className="container section-offset">
+        {/* Stack — a summary of the projects above, so it follows them */}
+        <section id="stack" className="container section-offset">
           <ScrollReveal>
-            <Projects setModalProject={handleOpen} />
+            <Skills />
           </ScrollReveal>
         </section>
 
