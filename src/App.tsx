@@ -42,6 +42,9 @@ function App() {
     CURR_PROJECT_INITIAL_STATE
   );
   const [showModal, setShowModal] = useState<boolean>(false);
+  // Prebuild drops a demo URL that does not resolve, but a GIF can also go
+  // missing after the build. This is the runtime half of the same fallback.
+  const [gifError, setGifError] = useState<boolean>(false);
   const [overlayHide, setOverlayHide] = useState<boolean>(false);
   const [overlayDone, setOverlayDone] = useState<boolean>(false);
   const [contentVisible, setContentVisible] = useState<boolean>(false);
@@ -63,6 +66,7 @@ function App() {
 
   const handleOpen = (project: Project) => {
     setCurrentProject(project);
+    setGifError(false);
     setShowModal(true);
   };
 
@@ -100,9 +104,14 @@ function App() {
             {(currentProject.gif || currentProject.image) && (
               <div className="modal-gif">
                 <img
-                  src={currentProject.gif || currentProject.image}
+                  src={
+                    gifError || !currentProject.gif
+                      ? currentProject.image
+                      : currentProject.gif
+                  }
                   className={`modal-img ${currentProject.data}`}
                   alt={currentProject.name}
+                  onError={() => setGifError(true)}
                 />
               </div>
             )}

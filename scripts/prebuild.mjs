@@ -112,6 +112,28 @@ function rawUrl(repo, path) {
   return `https://raw.githubusercontent.com/${OWNER}/${repo}/main/${path}`;
 }
 
+/**
+ * The modal falls back with `gif || image`, which only catches an empty string.
+ * Most `.portfolio.json` files declare a `docs/images/demo.gif` that was never
+ * committed, so the field held a non-empty URL that 404s — truthy enough to win
+ * the fallback and render a broken image.
+ *
+ * Resolving the URL here turns "declared but missing" into "" so the fallback
+ * behaves as intended, and a demo.gif added later starts working on its own.
+ * Site-root paths are local files in public/ and are not checked.
+ */
+async function resolveMedia(url, label) {
+  if (!url || url.startsWith("/")) return url;
+  try {
+    const res = await fetch(url, { method: "HEAD", redirect: "follow" });
+    if (res.ok) return url;
+    console.warn(`    ${label} unavailable (HTTP ${res.status}) — falling back`);
+  } catch {
+    console.warn(`    ${label} unreachable — falling back`);
+  }
+  return "";
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 async function buildProject(repo, index) {
   console.log(`  Fetching ${repo}...`);
@@ -130,12 +152,17 @@ async function buildProject(repo, index) {
   // which used to override this and made reordering here silently do nothing.
   const order = override.order ?? index;
 
+  const gif = await resolveMedia(
+    rawUrl(repo, override.demo ?? meta.demo),
+    `${repo} demo`
+  );
+
   return {
     id: order,
     name: override.displayName ?? meta.displayName ?? repoData.name,
     data: repoData.name,
     image: rawUrl(repo, override.thumbnail ?? meta.thumbnail) || "",
-    gif: rawUrl(repo, override.demo ?? meta.demo) || "",
+    gif,
     description: override.description ?? meta.description ?? repoData.description ?? "",
     tech: meta.tech ?? repoData.topics ?? [],
     repoLink: repoData.private ? "" : repoData.html_url,
