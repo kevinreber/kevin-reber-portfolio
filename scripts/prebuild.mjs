@@ -154,6 +154,30 @@ async function main() {
     .filter(Boolean)
     .sort((a, b) => a.id - b.id);
 
+  // `buildProject` returns null on any failed fetch and those get filtered out
+  // above, so without this check a rate-limited or offline build writes a short
+  // (or empty) projects.json, `react-scripts build` still succeeds, and a
+  // portfolio with a missing Projects section ships under a green checkmark.
+  //
+  // `src/generated/` is gitignored, so there is no committed copy to fall back
+  // on. Failing loudly instead leaves the previous successful deploy serving.
+  //
+  // Most likely trigger: 12 unauthenticated API calls per build (2 per repo)
+  // against GitHub's 60/hr per-IP limit, on a build IP shared with other
+  // Netlify customers. Setting GITHUB_TOKEN raises that ceiling to 5,000/hr.
+  if (projects.length < REPOS.length) {
+    const missing = REPOS.filter(
+      (repo) => !projects.some((p) => p.data === repo)
+    );
+    console.error(
+      `\nPrebuild: expected ${REPOS.length} projects, got ${projects.length}.` +
+        `\n  Missing: ${missing.join(", ")}` +
+        `\n  Refusing to write a partial projects.json. Check the GitHub API` +
+        ` rate limit (https://api.github.com/rate_limit) or set GITHUB_TOKEN.`
+    );
+    process.exit(1);
+  }
+
   mkdirSync(OUT_DIR, { recursive: true });
   writeFileSync(OUT_FILE, JSON.stringify(projects, null, 2) + "\n");
 
