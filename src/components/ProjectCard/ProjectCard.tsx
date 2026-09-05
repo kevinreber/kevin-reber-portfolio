@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback } from "react";
 import { Project } from "../../types";
+import { visibleTech } from "../../data";
 
 type Props = {
   id: number;
@@ -63,12 +64,7 @@ const ProjectCard: React.FC<Props> = ({
 
     setModalProject(project);
   };
-  // Every project uses React and TypeScript, so listing them on each card
-  // costs two slots and differentiates nothing. The Stack section below the
-  // grid still names both, and reads from the unfiltered `tech` array — which
-  // is why this filter lives here at render time rather than in the data.
-  const BASELINE = ["React", "TypeScript"];
-  const shownTech = tech.filter((t) => !BASELINE.includes(t));
+  const shownTech = visibleTech(tech);
   const n = shownTech.length;
   return (
     <div

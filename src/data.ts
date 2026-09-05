@@ -161,3 +161,15 @@ export const SKILLS = [
     skills: ["PostgreSQL", "MongoDB", "GraphQL", "Redis"],
   },
 ];
+
+// Every project uses React and TypeScript, so listing them on a project's tag
+// row costs two slots and differentiates nothing. The Stack section still names
+// both and reads the unfiltered `tech` array, which is why this is applied at
+// render time rather than stripped from the data.
+//
+// Shared by ProjectCard and the App modal — filtering in only one of them made
+// the modal silently add two tags back when a card was clicked.
+export const BASELINE_TECH = ["React", "TypeScript"];
+
+export const visibleTech = (tech: string[]): string[] =>
+  tech.filter((t) => !BASELINE_TECH.includes(t));
